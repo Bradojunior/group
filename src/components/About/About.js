@@ -12,7 +12,7 @@ const About = () => {
          <div className={about.comment}>
          <div className={about.comment1}>
              <h1>Quizzy comes with amazing</h1>
-             <h1>features like</h1>
+             <h1>features like this</h1>
          </div>
          <div className={about.comment2}>
              <div className={about.computer}>
