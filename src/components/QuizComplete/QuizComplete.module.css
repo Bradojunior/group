@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.complete{
+    padding-top: 5rem;
+    /* line-height: 0; */
+}
+.com{
+    padding-left: 29rem;
+    /* line-height: 4rem; */
+    font-size: x-large;
+}
+.success{
+    padding-top: 3rem;
+    padding-left: 31rem;
+}
+.you{
+    padding-top: 3rem;
+    padding-left: 28rem;
+    line-height: 2rem;
+    font-size: x-large;
+}
+.click{
+    padding-top: 2rem;
+    padding-left: 32rem;
+    display: flex;
+}
+.percent{
+    color: blue;
+}
+.here{
+    color: blue;
+}
+.here:hover{
+    /* color: black; */
+    cursor: pointer;
+}
+.Mee{
+    padding-left: 35rem;
+    padding-top: 4rem;
+}
+.Mee button{
+    padding: 1rem 3rem;
+    border-radius: .5rem;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+.Mee button:hover{
+    padding: 1rem 3.3rem;
+    cursor: pointer;
+}

@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+}
+.Piechart{
+    height: 86vh;
+    width: 50vw;
+    background-color: white;
+    background-size: cover;
+    margin-left: 18rem;
+    
+}
+.Firstpie{
+    display: flex;
+}
+ .firstpie1{ 
+    margin-left: 2rem;
+   
+}
+.firstpie1 h2{
+    margin-bottom: 1rem;
+}
+.firstpie1 p{
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+.firstpie1 button{
+    margin-top: 1.5rem;
+    background-color: rgb(72, 72, 235);
+    padding: .3rem 1rem;
+    border: none;
+    width: 8rem;
+    height: 2rem;
+    color: aliceblue;
+    font-size: 1rem;
+    border-radius: 5px;
+} 
+.firstpie1 button:hover{
+    cursor: pointer;
+   
+}
+.sin{
+    display: flex;
+    column-gap: 10rem; 
+     box-shadow: 0 0 0.2vw 0.2vw wheat;
+    width: 40rem;
+    
+}
+.secondpie{
+    margin-top: .6rem;
+   width: 61rem;
+   height: 19.9rem;
+   box-shadow: 0 0 0.2vw 0.2vw wheat;
+}
+.bub{
+    display: flex;
+    column-gap:20rem;
+}
+.Firstpie{
+    display: flex;
+}
+.pop{
+    margin-top: 2rem;
+}
+.chart{
+    height: 5rem;
+}

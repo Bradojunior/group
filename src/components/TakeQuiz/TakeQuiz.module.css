@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.qui{
+    padding-top: 5rem;
+    /* border-style: groove; */
+    
+    
+    
+}
+
+.q{
+    padding-left: 37rem;
+   
+}
+.en{
+    padding-left: 37rem;
+    padding-top: 4rem;
+    padding-bottom: 10px;
+    
+}
+.i{
+    padding-left: 30rem;
+    padding-bottom: 10px;
+}
+.i input{
+    padding: .8rem 6rem;
+    border-radius: .5rem;
+}
+
+.int{
+    padding-left: 20rem;
+}
+.btn{
+    padding-top: 8rem;
+    padding-left: 37rem;
+}
+.btn button{
+    padding: .8rem 3rem;
+    border-radius: .5rem;
+    background-color: blue;
+    color: white;
+    border: none;
+}
+.btn button:hover{
+    cursor: pointer;
+    padding: 1rem 3.4rem;
+}

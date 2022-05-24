@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.many{
+    display: flex;
+}
+
+.sidebar{
+    position: relative;
+    width: 20vw;
+    height:100vh;
+    background-size: cover;
+    margin: 0;
+    background-color:rgb(6, 1, 22);
+    color: aliceblue;
+    width: 60%;
+    
+}
+.top img{
+    margin-top: 2rem;
+    margin-left: 3rem;
+}
+.write{
+    /* text-align: center; */
+    padding-top: 6rem;
+    justify-content: center;
+    margin-left: 10rem;
+}
+.profile{
+    margin-bottom: 1.5rem;
+}
+.organ{
+    margin-bottom: 1.5rem;
+}
+.buttom{
+    text-align: center;
+    padding-top: 17rem;
+}
+.many1{
+    display: block;
+    background-color: #042A37;
+    width: 100%;
+    height: auto;
+    color: aliceblue;
+    padding-left: 14rem;
+    padding-top: 6rem;
+    /* text-align: center; */
+    
+}
+.many1 input{
+    width: 30rem;
+    height: 3rem;
+    margin: .2rem 0;
+    margin-bottom: 2rem;
+    border-radius: 6px;
+}
+.bett{
+    display: flex;
+    column-gap: 14rem;
+    color: aliceblue;
+    /* margin-left: 5rem; */
+    margin-top: 2rem;
+}
+.bett1 button{
+    padding: .7rem 3rem;
+    border: none;
+    border-radius:1.5rem ;
+}
+.bett2 button{
+    padding: .7rem 3rem;
+    color: aliceblue;
+    border: none;
+    border-radius:1.5rem ;
+    background-color: blueviolet;
+}
+.bett1 button:hover{
+    background-color: aliceblue;
+    padding: .8rem 3.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.bett2 button:hover{
+    background-color: rgb(123, 7, 231);
+    padding: .8rem 3.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    color: aliceblue;
+
+}

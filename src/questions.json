@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "questionIndex": 0,
+        "question": "Who is the president of the United States?",
+        "options": ["Barak Obama", "Donald Trump", "George Washington", "Bill Clinton"],
+        "correctAnswer": "Barak Obama"
+    },
+    {
+        "id": 2,
+        "questionIndex": 1,
+        "question": "Who is the president of the Nigeria?",
+        "options": ["Barak Obama", "Donald Trump", "George Washington", "Bill Clinton"],
+        "correctAnswer": "Barak Obama"
+    },
+    {
+        "id": 3,
+        "questionIndex": 2,
+        "question": "Who is the president of the United Kingdom?",
+        "options": ["Barak Obama", "Donald Trump", "George Washington", "Bill Clinton"],
+        "correctAnswer": "Barak Obama"
+    },
+    {
+        "id": 4,
+        "questionIndex": 3,
+        "question": "Who is the president of the United States?",
+        "options": ["Barak Obama", "Donald Trump", "George Washington", "Bill Clinton"],
+        "correctAnswer": "Barak Obama"
+    },
+    {
+        "id": 5,
+        "questionIndex": 4,
+        "question": "Who is the president of the United States?",
+        "options": ["Barak Obama", "Donald Trump", "George Washington", "Bill Clinton"],
+        "correctAnswer": "Barak Obama"
+    }
+]
