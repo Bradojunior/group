@@ -69,7 +69,6 @@ const PieChartPage = () => {
                     <div className={pie.imag}>
                         <img src="images/sin.png" alt=""/>
                     </div>
-                    <p>Shift</p>
                 </div>
                 {/* <PieChart width={800} height={400} >
         <Pie

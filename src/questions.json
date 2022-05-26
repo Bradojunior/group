@@ -9,7 +9,7 @@
     {
         "id": 2,
         "questionIndex": 1,
-        "question": "Who is the president of the Nigeria?",
+        "question": "Who is the president of  Nigeria?",
         "options": ["Barak Obama", "Donald Trump", "George Washington", "Bill Clinton"],
         "correctAnswer": "Barak Obama"
     },

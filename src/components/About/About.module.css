@@ -24,13 +24,11 @@
 }
 .customer{
     margin-top: 3rem;
-    
 }
 .customer1{
     font-size: 2rem;
     justify-content: center;
     text-align: center;
-
 }
 .customer1 p{
     font-size: 1.1rem;
@@ -46,29 +44,20 @@
     margin-top: 5rem;
     transition: 0.3s ease;
 }
-
-
 .one{
-    /* border: 1px solid black; */
     transform: translateY(-20px);
     box-shadow: 0 0 0.3vw 0.1vw wheat;
     border: 1px solid wheat;
-    /* background-color:aqua ; */
 }
 .two{
-    /* border: 1px solid black; */
     transform: translateY(-20px);
     box-shadow: 0 0 0.3vw 0.1vw wheat;
     border: 1px solid wheat;
-    /* background-color:wheat;
-    color: black; */
-    
 }
 .three{
-    /* border: 1px solid black; */
     transform: translateY(-20px);
     box-shadow: 0 0 0.3vw 0.1vw wheat;
     border: 1px solid wheat;
-    /* background-color:aqua ;
-     */
 }
+
+

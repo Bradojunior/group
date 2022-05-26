@@ -36,22 +36,22 @@
     border-radius: .5rem;
     /* padding-left: 10rem; */
 }
-.bttn button{
+.progress button{
     border: none;
 }
-
-.Bttn button{
-   
-    border-radius: .5rem;
+.progress button{
+    border-radius: 100%;
     background-color: blue;
     color: white;
+    padding: 0 2rem;
+    margin-top: 4rem;
 }
-.Bttn button:hover{
+.progress button:hover{
     background-color: blue;
     cursor: pointer;
 }
 .test select{
-    /* width: 20rem; */
+    width: 20rem;
     margin-left: 5rem;
 }
 .edu{

@@ -18,9 +18,9 @@
     margin-left: 2rem;
    
 }
-.firstpie1 h2{
+/* .firstpie1 h2{
     margin-bottom: 1rem;
-}
+} */
 .firstpie1 p{
     margin-bottom: .5rem;
     margin-top: 1rem;
@@ -44,7 +44,7 @@
     display: flex;
     column-gap: 10rem; 
      box-shadow: 0 0 0.2vw 0.2vw wheat;
-    width: 40rem;
+    width: 50rem;
     
 }
 .secondpie{

@@ -10,6 +10,12 @@
     flex: 70%;
     margin-left: 8rem;
 }
+.timer{
+    text-align: center;
+    justify-content: center;
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
 .secondrec{
     flex: 30%;
 }
@@ -54,7 +60,7 @@ input{
 .peace{
     display: flex;
     column-gap: 2rem;
-    margin-left: 7rem;
+    margin-left: 5rem;
     margin-top: .5rem;
 }
 .base  select{
@@ -80,7 +86,7 @@ input{
     padding: .7rem; 
      margin-left: 8rem;
     color: aliceblue;
-    margin-top: 3rem;
+    
 }
 .questionNumbers {
     display: flex;

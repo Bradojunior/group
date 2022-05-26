@@ -13,7 +13,7 @@
 }
 .success{
     padding-top: 3rem;
-    padding-left: 31rem;
+    padding-left: 28rem;
 }
 .you{
     padding-top: 3rem;
@@ -36,18 +36,18 @@
     /* color: black; */
     cursor: pointer;
 }
-.Mee{
-    padding-left: 35rem;
+.baar{
+    margin-left: 35rem;
     padding-top: 4rem;
 }
-.Mee button{
+.baar button{
     padding: 1rem 3rem;
     border-radius: .5rem;
     background-color: blue;
     color: white;
     border: none;
 }
-.Mee button:hover{
+.baar button:hover{
     padding: 1rem 3.3rem;
     cursor: pointer;
 }

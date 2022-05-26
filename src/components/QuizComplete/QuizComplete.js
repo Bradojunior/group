@@ -20,10 +20,12 @@ const QuizComplete = () => {
             <div className={qui.click}>
                 <div className={qui.here}>click here!</div>
             <div>to see what you got wrong</div>
+            
             </div>
-            <div class={qui.Mee}>
+            <div className={qui.baar}>
                 <Link to="/QuizComplete1"><button>Next</button></Link>        
              </div>
+            
         </div>
         </>
      );

@@ -49,7 +49,7 @@ const TestSelf = () => {
                     <option>Leave blank</option>
                 </select>
             </div>
-            <div className="{pee.Bttn}">
+            <div className={pee.progress}>
             <Link to="/Recorder"><button>Start Quiz</button></Link>      
              </div>
         </div>

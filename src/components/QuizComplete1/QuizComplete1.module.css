@@ -22,18 +22,15 @@
     font-size: x-large;
 }
 
-.bttnn1{
-    padding-top: 4rem;
-    padding-bottom: 3rem;
-}
 .bttnn1 button{
-    padding: .8rem 3rem;
+    padding: 1.5rem 3rem;
     border-radius: .5rem;
     background-color: blue;
     color: white;
     border: none;
+    margin-top: 4rem;
 }
 .bttnn1 button:hover{
-    padding: 1rem 3.4rem;
+    padding: 1.5rem 3.1rem;
     cursor: pointer;
 }
