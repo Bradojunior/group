@@ -11,7 +11,7 @@
         "questionIndex": 1,
         "question": "Who is the president of  Nigeria?",
         "options": ["Barak Obama", "Donald Trump", "George Washington", "Bill Clinton"],
-        "correctAnswer": "Barak Obama"
+        "correctAnswer": "Donald Trump"
     },
     {
         "id": 3,
