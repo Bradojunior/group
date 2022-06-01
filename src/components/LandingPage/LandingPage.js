@@ -32,7 +32,7 @@ const LandingPage = () => {
                     <div><Link to="/Recorder"><button style={{backgroundColor:"blue", height:"4.5rem", width:"4rem",border:"none"}}><BsFillArrowRightSquareFill white={white} size={50} /></button></Link></div>
                     </div>
                     <div className={lab.but}>
-                        <Link to="/PieChartPage"><button>Dashboard</button></Link>
+                        <Link to="/AdminPage"><button>Dashboard</button></Link>
                         </div>
                 </div>
             </div>
