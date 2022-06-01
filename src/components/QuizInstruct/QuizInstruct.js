@@ -11,8 +11,8 @@ const TakeQuiz = () => {
                     <div className={ins.tak}>
                         <h1>Take Quiz</h1>
                         </div>
-                        <p className={ins.co}>Type your quiz code</p>
-                        <div className={ins.in}><input type="text" name="quiz code" placeholder="Quiz Code"/></div>
+                        {/* <p className={ins.co}>Type your quiz code</p>
+                        <div className={ins.in}><input type="text" name="quiz code" placeholder="Quiz Code"/></div> */}
                         <div className={ins.intro}>
                         <h2>Quiz Instructions!</h2>
                         </div>

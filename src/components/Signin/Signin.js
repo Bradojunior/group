@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 // import {Container, Col, Row, Form, Button, } from "react-bootstrap"
-import sin from "./Signin.module.css"
+import sin from "./Signin.module.scss"
 
 
 const Home= () => {

@@ -1,8 +1,4 @@
-*{
-    margin: 0;
-    padding: 0;
-  
-}
+
 .Piechart{
     height: 86vh;
     width: 50vw;
@@ -13,19 +9,24 @@
 }
 .Firstpie{
     display: flex;
+    column-gap:20rem;
+    width: 100%;
 }
- .firstpie1{ 
-    margin-left: 2rem;
-   
+ .sin{ 
+    justify-content: center;
+    text-align: center;
+    width: 10rem;
+     box-shadow: 0 0 0.2vw 0.2vw wheat;
+    flex: 65%;
 }
-/* .firstpie1 h2{
-    margin-bottom: 1rem;
-} */
-.firstpie1 p{
+.chart{
+    flex: 35%;
+}
+.sin p{
     margin-bottom: .5rem;
     margin-top: 1rem;
 }
-.firstpie1 button{
+.sin button{
     margin-top: 1.5rem;
     background-color: rgb(72, 72, 235);
     padding: .3rem 1rem;
@@ -36,17 +37,10 @@
     font-size: 1rem;
     border-radius: 5px;
 } 
-.firstpie1 button:hover{
+.sin button:hover{
     cursor: pointer;
-   
 }
-.sin{
-    display: flex;
-    column-gap: 10rem; 
-     box-shadow: 0 0 0.2vw 0.2vw wheat;
-    width: 50rem;
-    
-}
+
 .secondpie{
     margin-top: .6rem;
    width: 61rem;
@@ -57,12 +51,7 @@
     display: flex;
     column-gap:20rem;
 }
-.Firstpie{
-    display: flex;
-}
 .pop{
     margin-top: 2rem;
 }
-.chart{
-    height: 5rem;
-}
+

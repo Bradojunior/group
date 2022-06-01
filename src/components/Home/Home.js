@@ -48,7 +48,7 @@ const Home = () =>{
         </main>
         <footer style={{backgroundColor:"rgb(46, 46, 78)"}}>
             <Container className='px-4 text-white text-center'>
-                <h6>Need Help? <span style={{color:'blue'}}>Click Here</span> </h6>
+                <h6>Need Help? <Link to="/Help"><span style={{color:'blue'}}>Click Here</span></Link> </h6>
                 <h2>Copyright Quizzy 2022</h2>
                 <button style={{backgroundColor:"transparent",border:"1px solid black"}}>Terms&Conditions</button>
             </Container>

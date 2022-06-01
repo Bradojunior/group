@@ -1,8 +1,9 @@
 import {Link} from "react-router-dom";
-import pie from './PieChartPage.module.css';
+import pie from './AdminPage.module.css';
 import Sidebar from "../Sidebar/Sidebar";
 import PieNav from "../PieNav/PieNav";
-import {ResponsiveContainer, LineChart,  XAxis, YAxis, CartesianGrid, Tooltip,PieChart, Pie, Sector, Cell  } from "recharts"
+import {ResponsiveContainer, LineChart,  XAxis, YAxis, CartesianGrid, Tooltip} from "recharts"
+import  {PieChart}  from 'react-minimal-pie-chart';
 const pdata = [
     {
         name:"1st quiz",
@@ -41,18 +42,7 @@ const pdata = [
        progress:"160"
     },
 ];
-// const data = [
-//     { name: 'Group A', value: 400 },
-//     { name: 'Group B', value: 300 },
-//     { name: 'Group C', value: 300 },
-//     { name: 'Group D', value: 200 },
-//   ];
-//   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-  
-
-
-  
-const PieChartPage = () => {
+const AdminPage = () => {
     return ( 
         <>
         <Sidebar/>
@@ -60,33 +50,24 @@ const PieChartPage = () => {
         <div className={pie.Piechart}>
             <div className={pie.Firstpie}>
                 <div className={pie.sin}>
-                    <div className={pie.firstpie1}>
                         <h2>Hello Name!</h2>
-                        <p>Welcome to your Dashboard.<br/>You can check your progress and accuracy here.</p>
+                        <p>View your score and accuracy here</p>
                         <h4>Click here to take quiz</h4>
-                        <Link to="/TakeQuiz"><button>Take Quiz</button></Link>
-                    </div>
-                    <div className={pie.imag}>
-                        <img src="images/sin.png" alt=""/>
-                    </div>
+                        <Link to="/TakeQuiz"><button>Take Quiz</button></Link>  
                 </div>
-                {/* <PieChart width={800} height={400} >
-        <Pie
-          data={data}
-          cx={120}
-          cy={200}
-          innerRadius={60}
-          outerRadius={80}
-          fill="#8884d8"
-          paddingAngle={5}
-          dataKey="value"
-        ></Pie>
-        </PieChart> */}
+                <div className={pie.chart}>
+                <PieChart
+                data={[
+                    { title: 'Failed', value: 10, color: 'Red' },
+                    { title: 'Passed', value: 20, color: 'rgb(72, 72, 235)' }
+                ]}
+                />;
+                </div> 
             </div>
             <div className={pie.secondpie}>
                 <div className={pie.bub}>
                     <div>
-                        <h2>Progress</h2>
+                        <p1>Progress</p1>
                         <p>Keep track of your last 9 quizzes and see your progress</p>
                     </div>
                     <div>
@@ -96,19 +77,17 @@ const PieChartPage = () => {
                 </div>
                
                     <ResponsiveContainer width="100%" aspect={3.5}>
-                    <LineChart data={pdata} width={500} height={30}>
+                    <LineChart data={pdata} width={500} height={5}>
                     <CartesianGrid strokeDasharray="1 1"/>
                     <XAxis dataKey="name" interval={'preserveStartEnd'}/>
                     <YAxis  dataKey="progress"/>
-                   <Tooltip/>
+                    <Tooltip/>
                     </LineChart>
-                </ResponsiveContainer>
+                    </ResponsiveContainer>
                
             </div>
         </div>
         </>
-        
      );
 }
- 
-export default PieChartPage;
+export default AdminPage;

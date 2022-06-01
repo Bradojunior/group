@@ -8,7 +8,7 @@ export const SidebarData = [
     {
         title:"Dashboard",
         icon:<MdDashboard size={40}/>,
-        link:"/PieChartPage"
+        link:"/AdminPage"
     },
     {
         title:"Take quiz",

@@ -26,7 +26,7 @@ const Problem = () => {
                 </div>
                 <div className={pro.description}>
                    <label>Description of problem</label><br />
-                   <input type="text" id="text" placeholder="Tell us about your problem"/>
+                    <textarea name="textarea" id="" cols="50" rows="50">Tell us about your problem</textarea>
                 </div>
                 <div className={pro.brief}>
                     <p>Briefly describe the situation our support team will get back to you as soon as possible</p>

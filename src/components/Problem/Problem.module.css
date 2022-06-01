@@ -4,7 +4,7 @@
 }
 .category{
    
-   margin-top: 3rem;
+   margin-top: 1rem;
     text-align: center;
     
 }
@@ -42,24 +42,23 @@
     border-radius: .5rem;
 }
 .description{
-    line-height: 4rem;
+   
     
 }
 .description label{
     padding-right: 28rem;
 }
-.description input{
-    padding: 3rem 16rem;
-    border-radius: .5rem;
-    
+.description textarea{
+    width:20rem;
+    height: 10rem;
+    border-radius: 10px;
 }
 .brief{
     /* line-height: 4rem; */
     padding-left: 2rem;
 }
-.bnn{
-    line-height: 6rem;
-}
+
+
 
 .bnn button{
     padding: .8rem 3rem;

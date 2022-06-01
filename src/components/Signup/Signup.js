@@ -1,25 +1,42 @@
 import {Link} from "react-router-dom";
-import sup from "./Signup.module.css"
+import sup from "./Signup.module.scss"
 const Sidebar = () => {
     return ( 
-        <div className={sup.main}>
-        <div className={sup.sidebar}>
-            <div className={sup.top}>
-            <img src="images/logo.png" alt="" />
-            </div>
-            <div className={sup.write}>
-               <ul>
-                    <li className={sup.profile}><p>Profile Details</p></li>
-                    <li  className={sup.organ}><p>Organisational/Institutional<br></br> Details</p></li>
-                    <li><p>Confirm</p></li>
+        <div className={sup.Mean}>
+            <div className={sup.sidebar}>
+                <div className={sup.top}>
+                    <img src="images/logo.png" alt="" />
+                </div>
+                <div className={sup.write}>
+                    <ul>
+                        <li className={sup.profile}><p>Profile Details</p></li>
+                        <li  className={sup.organ}><p>Organisational/Institutional<br></br> Details</p></li>
+                        <li><p>Confirm</p></li>
 
-               </ul>
+                    </ul>
+                </div>
+            </div>
+           
+            <div className={sup.mainsub}>
+                <h1>What are you registering as?</h1>
+                <div>
+                    <button className={sup.choose}>
+                        <Link to="/Organization"><button className={sup.sinor}>Organisation</button></Link>
+                        <Link to="/Examiner"><button className={sup.exam}>Examiner</button></Link>
+                        <Link to="/User"><button className={sup.sinser}>User</button></Link>
+                    </button>
+                </div>
+                <p>Choose One <Link to="/Signup2"><span>What's this?</span></Link></p>
+                <div className={sup.mixin}>
+                    <button className={sup.Back}>Back</button>
+                    <button className={sup.Confirm}>Confirm</button>
+                </div>
             </div>
             {/* <div className="buttom">
                 <p>Save and exit</p>
             </div> */}
-        </div>
-        <div className={sup.mainsub}>
+       
+        {/* <div className={sup.mainsub}>
         <div className={sup.third}>
             <div className={sup.first}>
                 <div className={sup.name}>
@@ -67,9 +84,9 @@ const Sidebar = () => {
                 </div>
             </div>
             
-        </div>
-        </div>
+        </div> */}
         
+        </div>
         
      );
 }
