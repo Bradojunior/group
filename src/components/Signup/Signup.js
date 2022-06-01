@@ -28,8 +28,8 @@ const Sidebar = () => {
                 </div>
                 <p>Choose One <Link to="/Signup2"><span>What's this?</span></Link></p>
                 <div className={sup.mixin}>
-                    <button className={sup.Back}>Back</button>
-                    <button className={sup.Confirm}>Confirm</button>
+                    <Link to="/Signin"><button className={sup.Back}>Back</button></Link>
+                    {/* <button className={sup.Confirm}>Confirm</button> */}
                 </div>
             </div>
             {/* <div className="buttom">

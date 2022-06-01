@@ -34,7 +34,7 @@ const Signup2 = () => {
                     
                 </div>
                 <div className={sub.mixin}>
-                    <button className={sub.Back}>Back</button>
+                    <Link to="/Signup"><button className={sub.Back}>Back</button></Link>
                     {/* <button className={sub.Confirm}>Confirm</button> */}
                 </div>
             </div>

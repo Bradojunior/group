@@ -16,7 +16,7 @@ const QuizComplete1 = () => {
                 <h2>Your results have been <br /> recorded and sent to <br />your institution</h2>
             </div>
             <div class={kui.bttnn1}>
-                <Link to="/PieChartPage"><button>Dashboard</button></Link>        
+                <Link to="/AdminPage"><button>Dashboard</button></Link>        
              </div>
 
         </div>
