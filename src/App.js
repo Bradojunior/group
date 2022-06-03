@@ -6,7 +6,6 @@ import About from './components/About/About';
 import Signin from './components/Signin/Signin';
 import Signup from './components/Signup/Signup';
 import Signup2 from './components/Signup2/Signup2';
-import Signup3 from './components/Signup3/Signup3';
 import LandingPage from './components/LandingPage/LandingPage';
 import AdminPage from './components/AdminPage/AdminPage';
 import TakeQuiz from './components/TakeQuiz/TakeQuiz';
@@ -27,19 +26,20 @@ import Examiner2 from './components/Examiner2/Examiner2';
 import User from './components/User/User';
 import User1 from './components/User1/User1';
 import User2 from './components/User2/User2';
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   return (
-    <Router>
+    
+      
+        <Router>
     <div className='Apps'>
       <Routes>
-        
         <Route path='/' element={<Home/>}/>
         <Route path='/Signin' element={<Signin/>}/>
         <Route path='/About' element={<About/>}/>
         <Route path='/Signup' element={<Signup/>}/>
         <Route path='/Signup2' element={<Signup2/>}/>
-        <Route path='/Signup3' element={<Signup3/>}/>
         <Route path='/LandingPage' element={<LandingPage/>}/>
         <Route path='/AdminPage' element={<AdminPage/>}/>
         <Route path='/TakeQuiz' element={<TakeQuiz/>}/>
@@ -60,11 +60,11 @@ function App() {
         <Route path='/User' element={<User/>}/>
         <Route path='/User1' element={<User1/>}/>
         <Route path='/User2' element={<User2/>}/>
-
       </Routes>
     
       </div>
       </Router>
+      
 
   );
 }
