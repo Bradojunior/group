@@ -14,8 +14,8 @@ const Username = () => {
               <Heading mt='3rem'>Change your profile picture</Heading>
               < IoMdContact style={style}/>
            </Flex>
-           <form >
-                    <Input my='.5rem' width='35rem' type="text" Id="text" placeholder="Username"/><br />
+           <form>
+                    <Input border='1px solid black' my='.5rem' width='35rem' type="text" Id="text" placeholder="Username"/><br />
                     <Input my='.5rem' width='35rem' type="text" id="text" placeholder="name"/><br />
                     <Input my='.5rem' width='35rem' type="text" id="text" placeholder="email"/><br />
                     <Input my='.5rem' width='35rem' type="text" id="text" placeholder="date0fbirth"/><br />
@@ -25,27 +25,7 @@ const Username = () => {
             </form>
             
         </Stack>
-        {/* <div className={sern.username}>
-                <div className={sern.user}>
-                   <div className={sern.you}><label>Change your profile picture</label> </div>
-                   <div>< IoMdContact style={style}/></div>
-                </div>
-                <div className={sern.name}>
-                   <label>Change your username</label> 
-                   <input type="text" id="text" placeholder="Username"/>
-                </div>
-                <div className={sern.pwrd}>
-                   <label>Change your password</label> 
-                   <input type="text" id="text" placeholder="Password"/>
-                </div>
-                <div className={sern.vpwrd}>
-                <label>Verify password</label>
-                <input type="text" id="text" placeholder="Password"/>
-                </div>
-                <div class={sern.bnn}>
-                <button>Save</button>        
-             </div>
-        </div> */}
+      
         </>
     );
 }

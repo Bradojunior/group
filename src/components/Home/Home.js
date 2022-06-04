@@ -1,6 +1,4 @@
-// import Navbar from '../Navbar/Navbar';
-// import Footer from '../Footer/Footer';
-// import home from "./Home.module.css"
+
 import {BsFillArrowRightSquareFill} from "react-icons/bs";
 import First from '../First/First'
 import Footer from '../Footer/Footer'
@@ -47,45 +45,6 @@ const Home = () =>{
              <Footer/>
      </>
 
-    //       <div className="main">
-    //      <main  style={{background:"cover" ,height:"auto"}}>
-    //          <Container  style={{paddingTop:"6rem", height:"auto", color:"white" }}>
-    //              <Row>
-    //                  <Col md>
-    //                  <div  className="people">
-    //                      <img
-    //                      src="images/people.png" alt="" 
-    //                      style={{height:"25rem", width:"35rem"}}
-    //                  />
-    //                  </div>
-    //                  </Col>
-    //                  <Col md>
-    //                  <img 
-    //                  src='images/circle.png' alt=""
-    //                  style={{height:"25rem", width:"32rem"}}
-    //                  />
-    //                  </Col>
-    //                  </Row>
-    //                  <Row>
-    //                  <Col>
-    //                      <h1>Quizzy</h1>
-    //                      <h3>Unlocking Knowledge at the <br></br>speed of thought</h3>
-    //                      <p>
-    //                      Quizzy app is an   Necessitatibus magnam qui totam natus. Eum porro <br></br>hic temporibus ut laudantium, sunt recusandae nam <br></br>incidunt rem aperiam, tempora, repellat commodi<br></br> inventore quia!
-    //                      </p>
-    //                  </Col>
-    //                  <Col>
-    //                      <h3 style={{marginLeft:"4rem"}}>Sign in above or type profile code here</h3>
-    //                      <div className="flex" class="d-flex">
-    //                          <div><input type="text" name='text' placeholder='Profile Code' style={{width:"30rem", padding:"1rem", border:"none" ,borderRadius:"5px"}} /></div>
-    //                          <div><Link to="/Recorder"><button style={{backgroundColor:"blue", height:"3.5rem", width:"4rem",border:"none"}}><BsFillArrowRightSquareFill size={50}/></button></Link></div>
-    //                      </div>
-    //                  </Col>
-    //                  </Row>
-    //          </Container>
-    //      </main>
-    //   </div>  
-    
           
      )
  }

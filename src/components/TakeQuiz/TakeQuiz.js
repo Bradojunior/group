@@ -1,5 +1,6 @@
 import Sidebar from "../Sidebar/Sidebar";
 import {Link} from "react-router-dom";
+import {Box, Button,Text, Flex, Stack,Image, Heading , Radio} from "@chakra-ui/react";
 import PieNav from "../PieNav/PieNav";
 import take  from './TakeQuiz.module.css'
 const TakeQuiz = () => {

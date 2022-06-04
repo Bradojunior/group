@@ -7,27 +7,27 @@ import {GoItalic} from "react-icons/go"
 export const SidebarData = [
     {
         title:"Dashboard",
-        icon:<MdDashboard size={40}/>,
+        icon:<MdDashboard size={50}/>,
         link:"/AdminPage"
     },
     {
         title:"Take quiz",
-        icon:<MdQuiz size={40}/>,
+        icon:<MdQuiz size={50}/>,
         link:"/TakeQuiz"
     },
     {
         title:"Test Yourself",
-        icon:<HiOutlineBookOpen size={40}/>,
+        icon:<HiOutlineBookOpen size={50}/>,
         link:"/TestYourSelf"
     },
     {
         title:"Edit Profile",
-        icon:<CgProfile size={40}/>,
+        icon:<CgProfile size={50}/>,
         link:"/Username"
     },
     {
         title:"Help",
-        icon:<GoItalic size={40}/>,
+        icon:<GoItalic size={50}/>,
         link:"/Problem"
     },
 ];
