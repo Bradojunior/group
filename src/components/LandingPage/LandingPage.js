@@ -3,13 +3,13 @@ import {Link} from "react-router-dom";
 import {Stack, Flex, Box, Text, Image ,Heading,  Input ,Button} from "@chakra-ui/react"
 import {useMediaQuery} from "@chakra-ui/react"
 import {BsFillArrowRightSquareFill} from "react-icons/bs";
-import First from '../First/First'
+import SecondNavbar from '../SecondNavbar/SecondNavbar'
 import Footer from '../Footer/Footer'
 const LandingPage = () => {
     const [isNotSmallerScreen] = useMediaQuery("(min-width:680px)");
     return ( 
         <>
-        <First/>
+        <SecondNavbar/>
             <Stack  bg='rgb(46, 46, 78)' h='auto' w='100%' pt='5rem' overflowX='hidden' alignContent='center' justifyContent='center'>
                 <Flex direction={isNotSmallerScreen ? "row" : "column"} columnGap='3rem'>
                     <Image 
