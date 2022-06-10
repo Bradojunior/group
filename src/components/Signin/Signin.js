@@ -95,6 +95,7 @@ const Home= () => {
             <Input type='email'
             name="email"
              placeholder='Enter your email address'
+             _placeholder={{color:"white"}}
              onChange={formik.handleChange}
              onBlur={formik.handleBlur}
              value={formik.values.email}
@@ -109,6 +110,7 @@ const Home= () => {
             <Input type='Password' 
             name="password"
             placeholder='Enter your Password'
+            _placeholder={{color:"white"}}
             onChange={formik.handleChange}
              onBlur={formik.handleBlur}
              value={formik.values.password}

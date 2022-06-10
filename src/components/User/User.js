@@ -97,6 +97,7 @@ const onSubmit = async (values, actions) => {
                      text="text"
                      my='1rem' width='35rem' type="text" Id="text" 
                      placeholder="firstname" 
+                     _placeholder={{color:"white"}}
                      onChange={formik.handleChange}
                      onBlur={formik.handleBlur}
                      value={formik.values.firstname}
@@ -111,6 +112,7 @@ const onSubmit = async (values, actions) => {
                     my='1rem' width='35rem' 
                     type="text" id="text" 
                     placeholder="surname" 
+                    _placeholder={{color:"white"}}
                     onChange={formik.handleChange}
                     value={formik.values.surname}
                     onBlur={formik.handleBlur}
@@ -126,6 +128,7 @@ const onSubmit = async (values, actions) => {
                     my='1rem' width='35rem' 
                     type="text" id="text" 
                     placeholder="username" 
+                    _placeholder={{color:"white"}}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.username}
@@ -141,6 +144,7 @@ const onSubmit = async (values, actions) => {
                     my='1rem' width='35rem' 
                     id="email" 
                     placeholder="email" 
+                    _placeholder={{color:"white"}}
                     onChange={formik.handleChange}
                      onBlur={formik.handleBlur}
                      value={formik.values.email}
@@ -157,6 +161,7 @@ const onSubmit = async (values, actions) => {
                     my='1rem' width='35rem' 
                     id="text" 
                     placeholder="password" 
+                    _placeholder={{color:"white"}}
                     onChange={formik.handleChange}
                      onBlur={formik.handleBlur}
                      value={formik.values.password}
@@ -179,6 +184,7 @@ const onSubmit = async (values, actions) => {
                     my='1rem' width='35rem' 
                     type="password" id="text" 
                     placeholder="confirm password" 
+                    _placeholder={{color:"white"}}
                     onChange={formik.handleChange}
                      onBlur={formik.handleBlur}
                      value={formik.touched.password2 && formik.values.password2}
