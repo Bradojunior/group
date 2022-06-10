@@ -141,6 +141,7 @@ const onSubmit = async (values, actions) => {
                    type="password" id="text" 
                    name="password2"
                    placeholder="Confirm Password"
+                   _placeholder={{color:"white"}}
                    onChange={formik.handleChange}
                    onBlur={formik.handleBlur}
                    value={formik.values.password2}
