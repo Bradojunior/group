@@ -27,6 +27,7 @@ import User from './components/User/User';
 import User1 from './components/User1/User1';
 import User2 from './components/User2/User2';
 import { ChakraProvider } from '@chakra-ui/react'
+import OrgLogin from './components/OrgLogin/OrgLogin';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
         <Route path='/User' element={<User/>}/>
         <Route path='/User1' element={<User1/>}/>
         <Route path='/User2' element={<User2/>}/>
+        <Route path='/OrgLogin' element={<OrgLogin/>}/>
       </Routes>
     
       </div>

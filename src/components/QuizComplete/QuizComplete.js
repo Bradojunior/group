@@ -1,32 +1,24 @@
-import qui from './QuizComplete.module.css';
+
 import Sidebar from "../Sidebar/Sidebar";
+import {Box, Button,Text,  Stack, Heading} from "@chakra-ui/react";
 import {Link} from "react-router-dom";
 import PieNav from "../PieNav/PieNav";
 const QuizComplete = () => {
+    const style={color:'blue'}
     return ( 
         <>
         <Sidebar/>
         <PieNav/>
-        <div className={qui.complete}>
-            <div className={qui.com}>
-                    <h1>Quiz completed</h1>
-            </div> 
-            <div className={qui.success}>
-                <h3>You have successfully completed the quiz</h3>
-            </div>
-            <div className={qui.you}>
-                <h2>You answered <span className={qui.percent}>80% </span>of <br /> the questions correctly</h2>
-            </div>
-            <div className={qui.click}>
-                <div className={qui.here}>click here!</div>
-            <div>to see what you got wrong</div>
-            
-            </div>
-            <div className={qui.baar}>
-                <Link to="/QuizComplete1"><button>Next</button></Link>        
-             </div>
-            
-        </div>
+        <Stack ml='19rem' boxShadow='2xl' rounded='xl' w='155vh' mt='1rem'>
+            <Box textAlign='center' mt='3rem'>
+                <Heading fontSize='4rem'>Test Completed</Heading>
+                <Heading fontSize='1.2rem' my='3rem'>You Have Successfully Completed the Test</Heading>
+                <Heading>You answered <span style={style}>80% </span>of <br /> the questions correctly</Heading>
+                <Text my='1rem'><span style={style}>Click here!</span> To See What You Got Wrong</Text>
+                <Link to="/QuizComplete1"><Button h='4rem' my='3.5rem' w='10rem' color='white' bg='#444ADD' _hover={{background:"#444ADD", color:"white"}}>Next</Button></Link>
+            </Box>
+        </Stack>
+       
         </>
      );
 }

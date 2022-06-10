@@ -16,13 +16,12 @@ const PASSWORD_REGEX = /.{8,}/;
 const style = {marginLeft:"-1.8rem"};
 
 const Home= () => {
-
-   const toast = useToast();
-   const navigate = useNavigate();
+    const toast = useToast();
+    const navigate = useNavigate();
    const [error, setError] = useState(false);
    const onSubmit = async (values, actions) => {
       try {
-      const user = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/users/login/user",{...values})
+      const user = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/users/login/org",{...values})
       toast({
           title: 'Thanks',
           description: "You Have Successfully Logged In",
@@ -48,7 +47,7 @@ const Home= () => {
       
   };
   
- 
+  
    const formik = useFormik({
       initialValues: {
          email:"",
