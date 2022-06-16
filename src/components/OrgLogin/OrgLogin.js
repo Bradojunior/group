@@ -30,7 +30,7 @@ const Home= () => {
           position: 'top',
           isClosable: true,
         })
-          navigate("/LandingPage")
+          navigate("/OrgLandingPage")
           formik.resetForm();
       } catch(err) {
           toast({

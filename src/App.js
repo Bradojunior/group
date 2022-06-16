@@ -28,6 +28,17 @@ import User1 from './components/User1/User1';
 import User2 from './components/User2/User2';
 import { ChakraProvider } from '@chakra-ui/react'
 import OrgLogin from './components/OrgLogin/OrgLogin';
+import OrgLandingPage from './components/OrgLandingPage/OrgLandingPage';
+import OrgSidebar from './components/OrgSidebar/OrgSidebar';
+import OrgNav from './components/OrgNav/OrgNav';
+import OrgPage from './components/OrgPage/OrgPage';
+import CreateQuiz from './components/CreateQuiz/CreateQuiz';
+import OrgQuestions from './components/OrgQuestions/OrgQuestions';
+import Publish from './components/Publish/Publish';
+import AddTesters from './components/AddTesters/AddTesters';
+import ConfirmAdd from './components/ConfirmAdd/ConfirmAdd';
+import ViewTesters from './components/ViewTesters/ViewTesters';
+import OrgHelp from './components/OrgHelp/OrgHelp';
 
 function App() {
   return (
@@ -62,6 +73,17 @@ function App() {
         <Route path='/User1' element={<User1/>}/>
         <Route path='/User2' element={<User2/>}/>
         <Route path='/OrgLogin' element={<OrgLogin/>}/>
+        <Route path='/OrgLandingPage' element={<OrgLandingPage/>}/>
+        <Route path='/OrgSidebar' element={<OrgSidebar/>}/>
+        <Route path='/OrgNav' element={<OrgNav/>}/>
+        <Route path='/OrgPage' element={<OrgPage/>}/>
+        <Route path='/CreateQuiz' element={<CreateQuiz/>}/>
+        <Route path='/OrgQuestions' element={<OrgQuestions/>}/>
+        <Route path='/Publish' element={<Publish/>}/>
+        <Route path='/AddTesters' element={<AddTesters/>}/>
+        <Route path='/ConfirmAdd' element={<ConfirmAdd/>}/>
+        <Route path='/ViewTesters' element={<ViewTesters/>}/>
+        <Route path='/OrgHelp' element={<OrgHelp/>}/>
       </Routes>
     
       </div>

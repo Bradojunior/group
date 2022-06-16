@@ -1,13 +1,13 @@
-import Sidebar from "../Sidebar/Sidebar";
-import PieNav from "../PieNav/PieNav";
+import OrgSidebar from '../OrgSidebar/OrgSidebar'
+import OrgNav from '../OrgNav/OrgNav'
 import {Link} from "react-router-dom"
 import {Box, Button,Text,  Stack, Heading,Input, Select, Textarea} from "@chakra-ui/react";
 
-const Problem = () => {
+const OrgHelp = () => {
     return ( 
         <>
-        <Sidebar/>
-        <PieNav/>
+        <OrgSidebar/>
+            <OrgNav/>
         <Stack ml='19rem' boxShadow='2xl' rounded='xl' w='155vh' mt='2rem'>
             <Box ml='10rem'>
             <Select placeholder='Category' w='35rem' h='4rem' mt='1rem'>
@@ -26,4 +26,4 @@ const Problem = () => {
      );
 }
  
-export default Problem;
+export default OrgHelp;
