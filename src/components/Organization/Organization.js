@@ -87,6 +87,7 @@ const onSubmit = async (values, actions) => {
                    type="text" Id="text" 
                    name="orgname"
                    placeholder="orgname"
+                   _placeholder={{color:"white"}}
                    onChange={formik.handleChange}
                    onBlur={formik.handleBlur}
                    value={formik.values.orgname}
@@ -98,6 +99,7 @@ const onSubmit = async (values, actions) => {
                    type="text" id="text" 
                    name="email"
                    placeholder="Email"
+                   _placeholder={{color:"white"}}
                    onChange={formik.handleChange}
                    onBlur={formik.handleBlur}
                    value={formik.values.email}
@@ -108,7 +110,7 @@ const onSubmit = async (values, actions) => {
                   <div> <Input my='1rem' width='35rem' 
                   type="text" id="text" 
                   placeholder="Address"
-                  _placeholder={{ color: 'white' }}
+                  _placeholder={{color:"white"}}
                   name="address"
                   onChange={formik.handleChange}
                    onBlur={formik.handleBlur}
@@ -122,6 +124,7 @@ const onSubmit = async (values, actions) => {
                  <Input my='1rem' width='35rem' 
                   type="password" id="text" 
                   placeholder="password"
+                  _placeholder={{color:"white"}}
                   name="password"
                   onChange={formik.handleChange}
                    onBlur={formik.handleBlur}
@@ -138,6 +141,7 @@ const onSubmit = async (values, actions) => {
                    type="password" id="text" 
                    name="password2"
                    placeholder="Confirm Password"
+                   _placeholder={{color:"white"}}
                    onChange={formik.handleChange}
                    onBlur={formik.handleBlur}
                    value={formik.values.password2}
