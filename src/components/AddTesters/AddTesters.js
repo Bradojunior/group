@@ -23,7 +23,7 @@ const AddTesters = () =>{
                     <Input id='email'  h='3rem'  mt='2rem' w='40rem' ml='15rem' type='text' placeholder='First Name'/>
                     <Input id='email'  h='3rem'  mt='2rem' w='40rem' ml='15rem' type='text' placeholder='Surname'/>
                     <Input id='email'  h='3rem'  mt='2rem' w='40rem' ml='15rem' type='text' placeholder='Middle Name'/>
-                    <Link to='/ConfirmAdd'><Button  h='3rem'  w='10rem' ml='29rem' mt='4rem' colorScheme='blue' >Next</Button></Link>
+                    <Link to='/ViewTesters'><Button  h='3rem'  w='10rem' ml='29rem' mt='4rem' colorScheme='blue' >Next</Button></Link>
                 </Box>
             </Stack>
         </>

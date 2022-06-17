@@ -39,6 +39,7 @@ import AddTesters from './components/AddTesters/AddTesters';
 import ConfirmAdd from './components/ConfirmAdd/ConfirmAdd';
 import ViewTesters from './components/ViewTesters/ViewTesters';
 import OrgHelp from './components/OrgHelp/OrgHelp';
+import OrgSignin from './components/OrgSignin/OrgSignin';
 
 function App() {
   return (
@@ -84,6 +85,7 @@ function App() {
         <Route path='/ConfirmAdd' element={<ConfirmAdd/>}/>
         <Route path='/ViewTesters' element={<ViewTesters/>}/>
         <Route path='/OrgHelp' element={<OrgHelp/>}/>
+        <Route path='/OrgSignin' element={<OrgSignin/>}/>
       </Routes>
     
       </div>

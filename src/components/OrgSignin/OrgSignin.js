@@ -4,7 +4,7 @@ import {useFormik} from "formik"
 import * as yup from "yup"
 import { useMediaQuery } from '@chakra-ui/media-query';
 import {FcGoogle} from "react-icons/fc"
-import { Flex,Box,Heading, ButtonGroup, VStack,InputGroup,InputRightElement, Button, Spacer ,Text, FormControl, form,  FormLabel,Input , Stack ,Checkbox} from '@chakra-ui/react'
+import { Flex,Box,Heading, ButtonGroup, VStack, Button, Spacer ,Text, FormControl, form,  FormLabel,Input , Stack ,Checkbox} from '@chakra-ui/react'
 import {FiEyeOff} from "react-icons/fi"
 import {useState} from "react"
 import {FiEye} from "react-icons/fi"
@@ -16,14 +16,13 @@ const PASSWORD_REGEX = /.{8,}/;
 const style = {marginLeft:"-1.8rem"};
 
 const Home= () => {
-   const [show, setShow] = React.useState(false)
-  const handleClick = () => setShow(!show)
-    const toast = useToast();
-    const navigate = useNavigate();
+
+   const toast = useToast();
+   const navigate = useNavigate();
    const [error, setError] = useState(false);
    const onSubmit = async (values, actions) => {
       try {
-      const user = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/users/login/org",{...values})
+      const user = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/users/login/user",{...values})
       toast({
           title: 'Thanks',
           description: "You Have Successfully Logged In",
@@ -32,7 +31,7 @@ const Home= () => {
           position: 'top',
           isClosable: true,
         })
-          navigate("/OrgLandingPage")
+          navigate("/LandingPage")
           formik.resetForm();
       } catch(err) {
           toast({
@@ -49,7 +48,7 @@ const Home= () => {
       
   };
   
-  
+ 
    const formik = useFormik({
       initialValues: {
          email:"",
@@ -96,6 +95,7 @@ const Home= () => {
             <Input type='email'
             name="email"
              placeholder='Enter your email address'
+             _placeholder={{color:"white"}}
              onChange={formik.handleChange}
              onBlur={formik.handleBlur}
              value={formik.values.email}
@@ -107,28 +107,21 @@ const Home= () => {
             <FormLabel fontSize={{ base: '24px', md: '40px', lg: '23px' }}>Password</FormLabel>
          
             <Box>
-            <InputGroup>
             <Input type='Password' 
             name="password"
-            type={show ? 'text' : 'password'}
             placeholder='Enter your Password'
+            _placeholder={{color:"white"}}
             onChange={formik.handleChange}
              onBlur={formik.handleBlur}
              value={formik.values.password}
              className={formik.errors.password && formik.touched.password ? "input-error" :""}
             />
-             <InputRightElement width='4.5rem' bg='teal' color='black'>
-               <Button h='1.75rem' size='sm' onClick={handleClick}>
-                  {show ? 'Hide' : 'Show'}
-               </Button>
-               </InputRightElement>
-            </InputGroup>
               {formik.touched.password && formik.errors.password ? <p className="blue">{formik.errors.password}</p> : null}
               </Box>
               
               
          </FormControl>
-         <Flex isInline justifyContent='space-between' color='white' py='1rem' columnGap="11rem">
+         <Flex isInline justifyContent='space-between' color='white' py='1rem' columnGap="5rem">
             <Box>
                <Checkbox 
                type="checkbox"
@@ -137,7 +130,7 @@ const Home= () => {
                onBlur={formik.handleBlur}
                value={formik.values.remember}
                onChange={formik.handleChange}
-               >Remember Me
+               >Accept All Terms & Conditions
                </Checkbox>
                {formik.touched.remember && formik.errors.remember ? <p className="blue">{formik.errors.remember}</p> : null}
             </Box>

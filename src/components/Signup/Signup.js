@@ -11,8 +11,8 @@ const Sidebar = () => {
                     <Heading mb='2rem'>What Are You Registering As?</Heading>
                     <Button bg='#042A37'border='1px solid blue' w='30rem' _hover={{background: "transparent"}}>
                         <Flex bg='transparent' >
-                            <Link to='/Organization'><Button _hover={{background:"blue" , color:'white'}} mx='2rem' bg='transparent'  hover='text-black' >Organization</Button></Link>
-                            <Link to='/User'><Button _hover={{background:"blue", color:"white"}} mx='2rem' bg='transparent'>User</Button></Link>
+                            <Link to='/OrgLogin'><Button _hover={{background:"blue" , color:'white'}} mx='2rem' bg='transparent'  hover='text-black' >Organization</Button></Link>
+                            <Link to='/Signin'><Button _hover={{background:"blue", color:"white"}} mx='2rem' bg='transparent'>User</Button></Link>
                         </Flex>
                     </Button>
                     <Text ml='18rem'>Choose One <Link to='/Signup2' color='blue'>What's this?</Link></Text>

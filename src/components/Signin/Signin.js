@@ -4,7 +4,7 @@ import {useFormik} from "formik"
 import * as yup from "yup"
 import { useMediaQuery } from '@chakra-ui/media-query';
 import {FcGoogle} from "react-icons/fc"
-import { Flex,Box,Heading, ButtonGroup, VStack, Button, Spacer ,Text, FormControl, form,  FormLabel,Input , Stack ,Checkbox} from '@chakra-ui/react'
+import { Flex,Box,Heading, ButtonGroup,InputGroup,InputRightElement, VStack, Button, Spacer ,Text, FormControl, form,  FormLabel,Input , Stack ,Checkbox} from '@chakra-ui/react'
 import {FiEyeOff} from "react-icons/fi"
 import {useState} from "react"
 import {FiEye} from "react-icons/fi"
@@ -16,7 +16,8 @@ const PASSWORD_REGEX = /.{8,}/;
 const style = {marginLeft:"-1.8rem"};
 
 const Home= () => {
-
+   const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
    const toast = useToast();
    const navigate = useNavigate();
    const [error, setError] = useState(false);
@@ -74,7 +75,7 @@ const Home= () => {
       <Spacer />
       <ButtonGroup gap='2'>
          <Heading as='h6' color='white' fontSize={{ base: '20px', md: '40px', lg: '25px' }} >Have an account?</Heading>
-        <Link to="/Signup"><Button colorScheme='teal'>Sign Up</Button></Link>
+        <Link to="/User"><Button colorScheme='teal'>Sign Up</Button></Link>
       </ButtonGroup>
     </Flex>
    
@@ -107,21 +108,29 @@ const Home= () => {
             <FormLabel fontSize={{ base: '24px', md: '40px', lg: '23px' }}>Password</FormLabel>
          
             <Box>
-            <Input type='Password' 
-            name="password"
-            placeholder='Enter your Password'
-            _placeholder={{color:"white"}}
-            onChange={formik.handleChange}
-             onBlur={formik.handleBlur}
-             value={formik.values.password}
-             className={formik.errors.password && formik.touched.password ? "input-error" :""}
-            />
+               <InputGroup size='md'>
+                  <Input type='Password' 
+                  name="password"
+                  type={show ? 'text' : 'password'}
+                  placeholder='Enter your Password'
+                  _placeholder={{color:"white"}}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  className={formik.errors.password && formik.touched.password ? "input-error" :""}
+                  />
+                   <InputRightElement width='4.5rem' bg='teal' color='black'>
+                  <Button h='1.75rem' size='sm' onClick={handleClick}>
+                     {show ? 'Hide' : 'Show'}
+                  </Button>
+                  </InputRightElement>
+              </InputGroup>
               {formik.touched.password && formik.errors.password ? <p className="blue">{formik.errors.password}</p> : null}
               </Box>
               
               
          </FormControl>
-         <Flex isInline justifyContent='space-between' color='white' py='1rem' columnGap="5rem">
+         <Flex isInline justifyContent='space-between' color='white' py='1rem' columnGap="11rem">
             <Box>
                <Checkbox 
                type="checkbox"
@@ -130,7 +139,7 @@ const Home= () => {
                onBlur={formik.handleBlur}
                value={formik.values.remember}
                onChange={formik.handleChange}
-               >Accept All Terms & Conditions
+               >Remember Me
                </Checkbox>
                {formik.touched.remember && formik.errors.remember ? <p className="blue">{formik.errors.remember}</p> : null}
             </Box>

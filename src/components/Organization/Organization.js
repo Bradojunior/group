@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import FirstSidebar from "../FirstSidebar/FirstSidebar";
-import {Box, Button, Input, Flex, Heading, VStack} from "@chakra-ui/react";
+import {Box, Button, Input, Flex, Heading, VStack,InputRightElement ,InputGroup} from "@chakra-ui/react";
 import {useFormik} from "formik";
 import * as yup from "yup"
 import {FiEyeOff} from "react-icons/fi"
@@ -9,13 +9,16 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from '@chakra-ui/react'
 import {useState} from "react"
 import axios from "axios"
+import React from "react";
 
 
 const PASSWORD_REGEX = /.{8,}/;
 const style = {marginLeft:"-1.8rem"}
+
 const Organization = () => {
 
-        
+const [show, setShow] = React.useState(false)
+const handleClick = () => setShow(!show) 
 const toast = useToast()
 const navigate = useNavigate();
 const [success, setSuccess] = useState(false);
@@ -32,7 +35,7 @@ const onSubmit = async (values, actions) => {
         position: 'top',
         isClosable: true,
       })
-        navigate("/OrgLogin")
+        navigate("/OrgPage")
         formik.resetForm();
     } catch(err) {
         console.log(err)
@@ -119,11 +122,13 @@ const onSubmit = async (values, actions) => {
                   />
                    {formik.touched.address && formik.errors.address ? <p className="red">{formik.errors.address}</p> : null}
                   </div> 
-                  <Flex alignItems="center">
-                  <Box>  
+               
+                  <Box> 
+                <InputGroup alignItems='center' size='md'>
                  <Input my='1rem' width='35rem' 
                   type="password" id="text" 
                   placeholder="password"
+                  type={show ? 'text' : 'password'}
                   _placeholder={{color:"white"}}
                   name="password"
                   onChange={formik.handleChange}
@@ -131,15 +136,23 @@ const onSubmit = async (values, actions) => {
                    value={formik.values.password}
                    className={formik.errors.password && formik.touched.password ? "input-error" :""}
                   />
+                  <InputRightElement width='4.5rem' bg='teal' color='black' mt='1rem'>
+                    <Button h='1.75rem' size='sm' onClick={handleClick}>
+                    {show ? 'Hide' : 'Show'}
+                    </Button>
+                </InputRightElement>
+                  </InputGroup>
                    {formik.touched.password && formik.errors.password ? <p className="red">{formik.errors.password}</p> : null}
                   </Box>
-                  <FiEye style={style} size={25}/>
-                  </Flex>
-                  <Flex alignItems="center">
+                 
+                 
+                  
                    <Box> 
+                    <InputGroup alignItems='center' size='md'>
                     <Input my='1rem' width='35rem' 
                    type="password" id="text" 
                    name="password2"
+                   type={show ? 'text' : 'password'}
                    placeholder="Confirm Password"
                    _placeholder={{color:"white"}}
                    onChange={formik.handleChange}
@@ -147,13 +160,18 @@ const onSubmit = async (values, actions) => {
                    value={formik.values.password2}
                     className={formik.errors.password2 && formik.touched.password2 ? "input-error" :""}
                    />
+                   <InputRightElement width='4.5rem'  bg='teal' color='black' mt='1rem'>
+                        <Button h='1.75rem' size='sm' onClick={handleClick}>
+                        {show ? 'Hide' : 'Show'}
+                        </Button>
+                    </InputRightElement>
+                   </InputGroup>
                     {formik.touched.password2 && formik.errors.password2 ? <p className="red">{formik.errors.password2}</p> : null}
                    </Box>
-                   <FiEye style={style} size={25}/>
-                   </Flex>
+                  
                 
                 <Flex justifyContent='center' columnGap='5rem' mt='2rem'>
-                    <Link to="/Signup"><Button width='8rem' bg='blue' _hover={{background:"blue", color:"white"}}>Back</Button></Link>
+                    <Link to="/OrgLogin"><Button width='8rem' bg='blue' _hover={{background:"blue", color:"white"}}>Back</Button></Link>
                     <Button type="submit" disabled={!formik.isValid} width='8rem' bg='blue' _hover={{background:"blue", color:"white"}}>Submit</Button>
                 </Flex>
             </VStack>

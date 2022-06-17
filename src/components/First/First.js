@@ -24,7 +24,7 @@ const First = () => {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/About">About Us</Nav.Link>
             <IoMdContact style={style}/>
-            <Link to="/Signin"><button style={{borderRadius:"5px",padding:".5rem", marginLeft:"1rem", backgroundColor:"rgb(46, 46, 78)", color:"white",border:"1px solid blue"}}>Sign In</button></Link>
+            <Link to="/Signup"><button style={{borderRadius:"5px",padding:".5rem", marginLeft:"1rem", backgroundColor:"rgb(46, 46, 78)", color:"white",border:"1px solid blue"}}>Sign In</button></Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

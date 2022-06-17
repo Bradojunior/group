@@ -1,8 +1,9 @@
 import {Link} from "react-router-dom";
 import {useState} from "react"
-import {Box, Button, Input, Flex, Heading, Text,VStack } from "@chakra-ui/react"
+import {Box, Button, Input, Flex, Heading, Text,VStack,InputGroup,InputRightElement } from "@chakra-ui/react"
 import FirstSidebar from "../FirstSidebar/FirstSidebar";
 import { useFormik} from 'formik';
+import React from "react";
 import * as yup from "yup"
 import {FiEyeOff} from "react-icons/fi"
 import {FiEye} from "react-icons/fi"
@@ -14,6 +15,8 @@ import { useToast } from '@chakra-ui/react'
 const PASSWORD_REGEX = /.{8,}/;
 
 const User = () =>{
+    const [show, setShow] = React.useState(false)
+  const handleClick = () => setShow(!show)
  const toast = useToast()
 const navigate = useNavigate();
 const [error, setError] = useState(false);
@@ -28,7 +31,7 @@ const onSubmit = async (values, actions) => {
         position: 'top',
         isClosable: true,
       })
-        navigate("/Signin")
+        navigate("/AdminPage")
         formik.resetForm();
     } catch(err) {
         console.log(err)
@@ -153,36 +156,40 @@ const onSubmit = async (values, actions) => {
                     {formik.touched.email && formik.errors.email ? <p className="red">{formik.errors.email}</p> : null}
                     </div>
 
-                    <Flex   alignItems="center" >
+                   
                    <Box>
+                       <InputGroup>
                     <Input 
                     name="password" 
                     type={passwordType}
                     my='1rem' width='35rem' 
                     id="text" 
                     placeholder="password" 
+                    type={show ? 'text' : 'password'}
                     _placeholder={{color:"white"}}
                     onChange={formik.handleChange}
                      onBlur={formik.handleBlur}
                      value={formik.values.password}
                      className={formik.errors.password && formik.touched.password ? "input-error" :""}
                     />
+                     <InputRightElement width='4.5rem' bg='teal' color='black' mt='1rem'>
+                        <Button h='1.75rem' size='sm' onClick={handleClick}>
+                        {show ? 'Hide' : 'Show'}
+                        </Button>
+                    </InputRightElement>
+                    </InputGroup>
                     {formik.touched.password && formik.errors.password ? <p className="red">{formik.errors.password}</p> : null}
                      </Box>
-                     <span onClick={togglePassword}>
-                        { passwordType === "password" ? (<FiEye style={style} size={25}/>
-                        ) : (
-                            <FiEyeOff  size={25}/>
-                        )}
-                    </span>
-                    </Flex>
                   
-                    <Flex alignItems="center">
+                  
+                   
                     <Box>
+                        <InputGroup>
                     <Input 
                     name="password2" 
                     my='1rem' width='35rem' 
                     type="password" id="text" 
+                    type={show ? 'text' : 'password'}
                     placeholder="confirm password" 
                     _placeholder={{color:"white"}}
                     onChange={formik.handleChange}
@@ -190,13 +197,18 @@ const onSubmit = async (values, actions) => {
                      value={formik.touched.password2 && formik.values.password2}
                      className={formik.errors.password2 && formik.touched.password2 ? "input-error" :""}
                     />
+                     <InputRightElement width='4.5rem'  bg='teal' color='black' mt='1rem'>
+                        <Button h='1.75rem' size='sm' onClick={handleClick}>
+                        {show ? 'Hide' : 'Show'}
+                        </Button>
+                    </InputRightElement>
+                    </InputGroup>
                      {formik.touched.password2 && formik.errors.password2 ? <p className="red">{formik.errors.password2}</p> : null}
                      </Box>
-                     <FiEye style={style} size={25}/>
-                    </Flex>
+                    
 
                         <Flex columnGap='3rem' mt='2rem'>
-                        <Link to="/Signup"><Button width='8rem' bg='blue' _hover={{background:"blue", color:"white"}}>Back</Button></Link>
+                        <Link to="/Signin"><Button width='8rem' bg='blue' _hover={{background:"blue", color:"white"}}>Back</Button></Link>
                         <Button type="Submit"
                         
                          disabled={!formik.isValid}  width='8rem' bg='blue' _hover={{background:"blue", color:"white"}}>Submit</Button>
