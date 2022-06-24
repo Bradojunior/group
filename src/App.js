@@ -3,11 +3,11 @@ import './App.css';
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Home from './components/Home/Home';
 import About from './components/About/About';
-import Signin from './components/Signin/Signin';
+import Signin from './components/Signin';
 import Signup from './components/Signup/Signup';
 import Signup2 from './components/Signup2/Signup2';
 import LandingPage from './components/LandingPage/LandingPage';
-import AdminPage from './components/AdminPage/AdminPage';
+import AdminPage from './components/AdminPage';
 import TakeQuiz from './components/TakeQuiz/TakeQuiz';
 import QuizInstruct from "./components/QuizInstruct/QuizInstruct";
 import TestYourSelf from "./components/TestYourSelf/TestYourSelf"
@@ -23,7 +23,7 @@ import Organization2 from './components/Organization2/Organization2';
 import Examiner from './components/Examiner/Examiner';
 import Examiner1 from './components/Examiner1/Examiner1';
 import Examiner2 from './components/Examiner2/Examiner2';
-import User from './components/User/User';
+import User from './components/User';
 import User1 from './components/User1/User1';
 import User2 from './components/User2/User2';
 import { ChakraProvider } from '@chakra-ui/react'
@@ -40,6 +40,7 @@ import ConfirmAdd from './components/ConfirmAdd/ConfirmAdd';
 import ViewTesters from './components/ViewTesters/ViewTesters';
 import OrgHelp from './components/OrgHelp/OrgHelp';
 import OrgSignin from './components/OrgSignin/OrgSignin';
+import {IsuserLogged} from "./context/UsersContext"
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
       
         <Router>
     <div className='Apps'>
+      <IsuserLogged>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/Signin' element={<Signin/>}/>
@@ -87,7 +89,7 @@ function App() {
         <Route path='/OrgHelp' element={<OrgHelp/>}/>
         <Route path='/OrgSignin' element={<OrgSignin/>}/>
       </Routes>
-    
+      </IsuserLogged>
       </div>
       </Router>
       

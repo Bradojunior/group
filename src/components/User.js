@@ -1,26 +1,29 @@
 import {Link} from "react-router-dom";
 import {useState} from "react"
 import {Box, Button, Input, Flex, Heading, Text,VStack,InputGroup,InputRightElement } from "@chakra-ui/react"
-import FirstSidebar from "../FirstSidebar/FirstSidebar";
+import FirstSidebar from "./FirstSidebar/FirstSidebar";
 import { useFormik} from 'formik';
 import React from "react";
 import * as yup from "yup"
-import {FiEyeOff} from "react-icons/fi"
-import {FiEye} from "react-icons/fi"
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
 import { useToast } from '@chakra-ui/react'
+import {Usernameset,Username} from "../context/UsersContext"
 
 
 const PASSWORD_REGEX = /.{8,}/;
 
 const User = () =>{
+const usernameset =  Usernameset()
+const username = Username()
+ 
     const [show, setShow] = React.useState(false)
   const handleClick = () => setShow(!show)
  const toast = useToast()
 const navigate = useNavigate();
 const [error, setError] = useState(false);
-const onSubmit = async (values, actions) => {
+const onSubmit = async (values ) => {
+  
     try {
     const user = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/users/register/user",{...values})
     toast({
@@ -33,6 +36,7 @@ const onSubmit = async (values, actions) => {
       })
         navigate("/AdminPage")
         formik.resetForm();
+        usernameset(formik.values.username) 
     } catch(err) {
         console.log(err)
         toast({
@@ -49,17 +53,7 @@ const onSubmit = async (values, actions) => {
     
 };
 
-    const [passwordType, setPasswordType] = useState("password");
-
-    const togglePassword = () =>{
-        if(passwordType === "password") {
-            setPasswordType("text");
-            return;
-        }
-        setPasswordType("password");
-    };
-
-    console.log(passwordType)
+   
 
     const style = {marginLeft:"-1.8rem"}
     const formik = useFormik({
@@ -161,7 +155,7 @@ const onSubmit = async (values, actions) => {
                        <InputGroup>
                     <Input 
                     name="password" 
-                    type={passwordType}
+                    type="password"
                     my='1rem' width='35rem' 
                     id="text" 
                     placeholder="password" 

@@ -1,81 +1,88 @@
 import {Link} from "react-router-dom";
-import Sidebar from "../Sidebar/Sidebar";
-import PieNav from "../PieNav/PieNav";
+import Sidebar from "./Sidebar/Sidebar";
+import PieNav from "./PieNav/PieNav";
 import {Box, Button,Text, Flex, Stack,Image, Heading , Radio} from "@chakra-ui/react"
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid,  Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid,  Legend, ResponsiveContainer } from 'recharts';
 import  {PieChart}  from 'react-minimal-pie-chart';
+import {Username} from "../context/UsersContext"
+
+
+
+
 const data = [
     {
       name: '1st quiz',
-      Test: 5000,
+      Test: 50,
     },
     {
       name: '2nd quiz',
-      Test: 1398,
+      Test: 13,
     },
     {
       name: '3rd quiz',
-      Test: 9800,
+      Test: 98,
     },
     {
       name: '4th quiz',
-      Test: 3908,
+      Test: 39,
     },
     {
       name: '5th quiz',
-      Test: 9700,
+      Test: 97,
     },
     {
       name: '6th quiz',
-      Test: 3800,
+      Test: 38,
     },
     {
       name: '7th quiz',
-      Test: 8000,
+      Test: 80,
     },
     {
         name: '8th quiz',
-        Test: 4300,
+        Test: 43,
       },
       {
         name: '9th quiz',
-        Test: 5000,
+        Test: 50,
       },
       {
         name: '10th quiz',
-        Test: 6000,
+        Test: 60,
       },
       {
       name: '11th quiz',
-      Test: 9050,
+      Test: 90,
     },
     {
         name: '12th quiz',
-        Test: 7000,
+        Test: 70,
       },
       {
         name: '13th quiz',
-        Test: 7050,
+        Test: 70,
       },
       {
         name: '14th quiz',
-        Test: 4300,
+        Test: 43,
       },
       {
         name: '15th quiz',
-        Test: 4300,
+        Test: 43,
       },
       {
         name: '16th quiz',
-        Test: 9000,
+        Test: 90,
       },
       {
         name: '17th quiz',
-        Test: 8800,
+        Test: 88,
       },
   ];
 
 const AdminPage = () => {
+const user = Username()
+
     return ( 
         <>
         <Sidebar/>
@@ -86,7 +93,7 @@ const AdminPage = () => {
                 <Box boxShadow='2xl' rounded='xl'>
                     <Flex columnGap='4rem'>
                         <Box ml='2rem'>
-                            <Heading mb='2rem' my='1rem' m>Hello Name!</Heading>
+                            <Heading mb='2rem' my='1rem' m>Hello, {user}</Heading>
                             <Heading mb='.5rem' fontSize='1.5rem'>Welcome to your dashboard</Heading>
                             <Text>View your score and accuracy here</Text>
                             <Text  mt='2rem'>Click here to take quiz</Text>
@@ -119,11 +126,11 @@ const AdminPage = () => {
                             { title: 'Failed', value: 5, color: '#FF4906' },
                             { title: 'Passed', value: 15, color: '#3962F3' },
                         ]}
-                        />;
+                        />
                     </Box>
                 </Box>
                 </Flex>
-                <Box mt='2rem' boxShadow='2xl' w='63rem' rounded='xl'>
+                <Box mt='2rem' boxShadow='xl' w='63rem' rounded='xl'>
                     <Heading ml='2rem' fontSize='1.2rem'>Progress</Heading>
                     <Text ml='2rem'>Keep track of your last quizzes and see your progress</Text>
                 <ResponsiveContainer width="100%" aspect={5}>

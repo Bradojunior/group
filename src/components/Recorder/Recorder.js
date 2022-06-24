@@ -5,6 +5,18 @@ import {Link} from "react-router-dom";
 import questions from "../../questions.json";
 import {useState} from "react";
 import Timer from "simple-circle-timer";
+import React from "react"
+import {
+    Button,
+    useDisclosure,
+    AlertDialog,
+    AlertDialogBody,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogContent,
+    AlertDialogOverlay,
+    AlertDialogCloseButton,
+  } from '@chakra-ui/react'
 
 // import CircularProgress from 'react-native-circular-progress-indicator'
 
@@ -12,6 +24,9 @@ const Recorder = () => {
         const [ timerExists, setTimerExists ] = useState( true )
         const [ running, setRunning ] = useState( true )
         const [ reset, setReset ] = useState( false )
+
+        const { isOpen, onOpen, onClose } = useDisclosure()
+        const cancelRef = React.useRef()
       
         //new timer is loaded in a paused state, awaiting 'play' command
         const mountPaused = () => {
@@ -35,6 +50,7 @@ const Recorder = () => {
     // };
     const questionObj = questions.map(question =>  {
         return ({ isAnswered: false, userAnswer: "" });
+        
     });
     const [questionIndex, setQuestionIndex] = useState(0);
    const [questionState, setQuestionState] = useState([...questionObj]);
@@ -145,7 +161,32 @@ const checkIfAnswered = (questionNo) => {
                         <div className={rec.map}>
                             </div>
                     </div>
-                    <Link to="/QuizComplete"><button>Submit</button></Link>
+                    <button onClick={onOpen}>Submit</button>
+                        <AlertDialog
+                            motionPreset='slideInBottom'
+                            leastDestructiveRef={cancelRef}
+                            onClose={onClose}
+                            isOpen={isOpen}
+                            isCentered
+                        >
+                            <AlertDialogOverlay />
+
+                            <AlertDialogContent>
+                            <AlertDialogHeader>Submit Test?</AlertDialogHeader>
+                            <AlertDialogCloseButton />
+                            <AlertDialogBody>
+                                Are you sure you want to submit your test?
+                            </AlertDialogBody>
+                            <AlertDialogFooter>
+                                <Button ref={cancelRef} onClick={onClose}>
+                                No
+                                </Button>
+                                <Link to="/QuizComplete"><Button colorScheme='red' ml={3}>
+                                Yes
+                                </Button></Link>
+                            </AlertDialogFooter>
+                            </AlertDialogContent>
+                        </AlertDialog>
                 </div>
             </div>
         </div>

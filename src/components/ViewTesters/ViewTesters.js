@@ -39,11 +39,9 @@ const ViewTesters = () =>{
                             </Box>
                         </Flex>
                     </Box>
-                   
-                   
                 </Box>
             </Stack>
         </>
     )
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 export default ViewTesters

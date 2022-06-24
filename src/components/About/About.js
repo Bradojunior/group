@@ -14,7 +14,7 @@ const About = () => {
                 <Image ml='6rem' src="images/Vector1.png" alt="" />
                 <Text>Taking exams with your devices</Text>
                 <Text>easily</Text>
-                </Box>
+                </Box> 
        
                 <Box boxShadow='2xl' p='6' rounded='md'>
                 <Image ml='6rem'  src="images/Vector2.png" alt="" />

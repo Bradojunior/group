@@ -32,7 +32,10 @@ const Home= () => {
           position: 'top',
           isClosable: true,
         })
-          navigate("/OrgLandingPage")
+        console.log(user)
+
+        localStorage.setItem("token", user.data.token)
+          navigate("/OrgPage")
           formik.resetForm();
       } catch(err) {
           toast({

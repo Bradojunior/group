@@ -11,13 +11,14 @@
     margin-left: 8rem;
 }
 .timer{
-    text-align: center;
-    justify-content: center;
+   
     margin-left: 5rem;
     margin-top: 2rem;
 }
 .secondrec{
     flex: 30%;
+
+    justify-content: center;
 }
 .firstrec img{
     margin-top: 2rem;
@@ -69,6 +70,7 @@ input{
     padding: .5rem 1rem;
     border-radius: 5px;
     border: 1px solid blue;
+    margin-left: 5rem;
 }
 
 .questions {
@@ -76,6 +78,7 @@ input{
     width: 100%;
     flex-direction: column;
     padding: 10px;
+    margin-top:3rem;
     /* justify-content: center; */
 }
 .questions button{
@@ -102,15 +105,15 @@ input{
     margin-top: 2rem;
     
 }
-.map button{
+.questions button{
     background-color: #7F7CEC;
     border: none;
     width: 7rem;
     border-radius: 5px;
     padding: .6rem; 
-     margin-left: 5rem;
+     margin-left: 13rem;
     color: aliceblue;
-    margin-top: .3rem;
+   
 
 
 }

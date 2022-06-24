@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import {Stack, Flex, Box, Text, Image ,Heading,  Input ,Button} from "@chakra-ui/react"
 import {useMediaQuery} from "@chakra-ui/react"
 import {BsFillArrowRightSquareFill} from "react-icons/bs";
-import SecondNavbar from '../SecondNavbar/SecondNavbar'
+import SecondNavbar from '../SecondNavbar'
 import Footer from '../Footer/Footer'
 const LandingPage = () => {
     const [isNotSmallerScreen] = useMediaQuery("(min-width:680px)");

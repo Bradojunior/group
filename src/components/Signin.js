@@ -11,17 +11,21 @@ import {FiEye} from "react-icons/fi"
 import { useToast } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
+import {Usernameset,Username} from "../context/UsersContext"
 
 const PASSWORD_REGEX = /.{8,}/;
 const style = {marginLeft:"-1.8rem"};
 
 const Home= () => {
+   const usernameset =  Usernameset()
+const username = Username()
    const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
    const toast = useToast();
    const navigate = useNavigate();
    const [error, setError] = useState(false);
    const onSubmit = async (values, actions) => {
+      
       try {
       const user = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/users/login/user",{...values})
       toast({
@@ -32,8 +36,9 @@ const Home= () => {
           position: 'top',
           isClosable: true,
         })
-          navigate("/LandingPage")
+          navigate("/adminPage")
           formik.resetForm();
+          usernameset(formik.values.username) 
       } catch(err) {
           toast({
               title: 'Login Failed',

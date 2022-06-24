@@ -93,7 +93,7 @@ const OrgPage = () =>{
                                     <Tr>
                                         <Td>Krispam</Td>
                                         <Td>10:00 (AM)</Td>
-                                        <Td bg='#FEF3E9' color='#FF86AC' rounded='xl'>10</Td>
+                                        <Td bg='#FEF3E9'  color='#FF86AC' rounded='xl'>10</Td>
                                     </Tr>
                                     <Tr>
                                         <Td>Chioma</Td>
