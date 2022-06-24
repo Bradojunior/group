@@ -30,10 +30,10 @@ const Home = () =>{
                     </Box>
                     <Box  mb={isNotSmallerScreen ? "null" : "2rem"}>
                         <Heading as='h6' color='white' fontSize='2rem' fontSize={{base: '`20px', md: '40px', lg: '30px' }}>Sign in above or type profile details here</Heading>
-                        <Input type="text" name='text' placeholder='Input Your Email Address' w='30rem' w={[300, 600, 500]}/>
+                        <Input type="text" color='white' name='email' placeholder='Input Your Email Address' w='30rem' w={[300, 600, 500]}/>
                         
                         <Box my='1rem'>
-                            <Input type="text" name='text' placeholder='Profile Code' w='30rem' w={[300, 600, 500]}/>
+                            <Input type="text" color='white' name='text' placeholder='Profile Code' w='30rem' w={[300, 600, 500]}/>
                         </Box>
                         <Box ml='11rem'>
                         <Link to="/Recorder"><Button  bg='blue' color='white' _hover={{color:"white", background:"blue"}}>Submit</Button></Link>
