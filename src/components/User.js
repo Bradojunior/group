@@ -42,7 +42,7 @@ const onSubmit = async (values ) => {
         toast({
             title: 'Sorry Acccount Can Not Be Created',
             description: "User With This Email Already Exist",
-            status: 'success',
+            status: 'error',
             duration: 9000,
             position: 'top',
             isClosable: true,
