@@ -28,6 +28,7 @@ const username = Username()
       
       try {
       const user = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/users/login/user",{...values})
+      console.log(user)
       toast({
           title: 'Thanks',
           description: "You Have Successfully Logged In",

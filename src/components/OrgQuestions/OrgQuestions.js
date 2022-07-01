@@ -45,7 +45,7 @@ const OrgQuestions = () =>{
             arr.push(values.A)
             arr.push(values.B)
             arr.push(values.A)
-            const Quest = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/quiz/:set_id/question",{...values},{headers: config})
+            const Quest = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/quiz/:set_id/question",values,{headers: config})
             formik.resetForm();
         }catch(error){
             console.log(error.response.data)

@@ -17,7 +17,6 @@ import {
     AlertDialogOverlay,
     AlertDialogCloseButton,
   } from '@chakra-ui/react'
-
 // import CircularProgress from 'react-native-circular-progress-indicator'
 
 const Recorder = () => {

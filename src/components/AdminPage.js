@@ -81,7 +81,8 @@ const data = [
   ];
 
 const AdminPage = () => {
-const user = Username()
+  const name = localStorage.getItem("username")
+
 
     return ( 
         <>
@@ -93,7 +94,7 @@ const user = Username()
                 <Box boxShadow='2xl' rounded='xl'>
                     <Flex columnGap='4rem'>
                         <Box ml='2rem'>
-                            <Heading mb='2rem' my='1rem' m>Hello, {user}</Heading>
+                            <Heading mb='2rem' my='1rem' m>Hello, {name}</Heading>
                             <Heading mb='.5rem' fontSize='1.5rem'>Welcome to your dashboard</Heading>
                             <Text>View your score and accuracy here</Text>
                             <Text  mt='2rem'>Click here to take quiz</Text>

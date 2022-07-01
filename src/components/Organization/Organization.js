@@ -89,7 +89,7 @@ const onSubmit = async (values, actions) => {
                    <div><Input my='1rem' width='35rem' 
                    type="text" Id="text" 
                    name="orgname"
-                   placeholder="orgname"
+                   placeholder="Organization Name"
                    _placeholder={{color:"white"}}
                    onChange={formik.handleChange}
                    onBlur={formik.handleBlur}

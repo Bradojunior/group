@@ -145,7 +145,7 @@ const Home= () => {
                {formik.touched.remember && formik.errors.remember ? <p className="blue">{formik.errors.remember}</p> : null}
             </Box>
             <Box>
-               <Text  colorScheme='teal' fontSize={{ base: '15px', md: '30px', lg: '15px' }}>Forgot your password?</Text>
+               <Text  colorScheme='teal' fontSizeny={{ base: '15px', md: '30px', lg: '15px' }}>Forgot your password?</Text>
             </Box>
          </Flex>
         

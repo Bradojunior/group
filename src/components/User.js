@@ -26,6 +26,7 @@ const onSubmit = async (values ) => {
   
     try {
     const user = await axios.post("https://arcane-bayou-79576.herokuapp.com/api/users/register/user",{...values})
+    console.log(user)
     toast({
         title: 'Account Created',
         description: "Your Account Have Been Created SuccessFully Thanks For Registering",
@@ -37,6 +38,28 @@ const onSubmit = async (values ) => {
         navigate("/AdminPage")
         formik.resetForm();
         usernameset(formik.values.username) 
+        const email = localStorage.getItem("email")
+        if(email != null && email){
+           if(email !== user.data.email){
+            localStorage.setItem("email", user.data.email)
+            localStorage.setItem("firstname", user.data.firstname)
+            localStorage.setItem("password", user.data.password)
+            localStorage.setItem("password2", user.data.password2)
+            localStorage.setItem("surname", user.data.surname)
+            localStorage.setItem("username", user.data.username)
+            
+           }
+        }else{
+            localStorage.setItem("email", user.data.email)
+        localStorage.setItem("firstname", user.data.firstname)
+        localStorage.setItem("password", user.data.password)
+        localStorage.setItem("password2", user.data.password2)
+        localStorage.setItem("surname", user.data.surname)
+        localStorage.setItem("username", user.data.username)
+        
+        }
+       
+       
     } catch(err) {
         console.log(err)
         toast({

@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import FirstSidebar from "../FirstSidebar/FirstSidebar";
 import {Box, Button, Input, Flex, Heading,Text,UnorderedList,ListItem, form} from "@chakra-ui/react"
 import sub from "./Signup2.module.scss"
+import { FaBeer, AiFillInfoCircle, AiOutlineArrowLeft, } from 'react-icons/ai';
 const Signup2 = () => {
     return ( 
         <Flex>
@@ -19,7 +20,7 @@ const Signup2 = () => {
     
                         <ListItem>Registering as a user allows you to take quizes <br /> and take tests for practice</ListItem>
                     </UnorderedList>
-                    <Link to="/Signup"><Button _hover={{background:"blue"}} bg='blue' mt='1rem' width='8rem' >Back</Button></Link>
+                    <Link to="/Signup"><Button _hover={{background:"blue"}} bg='blue' mt='1rem' width='8rem' ><AiOutlineArrowLeft/></Button></Link>
                 </Box>
         
        
