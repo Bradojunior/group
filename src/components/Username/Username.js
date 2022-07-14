@@ -1,7 +1,7 @@
 import Sidebar from "../Sidebar/Sidebar";
 import PieNav from "../PieNav/PieNav";
 import {IoMdContact} from "react-icons/io";
-import {Stack, Flex, Box, Text, Image ,Heading,form,AvatarBadge, VStack, Avatar,InputRightElement,InputGroup, Input ,Button} from "@chakra-ui/react"
+import {Stack, Flex, Box, Text,  Image ,Heading,form,AvatarBadge, VStack, Avatar,InputRightElement,InputGroup, Input ,Button} from "@chakra-ui/react"
 import {FaRegEdit} from "react-icons/fa"
 import {FcOldTimeCamera} from "react-icons/fc"
 import {useState} from 'react'
@@ -81,6 +81,7 @@ const [password2,setPassword2] = useState(()=>{
            </Box>
            <form  pt='1rem'>
                   <Box>
+                   
                      <InputGroup>
                         <Input  width='35rem' 
                         focusBorderColor='lime' 
@@ -96,6 +97,7 @@ const [password2,setPassword2] = useState(()=>{
                     <br />
                   
                   <Box>
+                 
                     <InputGroup>
                         <Input  width='35rem' 
                         focusBorderColor='lime' 
@@ -124,7 +126,9 @@ const [password2,setPassword2] = useState(()=>{
                    </Box>
                     <br />
                   <Box>
+                   
                     <InputGroup>
+                    
                         <Input  width='35rem' 
                         focusBorderColor='lime' 
                         type="text" id="text" 
@@ -148,8 +152,9 @@ const [password2,setPassword2] = useState(()=>{
                     </InputGroup>
                   </Box>
                     <br />
-                 
+                   
                     <InputGroup>
+                    
                         <Input  width='35rem' 
                         focusBorderColor='lime' 
                         type="text" id="text" 
@@ -175,7 +180,9 @@ const [password2,setPassword2] = useState(()=>{
                  
                     <br />
                     <Box>
+                    
                      <InputGroup>
+                    
                         <Input border='1px solid black' 
                         focusBorderColor='lime' 
                          width='35rem' 

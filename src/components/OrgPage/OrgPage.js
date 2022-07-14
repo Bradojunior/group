@@ -35,7 +35,7 @@ const OrgPage = () =>{
                 <Stack ml='16.5rem' bg='whitesmoke' h='91vh'  w='80.5%'>
                     <Heading fontSize='1.5rem'>Dashboard</Heading>
                     <Box w='99%' h='9rem' bg='#ffff' boxShadoow='md' ml='2rem'>
-                        <Heading ml='2rem' fontSize='1.2rem'>Quik Overview</Heading>
+                        <Heading ml='2rem' fontSize='1.2rem'>Quick Overview</Heading>
                         <Flex ml='8rem'>
                             <Box justifyContent='center' alignItems='center' mt='1rem'>
                                 <AiOutlineDownload style={color} size={35}/>
@@ -58,7 +58,7 @@ const OrgPage = () =>{
                             <Box justifyContent='center' alignItems='center' mt='1rem' ml='6rem'>
                                 <AiOutlineMessage style={colorsss} size={35}/>
                                 <Heading fontSize='1.5rem' ml='2.5rem'>13</Heading>
-                                <Text>Stuudents Reports</Text>
+                                <Text>Students Reports</Text>
                             </Box>
                         </Flex>
                         <Flex mt='2rem' ml='1rem'>
