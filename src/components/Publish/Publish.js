@@ -1,64 +1,169 @@
-import OrgSidebar from '../OrgSidebar/OrgSidebar'
-import OrgNav from '../OrgNav/OrgNav'
-import {Link} from "react-router-dom"
-import { Flex,Box,Heading, Image,  Text,  Stack } from '@chakra-ui/react'
+import OrgSidebar from "../OrgSidebar/OrgSidebar";
+import OrgNav from "../OrgNav/OrgNav";
+import { Link } from "react-router-dom";
+import { Flex, Box, Heading, Spinner } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import React from "react"
+import axios from "axios";
 import {
-    FormControl,
-    FormLabel,
-    Input,
-    Button,
-    Textarea
-  } from '@chakra-ui/react'
-  import { ChevronRightIcon} from '@chakra-ui/icons'
-  import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbSeparator,
-  } from '@chakra-ui/react'
-const Publish = () =>{
-    return(
-        <>
-        <OrgSidebar/>
-            <OrgNav/>
-            <Stack  ml='16.5rem' bg='whitesmoke' h='91vh'  w='80.5%'>
-                <Heading fontSize='1.5rem'>Create Quiz</Heading>
-                    <Breadcrumb pl='20rem' mb='1rem' spacing='8px' separator={<ChevronRightIcon color='gray.500' size={40}/>}>
-                    <BreadcrumbItem>
-                        <BreadcrumbLink fontSize='1.5rem' href='/CreateQuiz'>Basic Information</BreadcrumbLink>
-                    </BreadcrumbItem>
- 
-                    <BreadcrumbItem>
-                        <BreadcrumbLink fontSize='1.5rem' href='/OrgQuestions'>Questions</BreadcrumbLink>
-                    </BreadcrumbItem>
+  useDisclosure,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  AlertDialogCloseButton,
+} from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Textarea,
+} from "@chakra-ui/react";
 
-                    <BreadcrumbItem isCurrentPage>
-                        <BreadcrumbLink fontSize='1.5rem' href='/Publish'>Publish</BreadcrumbLink>
-                    </BreadcrumbItem>
-                    </Breadcrumb>
-                    <Box ml='20rem' bg='white' w='100%' h='30rem' boxShadow='xl'  mt='2rem'>
-                    <Heading fontSize='2rem' ml='29rem' pt='2rem'>Summary</Heading>
-                        <Text ml='29rem'>Get Ready To Publish</Text>
-                        <FormControl mt='1rem'>
-                            <FormLabel htmlFor='email'>Tittle</FormLabel>
-                            <Input id='email' type='text' placeholder='Elementary Science Quiz-Know Your Body Parts'/>
-                        </FormControl>
-                        <FormControl mt='1rem'>
-                            <FormLabel htmlFor='email'>Questions</FormLabel>
-                            <Input id='email' type='text' placeholder='60 Questions'/>
-                        </FormControl>
-                        <FormControl mt='1rem'>
-                            <FormLabel htmlFor='email'>Duration</FormLabel>
-                            <Input id='email' type='text' placeholder='Quiz Last for 45min'/>
-                        </FormControl>
-                        <Flex columnGap='10rem' justifyContent='center' mt='4rem'>
-                            <Link to='/OrgQuestions'><Button w='6rem'  colorScheme='blue' >Back</Button></Link>
-                            <Link to='#'><Button w='6rem' colorScheme='blue' >Publish</Button></Link>
-                        </Flex>
-                    </Box>
-                    
-            </Stack>
-        </>
-    )
-}
-export default Publish
+const Publish = () => {
+  const token = localStorage.getItem("token");
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const cancelRef = React.useRef()
+  const [loading, setLoading] = useState(false);
+  const [title, setTitle] = useState("");
+  const [question, setQuestion] = useState("");
+  const [duration, setTeDuration] = useState("");
+  const [tester, setTTesters] = useState("");
+  const id = localStorage.getItem("id");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          `https://evening-dusk-96253.herokuapp.com/api/quiz/set/${id}`,
+          {
+            headers: {
+              Authorization: token,
+              "Content-type": "Application/json",
+            },
+          }
+        );
+        setTitle(res.data.data.title);
+        setQuestion(res.data.data.questions);
+        setTeDuration(res.data.data.duration);
+        setTTesters(res.data.data.testers);
+        console.log(res);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <>
+      <OrgSidebar />
+      <OrgNav />
+
+      <Box
+        ml="20rem"
+        bg="white"
+        w="71%"
+        h="83vh"
+        boxShadow="2xl"
+        mt="2rem"
+        rounded="xl"
+      >
+        <Heading fontSize="2rem" ml="19rem" pt="2rem">
+          Summary of test created
+        </Heading>
+        <FormControl mt="1rem" ml="4rem">
+          <FormLabel htmlFor="email">Tittle</FormLabel>
+          <Input
+            w="50rem"
+            value={title}
+            type="text"
+            placeholder="Title of your quiz"
+          />
+        </FormControl>
+        <FormControl mt="1rem" ml="4rem">
+          <FormLabel htmlFor="email">Questions</FormLabel>
+          <Input
+            type="text"
+            value={question}
+            w="50rem"
+            placeholder="60 Questions"
+          />
+        </FormControl>
+        <FormControl mt="1rem" ml="4rem">
+          <FormLabel>Duration</FormLabel>
+          <Input
+            w="50rem"
+            type="text"
+            value={duration}
+            placeholder="Quiz Last for 45min"
+          />
+        </FormControl>
+        <FormControl mt="1rem" ml="4rem">
+          <FormLabel htmlFor="email">Added Testers</FormLabel>
+          <Input
+            id="email"
+            type="email"
+            value={tester}
+            w="50rem"
+            placeholder="Email of added testers"
+          />
+        </FormControl>
+        <Flex columnGap="10rem" justifyContent="center" mt="4rem">
+          <Link to="/OrgQuestions">
+            <Button w="6rem" colorScheme="blue">
+              Back
+            </Button>
+          </Link>
+          <Link to="#">
+            <Button w="6rem" colorScheme="blue" onClick={onOpen}>
+              Publish
+            </Button>
+            <AlertDialog
+              motionPreset="slideInBottom"
+              leastDestructiveRef={cancelRef}
+              onClose={onClose}
+              isOpen={isOpen}
+              isCentered
+            >
+              <AlertDialogOverlay />
+
+              <AlertDialogContent>
+                <AlertDialogHeader>Publish Quiz?</AlertDialogHeader>
+                <AlertDialogCloseButton />
+                <AlertDialogBody>
+                  Are you sure you want to publish this  test?
+                </AlertDialogBody>
+                <AlertDialogFooter>
+                  <Button ref={cancelRef} onClick={onClose}>
+                    No
+                  </Button>
+                  <Link to="/CreateQuiz">
+                    <Button colorScheme="red" ml={3}>
+                      Yes
+                    </Button>
+                  </Link>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </Link>
+        </Flex>
+      </Box>
+    </>
+  );
+};
+export default Publish;
+
+//const [data, setData] = useState("");
+
+//useEffect(() => {
+//const fetchData = async () => {
+//const res = await axios.get("url");
+//console.log(res);
+//setData(res);
+// }
+// fetchData();
+// }, [])

@@ -15,11 +15,7 @@ export const SidebarData = [
         icon:<MdQuiz size={50}/>,
         link:"/CreateQuiz"
     },
-    {
-        title:"Add Testers",
-        icon:<RiAddCircleFill size={50}/>,
-        link:"/AddTesters"
-    },
+   
     
     {
         title:"Help",

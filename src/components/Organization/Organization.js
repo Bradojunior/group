@@ -40,6 +40,7 @@ const Organization = () => {
         "https://arcane-bayou-79576.herokuapp.com/api/users/register/org",
         { ...values }
       );
+      localStorage.setItem("orgname", user.data.orgname)
       setLoading(false)
       toast({
         title: "Account Created",
@@ -50,6 +51,7 @@ const Organization = () => {
         position: "top",
         isClosable: true,
       });
+      localStorage.setItem("token", user.data.token);
       navigate("/OrgPage");
       formik.resetForm();
     } catch (err) {

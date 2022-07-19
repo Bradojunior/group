@@ -55,8 +55,8 @@ const Home = () => {
         isClosable: true,
       });
       console.log(user);
-
       localStorage.setItem("token", user.data.token);
+      localStorage.setItem("orgname", user.data.orgname);
       navigate("/OrgPage");
       formik.resetForm();
     } catch (err) {
