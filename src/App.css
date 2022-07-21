@@ -20,7 +20,15 @@ Input.input-error{
   margin-top: .5rem;
   margin-left:3rem;
 }
-
+.port{
+  color:red;
+  position:absolute;
+}
+.pot{
+  color:red;
+  position:absolute;
+  margin-left: 4rem;
+}
 .redish{
   position:absolute;
   color:red;

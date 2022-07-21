@@ -43,7 +43,7 @@ const Home = () => {
     setLoading(true);
     try {
       const user = await axios.post(
-        "https://arcane-bayou-79576.herokuapp.com/api/users/login/org",
+        "https://evening-dusk-96253.herokuapp.com/api/users/login/org",
         { ...values }
       );
       toast({
@@ -56,7 +56,7 @@ const Home = () => {
       });
       console.log(user);
       localStorage.setItem("token", user.data.token);
-      localStorage.setItem("orgname", user.data.orgname);
+      localStorage.setItem("orgname", user.data.data);
       navigate("/OrgPage");
       formik.resetForm();
     } catch (err) {

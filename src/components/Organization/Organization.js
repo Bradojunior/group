@@ -13,8 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { FiEyeOff } from "react-icons/fi";
-import { FiEye } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { useState } from "react";
@@ -37,10 +35,10 @@ const Organization = () => {
     setLoading(true);
     try {
       const user = await axios.post(
-        "https://arcane-bayou-79576.herokuapp.com/api/users/register/org",
+        "https://evening-dusk-96253.herokuapp.com/api/users/register/org",
         { ...values }
       );
-      localStorage.setItem("orgname", user.data.orgname)
+      localStorage.setItem("orgname", user.data.data)
       setLoading(false)
       toast({
         title: "Account Created",
@@ -59,12 +57,12 @@ const Organization = () => {
       toast({
         title: "Sorry Acccount Can Not Be Created",
         description: "Organisation With This Email Already Exist",
-        status: "success",
+        status: "error",
         duration: 9000,
         position: "top",
         isClosable: true,
       });
-      //    setError(err.response.data.message);
+      setLoading(false);
     }
   };
 

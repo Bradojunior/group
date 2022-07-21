@@ -32,6 +32,7 @@ const Publish = () => {
   const [question, setQuestion] = useState("");
   const [duration, setTeDuration] = useState("");
   const [tester, setTTesters] = useState("");
+  const [code, setTCode] = useState("");
   const id = localStorage.getItem("id");
 
   useEffect(() => {
@@ -50,6 +51,7 @@ const Publish = () => {
         setQuestion(res.data.data.questions);
         setTeDuration(res.data.data.duration);
         setTTesters(res.data.data.testers);
+        setTCode(res.data.data.quizCode);
         console.log(res);
       } catch (err) {
         console.log(err);
@@ -72,7 +74,7 @@ const Publish = () => {
         mt="2rem"
         rounded="xl"
       >
-        <Heading fontSize="2rem" ml="19rem" pt="2rem">
+        <Heading fontSize="2rem" ml="19rem" >
           Summary of test created
         </Heading>
         <FormControl mt="1rem" ml="4rem">
@@ -112,7 +114,16 @@ const Publish = () => {
             placeholder="Email of added testers"
           />
         </FormControl>
-        <Flex columnGap="10rem" justifyContent="center" mt="4rem">
+        <FormControl mt="1rem" ml="4rem">
+          <FormLabel >Quiz Code</FormLabel>
+          <Input
+          type='text'
+            w="50rem"
+            value={code}
+            placeholder="Code of the test"
+          />
+        </FormControl>
+        <Flex columnGap="10rem" justifyContent="center" mt='1rem' >
           <Link to="/OrgQuestions">
             <Button w="6rem" colorScheme="blue">
               Back

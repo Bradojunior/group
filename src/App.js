@@ -39,6 +39,7 @@ import ConfirmAdd from "./components/ConfirmAdd/ConfirmAdd";
 import ViewTesters from "./components/ViewTesters/ViewTesters";
 import OrgHelp from "./components/OrgHelp/OrgHelp";
 import OrgSignin from "./components/OrgSignin/OrgSignin";
+import SendMail from "./components/SendMail/SendMail";
 import { IsuserLogged } from "./context/UsersContext";
 
 function App() {
@@ -80,7 +81,7 @@ function App() {
             <Route path="/CreateQuiz" element={<CreateQuiz />} />
             <Route path="/OrgQuestions" element={<OrgQuestions />} />
             <Route path="/Publish" element={<Publish />} />
-
+            <Route path="/SendMail" element={<SendMail />} />
             <Route path="/ConfirmAdd" element={<ConfirmAdd />} />
             <Route path="/ViewTesters" element={<ViewTesters />} />
             <Route path="/OrgHelp" element={<OrgHelp />} />

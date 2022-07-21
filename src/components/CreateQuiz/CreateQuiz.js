@@ -29,6 +29,14 @@ const CreateQuiz = () => {
   const [time, setTime] = useState("00:01:00.000");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState(false);
+
+
+  const [errMessage, setErrMessage] = useState(null)
+
+
   const [instruction, setInstruction] = useState("");
   const onTimeChange = (event, value) => {
     const newTime = value.replace(/-/g, ":");
@@ -57,12 +65,17 @@ const CreateQuiz = () => {
         position: "top",
         isClosable: true,
       });
+      
       console.log(response);
      localStorage.setItem("id", response.data.data._id)
      navigate("/OrgQuestions");
      
     } catch (err) {
       console.log(err);
+      console.log(err.response.data.instruction, err.response.data.title)
+      setErrMessage(err.response.data.title)
+      setMessage(err.response.data.instruction)
+      setError(true)
        toast({
       title: "Failed",
       description: "Something Went Wrong Please Try Again",
@@ -105,6 +118,8 @@ const CreateQuiz = () => {
               setName(event.target.value);
             }}
           />
+          {error && <p className='port'>{errMessage}</p>}
+          
         </FormControl>
         <FormLabel mt="1rem" htmlFor="email" ml="4rem">
           Instructions
@@ -119,6 +134,7 @@ const CreateQuiz = () => {
             setInstruction(event.target.value);
           }}
         />
+        {error && <p className='pot'>{message}</p>}
         <FormControl mt="1rem" ml="4rem">
           <FormLabel htmlFor="email">Add Testers</FormLabel>
           <Input
