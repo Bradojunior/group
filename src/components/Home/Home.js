@@ -26,11 +26,18 @@ const Home = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("", { quizCode: code, email });
+      const res = await axios.post(
+        "https://evening-dusk-96253.herokuapp.com/api/quiz/verify",
+        { quizCode: code, email }
+      );
+      console.log(res);
+      localStorage.setItem("quizCode", res.data.data.quizCode)
     } catch (err) {
       console.log(err);
     }
-   setLoading(false);
+    setLoading(false);
+    setEmail('');
+    setCode('');
   };
   return (
     <>

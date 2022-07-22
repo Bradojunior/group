@@ -38,6 +38,7 @@ const Home = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const [error, setError] = useState(false);
+  const [errorMessage, setErrormessage] = useState(false);
   const [loading, setLoading] = useState(false);
   const onSubmit = async (values) => {
     setLoading(true);
@@ -60,6 +61,9 @@ const Home = () => {
       navigate("/OrgPage");
       formik.resetForm();
     } catch (err) {
+      console.log(err);
+      setError(true);
+      setErrormessage(err.response.data.isVerified);
       toast({
         title: "Login Failed",
         description: "Invalid Password or Email",
@@ -68,7 +72,7 @@ const Home = () => {
         position: "top",
         isClosable: true,
       });
-      setError(err.response.data);
+      
     }
     setLoading(false);
   };
@@ -163,6 +167,7 @@ const Home = () => {
               <Heading fontSize="1.5rem">Continue With Google</Heading>
             </Flex>
           </Button>
+          {error && <p className='potes'>{errorMessage}</p>}
           <Box bg="#042A37" color="white" textAlign="center" mt="3rem">
             <Heading
               as="h1"

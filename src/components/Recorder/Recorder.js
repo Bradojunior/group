@@ -4,7 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import questions from "../../questions.json";
 import { useState, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import Timer from "simple-circle-timer";
 import React from "react";
 import {
@@ -89,25 +89,22 @@ const Recorder = () => {
   const pop = { fontSize: "6rem", backgroundColor: "white" };
 
   useEffect(() => {
-    const fetchData = async () =>{
-      try{
-        const res = await axios.get(``)
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(``);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
+    };
     fetchData();
   }, []);
-
-
-
 
   return (
     <>
       <div className={rec.recorder}>
         <div className={rec.firstrec}>
           <img src="images/logo.png" alt="" />
-          <h3>{questions[questionIndex].question}</h3>
+          <h3>{questions[questionIndex].question}</h3> 
           <div className={rec.choose}>
             {questions[questionIndex].options.map((option) => (
               <div>

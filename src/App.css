@@ -29,6 +29,11 @@ Input.input-error{
   position:absolute;
   margin-left: 4rem;
 }
+.potes{
+  color:red;
+  position:absolute;
+  
+}
 .redish{
   position:absolute;
   color:red;
