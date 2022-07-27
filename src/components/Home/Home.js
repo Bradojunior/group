@@ -1,6 +1,7 @@
 import { BsFillArrowRightSquareFill } from "react-icons/bs";
 import First from "../First/First";
 import Footer from "../Footer/Footer";
+import { useNavigate } from "react-router-dom";
 import {
   Stack,
   Flex,
@@ -19,9 +20,12 @@ import { useState } from "react";
 import axios from "axios";
 const Home = () => {
   const [isNotSmallerScreen] = useMediaQuery("(min-width:680px)");
+    const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState(false);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -30,14 +34,18 @@ const Home = () => {
         "https://evening-dusk-96253.herokuapp.com/api/quiz/verify",
         { quizCode: code, email }
       );
+      navigate("/Recorder")
       console.log(res);
       localStorage.setItem("quizCode", res.data.data.quizCode)
+      localStorage.setItem("email", res.data.data.email)
     } catch (err) {
       console.log(err);
+      setError(true);
+      setMessage(err.response.data.message);
+      
     }
     setLoading(false);
-    setEmail('');
-    setCode('');
+    
   };
   return (
     <>
@@ -116,8 +124,8 @@ const Home = () => {
               w="30rem"
               w={[300, 600, 500]}
             />
-
-            <Box my="1rem">
+              {error && <p className='potes'>{message}</p>}
+            <Box my="2rem">
               <Input
                 type="text"
                 color="white"
