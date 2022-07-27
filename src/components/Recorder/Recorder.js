@@ -23,14 +23,12 @@ import {
   AlertDialogCloseButton,
 } from "@chakra-ui/react";
 
-import Countdown from "react-countdown";
+import CountDown from "../CountDown/CountDown";
 
 const Recorder = () => {
   const quizCode = localStorage.getItem("quizCode");
   const email = localStorage.getItem("email");
-  const [timerExists, setTimeAllowedExists] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [reset, setReset] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
   const [questionNo, setQuestionNo] = useState(1);
@@ -38,29 +36,41 @@ const Recorder = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const [timeAllowed, setTimeAllowed] = useState("");
   const [timeInMilliSecs, setTimeInMilliSecs] = useState(0);
+  const [countDown, setCountDown] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
+        if(questions.length === 0){
+          const res = await axios.get(
           `https://evening-dusk-96253.herokuapp.com/api/quiz/test/${quizCode}`
         );
         setQuestions(res.data.data);
         const time = res.data.message.split(" ");
-        setTimeAllowed(time[time.length - 1]);
-        setTimeInMilliSecs(getTimeInSecs(timeAllowed));
-        console.log(res);
+        setTimeAllowed("1:00");
+        // setTimeAllowed(time[time.length - 1]);
+      }
       } catch (err) {
         console.log(err);
       }
     };
-    fetchData();
-  }, []);
+    fetchData()
+      const t = getTimeInSecs(timeAllowed);
+      console.log(timeAllowed)
+    const day = new Date();
+      const examTime = new Date();
+      const time = examTime.getTime();
+      const examTimeInMilliSecs = time + t;
+      examTime.setTime(examTimeInMilliSecs);
+      const futureTime = examTime.getTime();
+      setCountDown(60);
+      setTimeInMilliSecs(futureTime);
+
+  }, [timeAllowed]);
 
   useEffect(() => {
     if (questions.length > 0) {
-      console.log("questions have arrived");
       let arr = [];
       const questionObj = questions.map((question) => {
         arr.push(undefined);
@@ -70,6 +80,11 @@ const Recorder = () => {
       setUserAnswers(arr);
     }
   }, [questions]);
+
+  // useEffect(() => {
+  //   if(countDown <= 0 && questions.length > 0)
+  //   handleSubmit();
+  // }, [countDown])
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -155,7 +170,10 @@ const Recorder = () => {
         if (i === 0) secs += +arr[i] * 3600;
         else if (i === 1) secs += +arr[i] * 60;
         else secs += +arr[i];
-      }
+      } else if(arr.length === 2) {
+        if(i === 0) secs += +arr[i] *60;
+        else if(i === 1) secs += +arr[i];
+      } 
     }
     return secs * 1000;
   };
@@ -165,6 +183,16 @@ const Recorder = () => {
     console.log(timeAllowed);
     console.log(timeInMilliSecs);
   };
+
+  const handleCountDown = () => {
+    let count = countDown;
+    if(count >= 0) {
+      setInterval(() => {
+      setCountDown(prevState => --prevState)
+    }, 1000)
+  }
+    return count;
+  }
 
   const pop = { fontSize: "6rem", backgroundColor: "white" };
 
@@ -235,8 +263,10 @@ const Recorder = () => {
                 />
               ) : null} */}
               <CircularProgressbarWithChildren
-                value={50}
-                maxValue={100}
+                value={handleCountDown()}
+                minValue={0}
+                // maxValue={getTimeInSecs(timeAllowed)}
+                maxValue={getTimeInSecs("1:00")}
                 strokeLinecap="round"
                 styles={buildStyles({
                   pathColor: `rgba(62, 152, 199, ${50 / 100})`,
@@ -245,8 +275,8 @@ const Recorder = () => {
                   backgroundColor: "#3e98c7",
                 })}
               >
-                {questions.length > 0 ? (
-                  <Countdown date={Date.now() + timeInMilliSecs} />
+                {(questions.length > 0 && timeInMilliSecs > 0) ? (
+                  <CountDown timeAllowed={timeInMilliSecs} />
                 ) : (
                   <Spinner size="md" />
                 )}
