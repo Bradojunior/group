@@ -33,56 +33,89 @@ const Recorder = () => {
   const [questionNo, setQuestionNo] = useState(1);
   const [questionState, setQuestionState] = useState([]);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [timeAllowed, setTimeAllowed] = useState("");
+  const [timeAllowed, setTimeAllowed] = useState(0);
   const [timeInMilliSecs, setTimeInMilliSecs] = useState(0);
   const [countDown, setCountDown] = useState(0);
+  const [timeUp, setTimeUp] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if (questions.length === 0) {
-          const res = await axios.get(
-            `https://evening-dusk-96253.herokuapp.com/api/quiz/test/${quizCode}`
-          );
-          setQuestions(res.data.data);
-          const time = res.data.message.split(" ");
-          // setTimeAllowed('1:00');
-          setTimeAllowed(time[time.length - 1]);
-        }
+        const res = await axios.get(
+          `https://evening-dusk-96253.herokuapp.com/api/quiz/test/${quizCode}`
+        );
+        setQuestions(res.data.data);
+        const time = res.data.message.split(" ");
+        // setTimeAllowed("1:00");
+        let arr = [];
+        const questionObj = res.data.data.map((question) => {
+          arr.push(undefined);
+          return { isAnswered: false, userAnswer: "" };
+        });
+        setQuestionState(questionObj);
+        setUserAnswers(arr);
+        getTimeInMs("1:00").then((response) => {
+          setTimeAllowed(response / 1000);
+          const day = new Date();
+          const examTime = new Date();
+          const time = examTime.getTime();
+          const examTimeInMilliSecs = time + response;
+          examTime.setTime(examTimeInMilliSecs);
+          const futureTime = examTime.getTime();
+          // countDown.current = 60;
+          setCountDown(response / 1000);
+          setTimeInMilliSecs(futureTime);
+        });
+        // setTimeAllowed(time[time.length - 1]);
       } catch (err) {
         console.log(err);
       }
     };
     fetchData();
-    const t = getTimeInSecs(timeAllowed);
-    console.log(timeAllowed);
-    const day = new Date();
-    const examTime = new Date();
-    const time = examTime.getTime();
-    const examTimeInMilliSecs = time + t;
-    examTime.setTime(examTimeInMilliSecs);
-    const futureTime = examTime.getTime();
-    setCountDown(timeAllowed);
-    setTimeInMilliSecs(futureTime);
-  }, [timeAllowed]);
+  }, []);
+
+  let count, timeEnded;
 
   useEffect(() => {
-    if (questions.length > 0) {
-      let arr = [];
-      const questionObj = questions.map((question) => {
-        arr.push(undefined);
-        return { isAnswered: false, userAnswer: "" };
-      });
-      setQuestionState(questionObj);
-      setUserAnswers(arr);
+    let i;
+    if (timeAllowed > 0) {
+      count = countDown;
+      timeEnded = false;
+      if (!timeEnded) i = setInterval(handleCountDown, 1000);
+      else {
+        clearInterval(i);
+        // handleSubmit();
+      }
     }
-  }, [questions]);
+  }, [timeAllowed]);
+
+  const handleCountDown = () => {
+    if (count > 0) {
+      console.log("countDown is " + count);
+      --count;
+      // setCountDown(--countDown);
+    } else {
+      timeEnded = true;
+      handleSubmit();
+      console.log("time up");
+    }
+  };
+
+  // const handleCountDown = () => {
+  //   setInterval(() => {
+  //     if (countDown > 0) {
+  //       setCountDown((prevState) => --prevState);
+  //     } else {
+  //       console.log("get out fool!!!");
+  //     }
+  //   }, 1000);
+  //   // handleSubmit();
+  // };
 
   // useEffect(() => {
-  //   if(countDown <= 0 && questions.length > 0)
-  //   handleSubmit();
-  // }, [countDown])
+  //   timeUp && handleSubmit();
+  // }, [timeUp]);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -150,36 +183,29 @@ const Recorder = () => {
     setQuestionNo(questionNumber);
   };
 
-  const getTimeInSecs = (time) => {
-    let arr = time.split(":");
-    let secs = 0;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr.length === 3) {
-        if (i === 0) secs += +arr[i] * 3600;
-        else if (i === 1) secs += +arr[i] * 60;
-        else secs += +arr[i];
-      } else if (arr.length === 2) {
-        if (i === 0) secs += +arr[i] * 60;
-        else if (i === 1) secs += +arr[i];
+  const getTimeInMs = (time) => {
+    return new Promise((resolve, reject) => {
+      let arr = time.split(":");
+      let secs = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr.length === 3) {
+          if (i === 0) secs += +arr[i] * 3600;
+          else if (i === 1) secs += +arr[i] * 60;
+          else secs += +arr[i];
+        } else if (arr.length === 2) {
+          if (i === 0) secs += +arr[i] * 60;
+          else if (i === 1) secs += +arr[i];
+        }
       }
-    }
-    return secs * 1000;
+      resolve(secs * 1000);
+    });
   };
 
   const showAnswers = () => {
     console.log(userAnswers);
     console.log(timeAllowed);
     console.log(timeInMilliSecs);
-  };
-
-  const handleCountDown = () => {
-    let count = countDown;
-    if (count >= 0) {
-      setInterval(() => {
-        setCountDown((prevState) => --prevState);
-      }, 1000);
-    }
-    return count;
+    console.log("countDown value is: " + countDown);
   };
 
   const pop = { fontSize: "6rem", backgroundColor: "white" };
@@ -241,34 +267,33 @@ const Recorder = () => {
         <div className={rec.secondrec}>
           <div>
             <div className={rec.timer}>
-              {/* {timerExists ? (
-                <Timer
-                  running={running}
-                  setRunning={setRunning}
-                  reset={reset}
-                  setReset={setReset}
-                  minutes={50}
-                />
-              ) : null} */}
-              <CircularProgressbarWithChildren
-                value={handleCountDown()}
-                minValue={0}
-                maxValue={getTimeInSecs(timeAllowed)}
-                // maxValue={getTimeInSecs("1:00")}
-                strokeLinecap="round"
-                styles={buildStyles({
-                  pathColor: `rgba(62, 152, 199, ${50 / 100})`,
-                  textColor: "#f88",
-                  trailColor: "#d6d6d6",
-                  backgroundColor: "#3e98c7",
-                })}
-              >
-                {questions.length > 0 && timeInMilliSecs > 0 ? (
+              {questions.length > 0 && timeInMilliSecs > 0 ? (
+                <CircularProgressbarWithChildren
+                  value={count}
+                  minValue={0}
+                  maxValue={timeAllowed}
+                  strokeLinecap="butt"
+                  styles={{
+                    path: {
+                      stroke: `rgba(62, 152, 199, ${
+                        (count / timeAllowed) * 100
+                      })`,
+                      strokeLinecap: "butt",
+                      transition: "stroke-dashoffset 0.5s ease 0s",
+                      transformOrigin: "center center",
+                    },
+                    trail: {
+                      stroke: "#d6d6d6",
+                      strokeLinecap: "butt",
+                      transformOrigin: "center center",
+                    },
+                  }}
+                >
                   <CountDown timeAllowed={timeInMilliSecs} />
-                ) : (
-                  <Spinner size="md" />
-                )}
-              </CircularProgressbarWithChildren>
+                </CircularProgressbarWithChildren>
+              ) : (
+                <Spinner size="md" />
+              )}
             </div>
           </div>
 
