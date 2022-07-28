@@ -97,8 +97,8 @@ const Home = () => {
         .required("password is required"),
       remember: yup
         .boolean()
-        .oneOf([true], "Please Agree To All Terms & Conditions")
-        .required("Required"),
+        .oneOf([true], )
+        
     }),
     onSubmit,
   });

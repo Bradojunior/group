@@ -1,11 +1,10 @@
 import rec from "./Recorder.module.css";
 import RecorderItem from "../RecorderItem/RecorderItem";
-import { CgProfile } from "react-icons/cg";
-import { Link } from "react-router-dom";
+
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Timer from "simple-circle-timer";
+
 import {
   CircularProgressbarWithChildren,
   buildStyles,
@@ -42,31 +41,30 @@ const Recorder = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if(questions.length === 0){
+        if (questions.length === 0) {
           const res = await axios.get(
-          `https://evening-dusk-96253.herokuapp.com/api/quiz/test/${quizCode}`
-        );
-        setQuestions(res.data.data);
-        const time = res.data.message.split(" ");
-        setTimeAllowed("1:00");
-        // setTimeAllowed(time[time.length - 1]);
-      }
+            `https://evening-dusk-96253.herokuapp.com/api/quiz/test/${quizCode}`
+          );
+          setQuestions(res.data.data);
+          const time = res.data.message.split(" ");
+          // setTimeAllowed('1:00');
+          setTimeAllowed(time[time.length - 1]);
+        }
       } catch (err) {
         console.log(err);
       }
     };
-    fetchData()
-      const t = getTimeInSecs(timeAllowed);
-      console.log(timeAllowed)
+    fetchData();
+    const t = getTimeInSecs(timeAllowed);
+    console.log(timeAllowed);
     const day = new Date();
-      const examTime = new Date();
-      const time = examTime.getTime();
-      const examTimeInMilliSecs = time + t;
-      examTime.setTime(examTimeInMilliSecs);
-      const futureTime = examTime.getTime();
-      setCountDown(60);
-      setTimeInMilliSecs(futureTime);
-
+    const examTime = new Date();
+    const time = examTime.getTime();
+    const examTimeInMilliSecs = time + t;
+    examTime.setTime(examTimeInMilliSecs);
+    const futureTime = examTime.getTime();
+    setCountDown(timeAllowed);
+    setTimeInMilliSecs(futureTime);
   }, [timeAllowed]);
 
   useEffect(() => {
@@ -95,7 +93,7 @@ const Recorder = () => {
       );
       console.log(submit);
       localStorage.setItem("message", submit.data.message);
-      navigate('/QuizComplete')
+      navigate("/QuizComplete");
     } catch (err) {
       console.log(err);
     }
@@ -104,16 +102,6 @@ const Recorder = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef();
-
-  // const mountPaused = () => {
-  //   setTimeAllowedExists(true);
-  //   setRunning(false);
-  // };
-
-  // const mountRunning = () => {
-  //   setTimeAllowedExists(true);
-  //   setRunning(true);
-  // };
 
   let numberOfQuestions = [];
   for (let i = 1; i <= questions.length; i++) {
@@ -170,10 +158,10 @@ const Recorder = () => {
         if (i === 0) secs += +arr[i] * 3600;
         else if (i === 1) secs += +arr[i] * 60;
         else secs += +arr[i];
-      } else if(arr.length === 2) {
-        if(i === 0) secs += +arr[i] *60;
-        else if(i === 1) secs += +arr[i];
-      } 
+      } else if (arr.length === 2) {
+        if (i === 0) secs += +arr[i] * 60;
+        else if (i === 1) secs += +arr[i];
+      }
     }
     return secs * 1000;
   };
@@ -186,13 +174,13 @@ const Recorder = () => {
 
   const handleCountDown = () => {
     let count = countDown;
-    if(count >= 0) {
+    if (count >= 0) {
       setInterval(() => {
-      setCountDown(prevState => --prevState)
-    }, 1000)
-  }
+        setCountDown((prevState) => --prevState);
+      }, 1000);
+    }
     return count;
-  }
+  };
 
   const pop = { fontSize: "6rem", backgroundColor: "white" };
 
@@ -265,8 +253,8 @@ const Recorder = () => {
               <CircularProgressbarWithChildren
                 value={handleCountDown()}
                 minValue={0}
-                // maxValue={getTimeInSecs(timeAllowed)}
-                maxValue={getTimeInSecs("1:00")}
+                maxValue={getTimeInSecs(timeAllowed)}
+                // maxValue={getTimeInSecs("1:00")}
                 strokeLinecap="round"
                 styles={buildStyles({
                   pathColor: `rgba(62, 152, 199, ${50 / 100})`,
@@ -275,7 +263,7 @@ const Recorder = () => {
                   backgroundColor: "#3e98c7",
                 })}
               >
-                {(questions.length > 0 && timeInMilliSecs > 0) ? (
+                {questions.length > 0 && timeInMilliSecs > 0 ? (
                   <CountDown timeAllowed={timeInMilliSecs} />
                 ) : (
                   <Spinner size="md" />
@@ -322,27 +310,26 @@ const Recorder = () => {
                   <Button ref={cancelRef} onClick={onClose}>
                     No
                   </Button>
-                
-                  {!loading ? 
-                  (<Button
-                    colorScheme="red"
-                    type="submit"
-                    ml={3}
-                    onClick={handleSubmit}
-                  >
-                    Yes
-                  </Button>)
-                  :
-                  (<Button
-                    colorScheme="red"
-                    type="submit"
-                    ml={3}
-                    onClick={handleSubmit}
-                  >
-                   <Spinner size="md" />
-                  </Button>)
-                  }
-                 
+
+                  {!loading ? (
+                    <Button
+                      colorScheme="red"
+                      type="submit"
+                      ml={3}
+                      onClick={handleSubmit}
+                    >
+                      Yes
+                    </Button>
+                  ) : (
+                    <Button
+                      colorScheme="red"
+                      type="submit"
+                      ml={3}
+                      onClick={handleSubmit}
+                    >
+                      <Spinner size="md" />
+                    </Button>
+                  )}
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>

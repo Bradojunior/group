@@ -34,7 +34,7 @@ const Home = () => {
         "https://evening-dusk-96253.herokuapp.com/api/quiz/verify",
         { quizCode: code, email }
       );
-      navigate("/Recorder")
+      navigate("/Description")
       console.log(res);
       localStorage.setItem("quizCode", res.data.data.quizCode)
       localStorage.setItem("email", res.data.data.email)

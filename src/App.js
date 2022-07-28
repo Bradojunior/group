@@ -40,6 +40,7 @@ import ViewTesters from "./components/ViewTesters/ViewTesters";
 import OrgHelp from "./components/OrgHelp/OrgHelp";
 import OrgSignin from "./components/OrgSignin/OrgSignin";
 import SendMail from "./components/SendMail/SendMail";
+import Description from "./components/Description/Description";
 import { IsuserLogged } from "./context/UsersContext";
 
 function App() {
@@ -86,6 +87,7 @@ function App() {
             <Route path="/ViewTesters" element={<ViewTesters />} />
             <Route path="/OrgHelp" element={<OrgHelp />} />
             <Route path="/OrgSignin" element={<OrgSignin />} />
+            <Route path="/Description" element={<Description />} />
           </Routes>
         </IsuserLogged>
       </div>
