@@ -35,7 +35,9 @@ const Recorder = () => {
   const [userAnswers, setUserAnswers] = useState([]);
   const [timeAllowed, setTimeAllowed] = useState(0);
   const [timeInMilliSecs, setTimeInMilliSecs] = useState(0);
-  const [countDown, setCountDown] = useState(0);
+  // const [countDown, setCountDown] = useState(0);
+  const [progressBar, setProgressBar] = useState(0);
+  let countDown = useRef(0);
   const [timeUp, setTimeUp] = useState(false);
   const navigate = useNavigate();
 
@@ -45,11 +47,12 @@ const Recorder = () => {
         const res = await axios.get(
           `https://evening-dusk-96253.herokuapp.com/api/quiz/test/${quizCode}`
         );
-        setQuestions(res.data.data);
-        const time = res.data.message.split(" ");
+        console.log(res);
+        setQuestions(res.data.data.questions);
+        const time = res.data.data.time;
         // setTimeAllowed("1:00");
         let arr = [];
-       const questionObj = res.data.data.map((question) => {
+        const questionObj = res.data.data.questions.map((question) => {
           arr.push(undefined);
           return { isAnswered: false, userAnswer: "" };
         });
@@ -63,8 +66,8 @@ const Recorder = () => {
           const examTimeInMilliSecs = time + response;
           examTime.setTime(examTimeInMilliSecs);
           const futureTime = examTime.getTime();
-          // countDown.current = 60;
-          setCountDown(response / 1000);
+          countDown.current = response / 1000;
+          // setCountDown(response / 1000);
           setTimeInMilliSecs(futureTime);
         });
         // setTimeAllowed(time[time.length - 1]);
@@ -75,47 +78,27 @@ const Recorder = () => {
     fetchData();
   }, []);
 
-  let count, timeEnded;
-
   useEffect(() => {
     let i;
     if (timeAllowed > 0) {
-      count = countDown;
-      timeEnded = false;
-      if (!timeEnded) i = setInterval(handleCountDown, 1000);
-      else {
+      if (!timeUp) {
+        i = setInterval(handleCountDown, 1000);
+      } else {
+        console.log("time up");
         clearInterval(i);
-        // handleSubmit();
+        handleSubmit();
       }
     }
-  }, [timeAllowed]);
+  }, [timeAllowed, timeUp]);
 
   const handleCountDown = () => {
-    if (count > 0) {
-      console.log("countDown is " + count);
-      --count;
-      // setCountDown(--countDown);
+    if (countDown.current >= 0) {
+      setProgressBar(countDown.current);
+      countDown.current = --countDown.current;
     } else {
-      timeEnded = true;
-      handleSubmit();
-      console.log("time up");
+      setTimeUp(true);
     }
   };
-
-  // const handleCountDown = () => {
-  //   setInterval(() => {
-  //     if (countDown > 0) {
-  //       setCountDown((prevState) => --prevState);
-  //     } else {
-  //       console.log("get out fool!!!");
-  //     }
-  //   }, 1000);
-  //   // handleSubmit();
-  // };
-
-  // useEffect(() => {
-  //   timeUp && handleSubmit();
-  // }, [timeUp]);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -151,11 +134,6 @@ const Recorder = () => {
       prevState[questionNumber] = questionState[questionNumber].userAnswer;
       return [...prevState];
     });
-  };
-
-  const checkIfAnswered = (questionNo) => {
-    if (questionState[questionNo].isAnswered) return true;
-    else return false;
   };
 
   const handleClick = (action) => {
@@ -205,7 +183,7 @@ const Recorder = () => {
     console.log(userAnswers);
     console.log(timeAllowed);
     console.log(timeInMilliSecs);
-    console.log("countDown value is: " + countDown);
+    console.log("countDown value is: " + countDown.current);
   };
 
   const pop = { fontSize: "6rem", backgroundColor: "white" };
@@ -269,14 +247,14 @@ const Recorder = () => {
             <div className={rec.timer}>
               {questions.length > 0 && timeInMilliSecs > 0 ? (
                 <CircularProgressbarWithChildren
-                  value={count}
+                  value={progressBar}
                   minValue={0}
                   maxValue={timeAllowed}
                   strokeLinecap="butt"
                   styles={{
                     path: {
                       stroke: `rgba(62, 152, 199, ${
-                        (count / timeAllowed) * 100
+                        (progressBar / timeAllowed) * 100
                       })`,
                       strokeLinecap: "butt",
                       transition: "stroke-dashoffset 0.5s ease 0s",
