@@ -49,7 +49,7 @@ const Recorder = () => {
         const time = res.data.message.split(" ");
         // setTimeAllowed("1:00");
         let arr = [];
-        const questionObj = res.data.data.map((question) => {
+       const questionObj = res.data.data.map((question) => {
           arr.push(undefined);
           return { isAnswered: false, userAnswer: "" };
         });

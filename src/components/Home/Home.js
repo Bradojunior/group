@@ -38,6 +38,9 @@ const Home = () => {
       console.log(res);
       localStorage.setItem("quizCode", res.data.data.quizCode)
       localStorage.setItem("email", res.data.data.email)
+      localStorage.setItem("duration", res.data.data.duration)
+      localStorage.setItem("instruction", res.data.data.instruction)
+      localStorage.setItem("title", res.data.data.title)
     } catch (err) {
       console.log(err);
       setError(true);
