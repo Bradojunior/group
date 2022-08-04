@@ -49,7 +49,7 @@ const Recorder = () => {
         );
         console.log(res);
         setQuestions(res.data.data.questions);
-        const time = res.data.data.time;
+        const timeForQuiz = res.data.data.time;
         // setTimeAllowed("1:00");
         let arr = [];
         const questionObj = res.data.data.questions.map((question) => {
@@ -58,7 +58,7 @@ const Recorder = () => {
         });
         setQuestionState(questionObj);
         setUserAnswers(arr);
-        getTimeInMs("1:00").then((response) => {
+        getTimeInMs(timeForQuiz).then((response) => {
           setTimeAllowed(response / 1000);
           const day = new Date();
           const examTime = new Date();
@@ -88,6 +88,9 @@ const Recorder = () => {
         clearInterval(i);
         handleSubmit();
       }
+    }
+    return () => {
+      clearInterval(i);
     }
   }, [timeAllowed, timeUp]);
 
