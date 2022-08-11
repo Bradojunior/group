@@ -135,9 +135,9 @@ const CreateQuiz = () => {
           }}
         />
         {error && <p className='pot'>{message}</p>}
-        <FormControl mt="1rem" ml="4rem">
+        <FormControl  ml="4rem">
           <FormLabel htmlFor="email">Add Testers</FormLabel>
-          <Input
+          <Textarea
             id="email"
             w="50rem"
             type="text"
@@ -169,7 +169,7 @@ const CreateQuiz = () => {
             }}
           />
         </Box>
-        <Flex  mt="2rem" ml="22rem">
+        <Flex   ml="22rem">
           {!loading ? (
             <Button
               w="8rem"

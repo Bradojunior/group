@@ -22,7 +22,6 @@ const SendMail = () => {
   const handleSubmit = async () => {
     setLoading(true);
     try {
-        console.log(token);
       const response = await axios.post(
         "https://evening-dusk-96253.herokuapp.com/api/quiz/mail",
         { quizCode: code, time },
