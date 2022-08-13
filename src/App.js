@@ -12,7 +12,9 @@ import TakeQuiz from "./components/TakeQuiz/TakeQuiz";
 import QuizInstruct from "./components/QuizInstruct/QuizInstruct";
 import TestYourSelf from "./components/TestYourSelf/TestYourSelf";
 import Recorder from "./components/Recorder/Recorder";
+import Recorder2 from "./components/Recorder/Recorder2";
 import QuizComplete from "./components/QuizComplete/QuizComplete";
+import QuizComplete2 from "./components/QuizComplete/QuizComplete2";
 import QuizComplete1 from "./components/QuizComplete1/QuizComplete1";
 import Username from "./components/Username/Username";
 import Problem from "./components/Problem/Problem";
@@ -41,6 +43,7 @@ import OrgHelp from "./components/OrgHelp/OrgHelp";
 import OrgSignin from "./components/OrgSignin/OrgSignin";
 import SendMail from "./components/SendMail/SendMail";
 import Description from "./components/Description/Description";
+import Description2 from "./components/Description/Description2";
 import { IsuserLogged } from "./context/UsersContext";
 
 function App() {
@@ -60,7 +63,9 @@ function App() {
             <Route path="/QuizInstruct" element={<QuizInstruct />} />
             <Route path="/TestYourSelf" element={<TestYourSelf />} />
             <Route path="/Recorder" element={<Recorder />} />
+            <Route path="/Recorder2" element={<Recorder2 />} />
             <Route path="/QuizComplete" element={<QuizComplete />} />
+            <Route path="/QuizComplete2" element={<QuizComplete2 />} />
             <Route path="/QuizComplete1" element={<QuizComplete1 />} />
             <Route path="/Problem" element={<Problem />} />
             <Route path="/Username" element={<Username />} />
@@ -88,6 +93,7 @@ function App() {
             <Route path="/OrgHelp" element={<OrgHelp />} />
             <Route path="/OrgSignin" element={<OrgSignin />} />
             <Route path="/Description" element={<Description />} />
+            <Route path="/Description2" element={<Description2 />} />
           </Routes>
         </IsuserLogged>
       </div>
