@@ -34,6 +34,7 @@ import OrgLandingPage from "./components/OrgLandingPage/OrgLandingPage";
 import OrgSidebar from "./components/OrgSidebar/OrgSidebar";
 import OrgNav from "./components/OrgNav/OrgNav";
 import OrgPage from "./components/OrgPage/OrgPage";
+import Results from "./components/OrgPage/Results";
 import CreateQuiz from "./components/CreateQuiz/CreateQuiz";
 import OrgQuestions from "./components/OrgQuestions/OrgQuestions";
 import Publish from "./components/Publish/Publish";
@@ -84,6 +85,7 @@ function App() {
             <Route path="/OrgSidebar" element={<OrgSidebar />} />
             <Route path="/OrgNav" element={<OrgNav />} />
             <Route path="/OrgPage" element={<OrgPage />} />
+            <Route path="/Results/:quizId" element={<Results />} />
             <Route path="/CreateQuiz" element={<CreateQuiz />} />
             <Route path="/OrgQuestions" element={<OrgQuestions />} />
             <Route path="/Publish" element={<Publish />} />

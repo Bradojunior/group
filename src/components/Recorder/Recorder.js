@@ -91,7 +91,7 @@ const Recorder = () => {
     }
     return () => {
       clearInterval(i);
-    }
+    };
   }, [timeAllowed, timeUp]);
 
   const handleCountDown = () => {
