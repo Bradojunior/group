@@ -1,10 +1,6 @@
 import OrgSidebar from "../OrgSidebar/OrgSidebar";
 import OrgNav from "../OrgNav/OrgNav";
-import { AiOutlineDownload } from "react-icons/ai";
-import { PieChart } from "react-minimal-pie-chart";
-import { MdDownloading } from "react-icons/md";
-import { BsCircleFill } from "react-icons/bs";
-import { AiOutlineLoading3Quarters, AiOutlineMessage } from "react-icons/ai";
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -51,25 +47,25 @@ const OrgPage = () => {
     };
     handleSubmit();
   }, []);
-
+console.log(mark)
   return (
     <>
       <OrgSidebar />
       <OrgNav />
       <Stack ml="25rem" overflowY="hidden" h="91vh">
-        <Flex columnGap='2rem'>
-        <Heading fontSize="1.3rem" ml="3rem">
-          Search Emails
-        </Heading>
-        <Input
-          onChange={(e) => {
-            setMark(e.target.value);
-          }}
-          w="22rem"
-          h="2rem"
-          type="text"
-          placeholder="search for testers...."
-        />
+        <Flex columnGap="2rem">
+          <Heading fontSize="1.3rem" ml="3rem">
+            Search Emails
+          </Heading>
+          <Input
+            onChange={(e) => {
+              setInput(e.target.value);
+            }}
+            w="22rem"
+            h="2rem"
+            type="text"
+            placeholder="search for testers...."
+          />
         </Flex>
         <TableContainer
           mt="3rem"
@@ -108,7 +104,15 @@ const OrgPage = () => {
                     );
                   })
               ) : (
-                <Spinner size="md" />
+                <Spinner
+                  ml="23rem"
+                  mt="10rem"
+                  thickness="4px"
+                  speed="0.65s"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                />
               )}
             </Tbody>
           </Table>

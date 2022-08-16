@@ -46,6 +46,8 @@ import SendMail from "./components/SendMail/SendMail";
 import Description from "./components/Description/Description";
 import Description2 from "./components/Description/Description2";
 import { IsuserLogged } from "./context/UsersContext";
+import NotFound from "./components/NotFound/NotFound";
+
 
 function App() {
   return (
@@ -63,7 +65,7 @@ function App() {
             <Route path="/TakeQuiz" element={<TakeQuiz />} />
             <Route path="/QuizInstruct" element={<QuizInstruct />} />
             <Route path="/TestYourSelf" element={<TestYourSelf />} />
-            <Route path="/Recorder" element={<Recorder />} />
+
             <Route path="/Recorder2" element={<Recorder2 />} />
             <Route path="/QuizComplete" element={<QuizComplete />} />
             <Route path="/QuizComplete2" element={<QuizComplete2 />} />
@@ -84,7 +86,7 @@ function App() {
             <Route path="/OrgLandingPage" element={<OrgLandingPage />} />
             <Route path="/OrgSidebar" element={<OrgSidebar />} />
             <Route path="/OrgNav" element={<OrgNav />} />
-            <Route path="/OrgPage" element={<OrgPage />} />
+            <Route path="/Recorder" element={<Recorder />} />
             <Route path="/Results/:quizId" element={<Results />} />
             <Route path="/CreateQuiz" element={<CreateQuiz />} />
             <Route path="/OrgQuestions" element={<OrgQuestions />} />
@@ -96,6 +98,10 @@ function App() {
             <Route path="/OrgSignin" element={<OrgSignin />} />
             <Route path="/Description" element={<Description />} />
             <Route path="/Description2" element={<Description2 />} />
+
+            <Route path="/OrgPage" element={<OrgPage />} />
+
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </IsuserLogged>
       </div>

@@ -204,7 +204,13 @@ const Recorder = () => {
               {questions.length > 0 ? (
                 questions[questionIndex].question
               ) : (
-                <Spinner size="md" />
+                <Spinner
+                  thickness="4px"
+                  speed="0.65s"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                />
               )}
             </h3>
           </div>
@@ -233,7 +239,13 @@ const Recorder = () => {
                 </div>
               ))
             ) : (
-              <Spinner size="md" />
+              <Spinner
+                thickness="4px"
+                speed="0.65s"
+                emptyColor="gray.200"
+                color="blue.500"
+                size="xl"
+              />
             )}
           </div>
           <div className={rec.next}>
@@ -273,7 +285,13 @@ const Recorder = () => {
                   <CountDown timeAllowed={timeInMilliSecs} />
                 </CircularProgressbarWithChildren>
               ) : (
-                <Spinner size="md" />
+                <Spinner
+                  thickness="4px"
+                  speed="0.65s"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                />
               )}
             </div>
           </div>

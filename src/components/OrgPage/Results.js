@@ -1,6 +1,7 @@
 import OrgSidebar from "../OrgSidebar/OrgSidebar";
 import OrgNav from "../OrgNav/OrgNav";
 import { useState, useEffect } from "react";
+import { BiArrowBack } from "react-icons/bi";
 import axios from "axios";
 import {
   Table,
@@ -8,16 +9,13 @@ import {
   Tbody,
   Button,
   Spinner,
-  Tfoot,
   Input,
   Tr,
   Th,
-  Avatar,
   Td,
-  TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
-import { Flex, Box, Heading, Image, Text, Stack } from "@chakra-ui/react";
+import { Flex, Box, Heading,  Stack } from "@chakra-ui/react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 const Results = () => {
@@ -48,11 +46,11 @@ const Results = () => {
   }, [quizId]);
 
   return (
-    <Stack overflow='hidden'>
+    <Stack overflow="hidden">
       <OrgSidebar />
       <OrgNav />
-      <Box  pl="25rem" overflowY='hidden' w='80rem' >
-        <Flex columnGap="2rem" mb="1rem" ml='5rem'>
+      <Box pl="25rem" overflowY="hidden" w="80rem">
+        <Flex columnGap="2rem" mb="1rem" ml="5rem">
           <Heading fontSize="1.3rem" ml="1rem">
             Search Emails
           </Heading>
@@ -66,10 +64,14 @@ const Results = () => {
             placeholder="search for testers...."
           />
         </Flex>
-       
-        <TableContainer overflowY='scroll' maxHeight='26rem' w='50rem' overflowX='hidden'>
+
+        <TableContainer
+          overflowY="scroll"
+          maxHeight="26rem"
+          w="50rem"
+          overflowX="hidden"
+        >
           <Table variant="simple" size="lg">
-            
             <Thead bg="blue">
               <Tr bg="blue">
                 <Th color="white">Emails</Th>
@@ -79,30 +81,44 @@ const Results = () => {
             <Tbody>
               <Tr>
                 {data.length > 0 ? (
-                  data.filter((val) =>{
-                    if(search == ""){
-                        return val
-                    } else if (
+                  data
+                    .filter((val) => {
+                      if (search == "") {
+                        return val;
+                      } else if (
                         val.email.toLowerCase().includes(search.toLowerCase())
-                    ){
-                        return val
-                    }
-                  }).map((val) => {
-                    return (
-                      <Tr bg="ButtonShadow">
-                        <Td>{val.email}</Td>
-                        <Td pl='28rem'>{val.mark}</Td>
-                      </Tr>
-                    );
-                  })
+                      ) {
+                        return val;
+                      }
+                    })
+                    .map((val) => {
+                      return (
+                        <Tr bg="ButtonShadow">
+                          <Td>{val.email}</Td>
+                          <Td pl="28rem">{val.mark}</Td>
+                        </Tr>
+                      );
+                    })
                 ) : (
-                  <Spinner size="lg" />
+                  <Spinner
+                    ml="22.5rem"
+                    mt="10rem"
+                    thickness="4px"
+                    speed="0.65s"
+                    emptyColor="gray.200"
+                    color="blue.500"
+                    size="xl"
+                  />
                 )}
               </Tr>
             </Tbody>
           </Table>
         </TableContainer>
-        <Link to='/OrgPage'><Button mt='2rem' ml='22rem' colorScheme="blue" color='white' >Finish</Button></Link>
+        <Link to="/OrgPage">
+          <Button mt="2rem" ml="22rem" colorScheme="blue" color="white">
+            <BiArrowBack size={30} />
+          </Button>
+        </Link>
       </Box>
     </Stack>
   );
