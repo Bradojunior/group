@@ -195,7 +195,7 @@ const Recorder = () => {
     <>
       <div className={rec.recorder}>
         <div className={rec.firstrec}>
-          <img src="images/logo.png" alt="" onClick={showAnswers} />
+          {/* <img src="images/logo.png" alt="" onClick={showAnswers} /> */}
           <div className={rec.question}>
             {questions.length > 0 && (
               <h2 className={rec.questionNo}>{questionNo}</h2>
@@ -309,7 +309,13 @@ const Recorder = () => {
                   />
                 ))
               ) : (
-                <Spinner size="md" />
+                <Spinner
+                thickness="4px"
+                speed="0.65s"
+                emptyColor="gray.200"
+                color="blue.500"
+                size="xl"
+              />
               )}
 
               <div className={rec.map}></div>

@@ -9,28 +9,35 @@ import {
     Button,
     Textarea,
   } from "@chakra-ui/react";
+  import { useMediaQuery } from "@chakra-ui/react";
   import { Link } from "react-router-dom";
   const Description = () => {
+    const [isNotSmallerScreen] = useMediaQuery("(min-width:680px)");
       const title = localStorage.getItem('title');
       const duration = localStorage.getItem('duration');
       const instruction = localStorage.getItem('instruction');
     return (
       <Stack h="100vh" w="100vw" overflow="hidden">
-        <Box h="80vh" w="80vw" boxShadow="xl" ml="8rem" mt="4rem">
+        <Box 
+        h="80vh" 
+        w="80vw" 
+        boxShadow="xl" 
+        ml={isNotSmallerScreen ? "8rem" : '2.5rem'}
+        mt="4rem">
           <Heading textAlign="center" mt="3rem">
             Information About The Test
           </Heading>
-          <FormControl my="1rem" ml="13rem">
+          <FormControl my="1rem" ml={isNotSmallerScreen ? "13rem" : '1rem'}>
             <FormLabel>Quiz Title</FormLabel>
-            <Input type="text" w="40rem" value={title} />
+            <Input w={[280, 400, 600]}  type="text"  value={title}  />
           </FormControl>
-          <FormControl my="1rem" ml="13rem">
+          <FormControl my="1rem" my="1rem" ml={isNotSmallerScreen ? "13rem" : '1rem'}>
             <FormLabel>Quiz Intruction</FormLabel>
-            <Textarea placeholder="Intructions of your quiz" w="40rem" value={instruction} />
+            <Textarea w={[280, 400, 600]} placeholder="Intructions of your quiz"  value={instruction} />
           </FormControl>
-          <FormControl my="1rem" ml="13rem">
+          <FormControl my="1rem" my="1rem" ml={isNotSmallerScreen ? "13rem" : '1rem'}>
             <FormLabel>Duration</FormLabel>
-            <Input placeholder="Duration" w="40rem" value={duration}/>
+            <Input w={[280, 400, 600]} placeholder="Duration"  value={duration}/>
           </FormControl>
           <Flex justifyContent="center" columnGap="5rem" color="white" mt="2rem">
             <Link to="/">

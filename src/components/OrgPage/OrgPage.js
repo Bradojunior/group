@@ -1,5 +1,6 @@
 import OrgSidebar from "../OrgSidebar/OrgSidebar";
 import OrgNav from "../OrgNav/OrgNav";
+import { FcSearch } from "react-icons/fc"
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -21,6 +22,7 @@ import {
 import { Flex, Box, Heading, Image, Text, Stack } from "@chakra-ui/react";
 
 const OrgPage = () => {
+  const style = {  marginLeft: "-4rem", marginTop: "4px" }
   const [mark, setMark] = useState("");
   const [input, setInput] = useState("");
 
@@ -66,6 +68,7 @@ console.log(mark)
             type="text"
             placeholder="search for testers...."
           />
+          <FcSearch size={25} style={style}/>
         </Flex>
         <TableContainer
           mt="3rem"

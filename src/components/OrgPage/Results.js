@@ -2,6 +2,7 @@ import OrgSidebar from "../OrgSidebar/OrgSidebar";
 import OrgNav from "../OrgNav/OrgNav";
 import { useState, useEffect } from "react";
 import { BiArrowBack } from "react-icons/bi";
+import { FcSearch } from "react-icons/fc"
 import axios from "axios";
 import {
   Table,
@@ -19,9 +20,11 @@ import { Flex, Box, Heading,  Stack } from "@chakra-ui/react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 const Results = () => {
+  const style = {  marginLeft: "-4rem", marginTop: "4px" }
   const token = localStorage.getItem("token");
   const [data, setData] = useState("");
   const [search, setSearch] = useState("");
+  const [message, setMessage] = useState("");
   const { quizId } = useParams("");
 
   useEffect(() => {
@@ -38,8 +41,10 @@ const Results = () => {
         );
         console.log(user);
         setData(user.data.data);
+        
+        
       } catch (error) {
-        console.log(error);
+        console.log(error.response);
       }
     };
     handleSubmit();
@@ -62,7 +67,9 @@ const Results = () => {
             h="2rem"
             type="text"
             placeholder="search for testers...."
+          
           />
+          <FcSearch size={25} style={style}/>
         </Flex>
 
         <TableContainer
