@@ -24,10 +24,10 @@ import {
       const duration = localStorage.getItem('duration');
       const instruction = localStorage.getItem('instruction');
     return (
-      <Stack mx="auto" h="100vh" w="100vw" overflow="hidden">
+      <Stack mx="auto" h="100vh" w="100vw" overflow="hidden" alignItems='center' justifyContent='center' >
         <Box 
         mx="auto"
-        h={{base:"90vh", md:"80vh"}} 
+        h={{base:"auto", md:"80vh"}} 
         w="80vw" 
         boxShadow="xl" 
         mt={{base:"1rem", md:"4rem"}}
@@ -49,7 +49,7 @@ import {
             <Input  w={{base:"full", lg:"35rem"}}  placeholder="Duration"  value={testDetails.duration}/>
           </FormControl>
           </Box>
-          <Flex direction={["column", "row"]} mx={["2rem", "0"]} justifyContent="center" rowGap='1rem' columnGap="5rem" color="white" mt={{base:".5rem", md:"2rem"}}>
+          <Flex direction={["column", "row"]} mx={["2rem", "0"]} justifyContent="center" pb='2rem' rowGap='1rem' columnGap="5rem" color="white" mt={{base:".5rem", md:"2rem"}}>
             <Link to="/">
               <Button w={["full", "7rem"]} bg="blue" _hover={{ color: "white", background: "blue" }}>
                 Back

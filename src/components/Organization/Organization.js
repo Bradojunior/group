@@ -133,16 +133,20 @@ const Organization = () => {
           ratione sed architecto. Excepturi, tempora.
         </Text>
       </Box>
-      <Box
+      <Flex
         h="100vh"
-        w={{base:"100%", lg:"60%"}}
+        w={{ base: "100%", lg: "60%" }}
         bg="#042A37"
         justifyContent="center"
+        alignItems="center"
         textAlign="center"
-        pt={{base:"2rem", md:"3rem"}}
+        pt={{ base: "2rem", md: "3rem" }}
         color="white"
       >
-        <Heading fontSize={["1rem","1.5rem","2rem"]} >What are you registering as?</Heading>
+        <Box>
+        <Heading fontSize={["1rem", "1.5rem", "2rem"]}>
+          What are you registering as?
+        </Heading>
         <Button width={["10rem", "17rem", "20rem"]} mt="2rem">
           <Button
             width="15rem"
@@ -152,8 +156,8 @@ const Organization = () => {
             Organization
           </Button>
         </Button>
-        <VStack as="form" onSubmit={formik.handleSubmit} >
-          <div>
+        <Flex >
+          <VStack as="form" onSubmit={formik.handleSubmit}>
             <Input
               my="1rem"
               w={["15rem", "25rem", "35rem"]}
@@ -173,10 +177,7 @@ const Organization = () => {
             />
             {formik.touched.orgname && formik.errors.orgname ? (
               <p className="red">{formik.errors.orgname}</p>
-            ) : null}
-          </div>
-          <div>
-            {" "}
+            ) : null}{" "}
             <Input
               my="1rem"
               w={["15rem", "25rem", "35rem"]}
@@ -194,12 +195,9 @@ const Organization = () => {
             />
             {formik.touched.email && formik.errors.email ? (
               <p className="red">{formik.errors.email}</p>
-            ) : null}
-          </div>
-          <div>
-            {" "}
+            ) : null}{" "}
             <Input
-             my="1rem"
+              my="1rem"
               w={["15rem", "25rem", "35rem"]}
               type="text"
               id="text"
@@ -218,129 +216,131 @@ const Organization = () => {
             {formik.touched.address && formik.errors.address ? (
               <p className="red">{formik.errors.address}</p>
             ) : null}
-          </div>
-
-          <Box>
-            <InputGroup alignItems="center" size="md">
-              <Input
-                my="1rem"
-                w={["15rem", "25rem", "35rem"]}
-                type="password"
-                id="text"
-                placeholder="password"
-                type={show ? "text" : "password"}
-                _placeholder={{ color: "white" }}
-                name="password"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
-                className={
-                  formik.errors.password && formik.touched.password
-                    ? "input-error"
-                    : ""
-                }
-              />
-              <InputRightElement
-                width="4.5rem"
-                bg="teal"
-                color="black"
-                mt="1rem"
-              >
-                <Button h="1.75rem" size="sm" onClick={handleClick}>
-                  {show ? "Hide" : "Show"}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            {formik.touched.password && formik.errors.password ? (
-              <p className="red">{formik.errors.password}</p>
-            ) : null}
-          </Box>
-
-          <Box>
-            <InputGroup alignItems="center" size="md">
-              <Input
-                my="1rem"
-                w={["15rem", "25rem", "35rem"]}
-                type="password"
-                id="text"
-                name="password2"
-                type={show ? "text" : "password"}
-                placeholder="Confirm Password"
-                _placeholder={{ color: "white" }}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password2}
-                className={
-                  formik.errors.password2 && formik.touched.password2
-                    ? "input-error"
-                    : ""
-                }
-              />
-              <InputRightElement
-                width="4.5rem"
-                bg="teal"
-                color="black"
-                mt="1rem"
-              >
-                <Button h="1.75rem" size="sm" onClick={handleClick}>
-                  {show ? "Hide" : "Show"}
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-            {formik.touched.password2 && formik.errors.password2 ? (
-              <p className="red">{formik.errors.password2}</p>
-            ) : null}
-          </Box>
-
-          <Flex justifyContent="center" columnGap="5rem" mt={{base:"1.5rem", md:"2rem"}}>
-            <Link to="/OrgLogin">
-              <Button
-                width={["5rem", "6rem" , "8rem"] }
-                bg="blue"
-                _hover={{ background: "blue", color: "white" }}
-              >
-                Back
-              </Button>
-            </Link>
-            {!loading ? (
-              <Button
-                type="submit"
-                disabled={!formik.isValid}
-                width={["5rem", "6rem" , "8rem"] }
-                bg="blue"
-                _hover={{ background: "blue", color: "white" }}
-              >
-                Submit
-              </Button>
-            ) : (
-              <Button
-                type="submit"
-                disabled={!formik.isValid}
-                width={["5rem", "6rem" , "8rem"] }
-                bg="blue"
-                _hover={{ background: "blue", color: "white" }}
-              >
-                <Flex
-                  justifyContent="center"
-                  alignItems="center"
-                  columnGap="1rem"
+            <Box>
+              <InputGroup alignItems="center" size="md">
+                <Input
+                  my="1rem"
+                  w={["15rem", "25rem", "35rem"]}
+                  type="password"
+                  id="text"
+                  placeholder="password"
+                  type={show ? "text" : "password"}
+                  _placeholder={{ color: "white" }}
+                  name="password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                  className={
+                    formik.errors.password && formik.touched.password
+                      ? "input-error"
+                      : ""
+                  }
+                />
+                <InputRightElement
+                  width="4.5rem"
+                  bg="teal"
+                  color="black"
+                  mt="1rem"
                 >
-                  <span>
-                    <Spinner
-                      thickness="2px"
-                      speed="0.65s"
-                      emptyColor="gray.200"
-                      color="blue.500"
-                      size="md"
-                    />
-                  </span>
-                  Submiting
-                </Flex>
-              </Button>
-            )}
-          </Flex>
-        </VStack>
-      </Box>
+                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                    {show ? "Hide" : "Show"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              {formik.touched.password && formik.errors.password ? (
+                <p className="red">{formik.errors.password}</p>
+              ) : null}
+            </Box>
+            <Box>
+              <InputGroup alignItems="center" size="md">
+                <Input
+                  my="1rem"
+                  w={["15rem", "25rem", "35rem"]}
+                  type="password"
+                  id="text"
+                  name="password2"
+                  type={show ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  _placeholder={{ color: "white" }}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password2}
+                  className={
+                    formik.errors.password2 && formik.touched.password2
+                      ? "input-error"
+                      : ""
+                  }
+                />
+                <InputRightElement
+                  width="4.5rem"
+                  bg="teal"
+                  color="black"
+                  mt="1rem"
+                >
+                  <Button h="1.75rem" size="sm" onClick={handleClick}>
+                    {show ? "Hide" : "Show"}
+                  </Button>
+                </InputRightElement>
+              </InputGroup>
+              {formik.touched.password2 && formik.errors.password2 ? (
+                <p className="red">{formik.errors.password2}</p>
+              ) : null}
+            </Box>
+            <Flex
+              justifyContent="center"
+              columnGap="5rem"
+              mt={{ base: "1.5rem", md: "2rem" }}
+            >
+              <Link to="/OrgLogin">
+                <Button
+                  width={["5rem", "6rem", "8rem"]}
+                  bg="blue"
+                  _hover={{ background: "blue", color: "white" }}
+                >
+                  Back
+                </Button>
+              </Link>
+              {!loading ? (
+                <Button
+                  type="submit"
+                  disabled={!formik.isValid}
+                  width={["5rem", "6rem", "8rem"]}
+                  bg="blue"
+                  _hover={{ background: "blue", color: "white" }}
+                >
+                  Submit
+                </Button>
+              ) : (
+                <Button
+                  type="submit"
+                  disabled={!formik.isValid}
+                  width={["5rem", "6rem", "8rem"]}
+                  bg="blue"
+                  _hover={{ background: "blue", color: "white" }}
+                >
+                  <Flex
+                    justifyContent="center"
+                    alignItems="center"
+                    columnGap="1rem"
+                  >
+                    <span>
+                      <Spinner
+                        thickness="2px"
+                        speed="0.65s"
+                        emptyColor="gray.200"
+                        color="blue.500"
+                        size="md"
+                      />
+                    </span>
+                    Submiting
+                  </Flex>
+                </Button>
+              )}
+            </Flex>
+          </VStack>
+        </Flex>
+        </Box>
+      </Flex>
     </Flex>
   );
 };
