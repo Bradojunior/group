@@ -30,9 +30,9 @@ import {
         h="80vh" 
         w="80vw" 
         boxShadow="xl" 
-       
-        mt="4rem">
-          <Heading fontSize={["1rem", "1rem", "2rem", "2.5rem"]} textAlign="center" mt={[["1rem", "2rem","3rem"]]}>
+        mt={{base:"1rem", md:"4rem"}}
+        >
+          <Heading fontSize={["1rem", "1rem", "2rem", "2.5rem"]} textAlign="center" mt={[["0", "2rem","3rem"]]}>
             Information About The Test
           </Heading>
           <Box as="form"  px={[".5rem", "2rem", "4rem", "16rem"]} >
@@ -49,7 +49,7 @@ import {
             <Input  w={{base:"full", lg:"35rem"}}  placeholder="Duration"  value={testDetails.duration}/>
           </FormControl>
           </Box>
-          <Flex direction={["column", "row"]} mx={["2rem", "0"]} justifyContent="center" rowGap='1rem' columnGap="5rem" color="white" mt="2rem">
+          <Flex direction={["column", "row"]} mx={["2rem", "0"]} justifyContent="center" rowGap='1rem' columnGap="5rem" color="white" mt={{base:".5rem", md:"2rem"}}>
             <Link to="/">
               <Button w={["full", "7rem"]} bg="blue" _hover={{ color: "white", background: "blue" }}>
                 Back

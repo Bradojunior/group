@@ -85,14 +85,15 @@ const Home = () => {
           alignItems="center"
         >
           <Image
-            h={["20rem", "30rem", "27rem", "30rem"]}
+            h={["15rem", "30rem", "27rem", "30rem"]}
             w={["20rem", "40rem", "30rem", "40rem"]}
             src="images/people.png"
           />
           <Image
-            h={["20rem", "30rem", "27rem", "30rem"]}
-            w={["22rem", "40rem", "30rem", "40rem"]}
-            mt="3rem"
+            h={["13rem", "30rem", "27rem", "30rem"]}
+            w={["50rem", "40rem", "30rem", "40rem"]}
+            mt={{md:"3rem"}}
+            ml={["1.5rem", "0"]}
             src="images/circle.png"
           />
         </Flex>
