@@ -155,7 +155,7 @@ const Organization = () => {
         <VStack as="form" onSubmit={formik.handleSubmit} >
           <div>
             <Input
-              my={{base:".5rem", md:"1rem"}}
+              my="1rem"
               w={["15rem", "25rem", "35rem"]}
               type="text"
               Id="text"
@@ -178,7 +178,7 @@ const Organization = () => {
           <div>
             {" "}
             <Input
-              my={{base:".5rem", md:"1rem"}}
+              my="1rem"
               w={["15rem", "25rem", "35rem"]}
               type="text"
               id="text"
@@ -199,7 +199,7 @@ const Organization = () => {
           <div>
             {" "}
             <Input
-              my={{base:".5rem", md:"1rem"}}
+             my="1rem"
               w={["15rem", "25rem", "35rem"]}
               type="text"
               id="text"
@@ -223,7 +223,7 @@ const Organization = () => {
           <Box>
             <InputGroup alignItems="center" size="md">
               <Input
-                my={{base:".5rem", md:"1rem"}}
+                my="1rem"
                 w={["15rem", "25rem", "35rem"]}
                 type="password"
                 id="text"
@@ -259,7 +259,7 @@ const Organization = () => {
           <Box>
             <InputGroup alignItems="center" size="md">
               <Input
-                my={{base:".5rem", md:"1rem"}}
+                my="1rem"
                 w={["15rem", "25rem", "35rem"]}
                 type="password"
                 id="text"
@@ -292,7 +292,7 @@ const Organization = () => {
             ) : null}
           </Box>
 
-          <Flex justifyContent="center" columnGap="5rem" mt={{base:"1rem", md:"2rem"}}>
+          <Flex justifyContent="center" columnGap="5rem" mt={{base:"1.5rem", md:"2rem"}}>
             <Link to="/OrgLogin">
               <Button
                 width={["5rem", "6rem" , "8rem"] }
