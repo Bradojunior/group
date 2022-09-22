@@ -29,8 +29,6 @@ const Home = () => {
   let userDetails = Detailscon();
   let SetDetailscons = SetDetailscon();
 
-
-
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -93,7 +91,7 @@ const Home = () => {
           />
           <Image
             h={["20rem", "30rem", "27rem", "30rem"]}
-            w={["20rem", "40rem", "30rem", "40rem"]}
+            w={["22rem", "40rem", "30rem", "40rem"]}
             mt="3rem"
             src="images/circle.png"
           />
@@ -108,12 +106,13 @@ const Home = () => {
           <Box
             color="white"
             ml={{ md: "2rem" }}
-            textAlign={{ base: "center", md: "center", lg:"left" }}
+            textAlign={{ base: "center", md: "center", lg: "left" }}
             px={{ base: "1rem", md: "0" }}
-
-            
           >
-            <Heading fontSize={["2rem", "5rem", "4rem", "5rem"]} textAlign={{md:"left"}}>
+            <Heading
+              fontSize={["2rem", "5rem", "4rem", "5rem"]}
+              textAlign={{ md: "left" }}
+            >
               Quizzy
             </Heading>
 
@@ -132,24 +131,23 @@ const Home = () => {
             </Text>
           </Box>
           <Box
-          justifyContent={{base:"center"}} 
-          py={{base:"3rem", md:"0"}}
-         
-          px={["1rem", "7rem", "0"]}
+            justifyContent={{ base: "center" }}
+            py={{ base: "3rem", md: "0" }}
+            px={["1rem", "7rem", "0"]}
           >
             <Heading
               as="h6"
               color="white"
               mb="1rem"
-              textAlign={{base:"center", md:"left"}}
+              textAlign={{ base: "center", md: "left" }}
               fontSize={["1rem", "2rem", "1.6rem", "2.5rem"]}
             >
               Input Your Details Here
             </Heading>
             <Input
-            justifyContent={{base:"center"}}
-            alignItems={{base:"center"}}
-              mx={{base:"auto", md:"0"}}
+              justifyContent={{ base: "center" }}
+              alignItems={{ base: "center" }}
+              mx={{ base: "auto", md: "0" }}
               type="text"
               color="white"
               value={email}
@@ -158,10 +156,10 @@ const Home = () => {
               }}
               name="email"
               placeholder="Input Your Email Address"
-              w={{base:"full", md: "20rem", lg: "30rem" }}
+              w={{ base: "full", md: "20rem", lg: "30rem" }}
             />
             {message && <p className="potes">{message}</p>}
-           
+
             <Box my={["1rem", "1rem", "1.5rem", "2rem"]}>
               <Input
                 type="text"
@@ -172,13 +170,13 @@ const Home = () => {
                   setCode(e.target.value);
                 }}
                 placeholder="Quiz Code"
-                w={{base:"full", md: "20rem", lg: "30rem" }}
+                w={{ base: "full", md: "20rem", lg: "30rem" }}
               />
             </Box>
-            <Box ml={["null", "0", "7rem", "11rem"]} px={{base:"auto"}}>
+            <Box ml={["null", "0", "7rem", "11rem"]} px={{ base: "auto" }}>
               {loading ? (
                 <Button
-                w={{base:"full", md:"5rem"}}
+                  w={{ base: "full", md: "5rem" }}
                   type="submit"
                   onClick={handleSubmit}
                   // onClick={() => dispatch(fetchDetails({ code, email }))}
@@ -193,7 +191,7 @@ const Home = () => {
                 </Button>
               ) : (
                 <Button
-                w={{base:"full", md:"5rem"}}
+                  w={{ base: "full", md: "5rem" }}
                   type="submit"
                   onClick={handleSubmit}
                   // onClick={() =>

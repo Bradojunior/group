@@ -193,14 +193,14 @@ const Home = () => {
             bg="transparent"
            
             border="1px solid teal"
-            w={{base:"15rem", md:"30rem"}}
+            w={{base:"15rem", md:"20rem"}}
             _hover={{ background: "transparent" }}
           >
-            <Flex bg="transparent">
+            <Flex bg="transparent" columnGap='3rem'>
               <Button
                 onClick={() => setActive(true)}
                 _hover={{ background: "teal", color: "white" }}
-                mx={{base:".5rem", md:"2rem"}}
+                // mx={{base:".5rem", md:"2rem"}}
                 bg={active ? "teal" : "transparent"}
                 hover="text-black"
               
@@ -211,7 +211,7 @@ const Home = () => {
               <Button
                 onClick={() => setActive(false)}
                 _hover={{ background: "teal", color: "white" }}
-                mx={{base:".5rem", md:"5rem"}}
+                // mx={{base:".5rem", md:"5rem"}}
                 bg={!active ? "teal" : "transparent"}
               >
                 User
