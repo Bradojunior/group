@@ -30,14 +30,14 @@ import { FiEye } from "react-icons/fi";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Usernameset, Username } from "../context/UsersContext";
+// import { Usernameset, Username } from "../context/DetailContext";
 
 const PASSWORD_REGEX = /.{8,}/;
 const style = { marginLeft: "-1.8rem" };
 
 const Home = () => {
-  const usernameset = Usernameset();
-  const username = Username();
+  // const usernameset = Usernameset();
+  // const username = Username();
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
   const toast = useToast();
@@ -49,7 +49,7 @@ const Home = () => {
     fontSize: "1.5em",
     marginLeft: "1rem",
   };
-  const onSubmit = async (values, actions) => {
+  const Submit = async (values, actions) => {
     setLoading(true);
     try {
       const user = await axios.post(
@@ -68,7 +68,7 @@ const Home = () => {
       });
       navigate("/adminPage");
       formik.resetForm();
-      usernameset(formik.values.username);
+      // usernameset(formik.values.username);
     } catch (err) {
       toast({
         title: "Login Failed",
@@ -106,7 +106,7 @@ const Home = () => {
         .oneOf([true], "Please Agree To All Terms & Conditions")
         .required("Required"),
     }),
-    onSubmit,
+    Submit,
   });
 
   return (
@@ -176,7 +176,7 @@ const Home = () => {
               Login as a user
             </Text>
           </Box>
-          <VStack as="form" onSubmit={formik.handleSubmit} color="white">
+          <VStack as="form" Submit={formik.handleSubmit} color="white">
             <FormControl color="white" p="3" w={[400, 600, 500]}>
               <FormLabel fontSize={{ base: "24px", md: "40px", lg: "23px" }}>
                 Email Address

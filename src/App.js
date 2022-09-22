@@ -45,7 +45,7 @@ import OrgSignin from "./components/OrgSignin/OrgSignin";
 import SendMail from "./components/SendMail/SendMail";
 import Description from "./components/Description/Description";
 import Description2 from "./components/Description/Description2";
-import { IsuserLogged } from "./context/UsersContext";
+import DetailContext from "./context/DetailContext";
 import NotFound from "./components/NotFound/NotFound";
 
 
@@ -53,7 +53,7 @@ function App() {
   return (
     <Router>
       <div className="Apps">
-        <IsuserLogged>
+        <DetailContext>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Signin" element={<Signin />} />
@@ -103,7 +103,7 @@ function App() {
 
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </IsuserLogged>
+        </DetailContext>
       </div>
     </Router>
   );

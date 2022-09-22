@@ -304,6 +304,7 @@ const Recorder = () => {
                   <RecorderItem
                     key={index}
                     number={++index}
+                    
                     isAnswered={question.isAnswered}
                     handleQuestionNo={handleQuestionNo}
                   />

@@ -14,7 +14,8 @@
     margin-left: 0;
     padding-left: 0;
     height: 4rem;
-    background-color:#056084;
+    background-color: inherit;
+    /* background-color:#056084; */
     border: 5px solid rgb(71, 71, 99);
     list-style-type: none;
     margin: 0;
@@ -25,6 +26,12 @@
     align-items: center;
     font-size: 2rem;
 } 
+.active {
+    background-color: aqua;
+  }
+.inactive {
+    background-color: rgb(145, 14, 75);
+  }
 .row{
     height: 5rem;
 }

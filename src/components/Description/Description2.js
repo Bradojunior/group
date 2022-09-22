@@ -11,46 +11,57 @@ import {
   } from "@chakra-ui/react";
   import { useMediaQuery } from "@chakra-ui/react";
   import { Link } from "react-router-dom";
+  import {Detailscon } from '../../context/DetailContext'
+  import { useSelector } from "react-redux";
   const Description = () => {
+
+// const {postDetails} = useSelector((store) => store.testDetail)
+// console.log(postDetails)
+
+    const testDetails = Detailscon()
     const [isNotSmallerScreen] = useMediaQuery("(min-width:680px)");
       const title = localStorage.getItem('title');
       const duration = localStorage.getItem('duration');
       const instruction = localStorage.getItem('instruction');
     return (
-      <Stack h="100vh" w="100vw" overflow="hidden">
+      <Stack mx="auto" h="100vh" w="100vw" overflow="hidden">
         <Box 
+        mx="auto"
         h="80vh" 
         w="80vw" 
         boxShadow="xl" 
-        ml={isNotSmallerScreen ? "8rem" : '2.5rem'}
+       
         mt="4rem">
-          <Heading textAlign="center" mt="3rem">
+          <Heading fontSize={["1rem", "1rem", "2rem", "2.5rem"]} textAlign="center" mt={[["1rem", "2rem","3rem"]]}>
             Information About The Test
           </Heading>
-          <FormControl my="1rem" ml={isNotSmallerScreen ? "13rem" : '1rem'}>
+          <Box as="form"  px={[".5rem", "2rem", "4rem", "16rem"]} >
+          <FormControl my="1rem" >
             <FormLabel>Quiz Title</FormLabel>
-            <Input w={[280, 400, 600]}  type="text"  value={title}  />
+            <Input w={{base:"full", lg:"35rem"}}  type="text"   value={testDetails.title}  />
           </FormControl>
-          <FormControl my="1rem" my="1rem" ml={isNotSmallerScreen ? "13rem" : '1rem'}>
+          <FormControl my="1rem" >
             <FormLabel>Quiz Intruction</FormLabel>
-            <Textarea w={[280, 400, 600]} placeholder="Intructions of your quiz"  value={instruction} />
+            <Textarea  w={{base:"full", lg:"35rem"}}  placeholder="Intructions of your quiz"  value={testDetails.instruction} />
           </FormControl>
-          <FormControl my="1rem" my="1rem" ml={isNotSmallerScreen ? "13rem" : '1rem'}>
+          <FormControl my="1rem" >
             <FormLabel>Duration</FormLabel>
-            <Input w={[280, 400, 600]} placeholder="Duration"  value={duration}/>
+            <Input  w={{base:"full", lg:"35rem"}}  placeholder="Duration"  value={testDetails.duration}/>
           </FormControl>
-          <Flex justifyContent="center" columnGap="5rem" color="white" mt="2rem">
+          </Box>
+          <Flex direction={["column", "row"]} mx={["2rem", "0"]} justifyContent="center" rowGap='1rem' columnGap="5rem" color="white" mt="2rem">
             <Link to="/">
-              <Button bg="blue" _hover={{ color: "white", background: "blue" }}>
+              <Button w={["full", "7rem"]} bg="blue" _hover={{ color: "white", background: "blue" }}>
                 Back
               </Button>
             </Link>
             <Link to="/Recorder2">
-              <Button bg="blue" _hover={{ color: "white", background: "blue" }}>
+              <Button w={["full", "7rem"]}  bg="blue" _hover={{ color: "white", background: "blue" }}>
                 Start Quiz
               </Button>
             </Link>
           </Flex>
+        
         </Box>
       </Stack>
     );

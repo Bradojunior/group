@@ -5,6 +5,8 @@ import { Flex, Box, Heading, Spinner } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import React from "react"
 import axios from "axios";
+// import { useDispatch, useSelector } from "react-redux";
+// import { fetchData } from "../../features/publish/publishSlice";
 import {
   useDisclosure,
   AlertDialog,
@@ -20,20 +22,27 @@ import {
   FormLabel,
   Input,
   Button,
-  Textarea,
+  
 } from "@chakra-ui/react";
 
 const Publish = () => {
+
+// const {publish} = useSelector((store) => store.publisher)
+// console.log(publish.title);
+// const dispatch = useDispatch()
+
   const token = localStorage.getItem("token");
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cancelRef = React.useRef()
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [question, setQuestion] = useState("");
-  const [duration, setTeDuration] = useState("");
-  const [tester, setTTesters] = useState("");
-  const [code, setTCode] = useState("");
+  const [duration, setDuration] = useState("");
+  const [tester, setTesters] = useState("");
+  const [code, setCode] = useState("");
   const id = localStorage.getItem("id");
+
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,10 +58,10 @@ const Publish = () => {
         );
         setTitle(res.data.data.title);
         setQuestion(res.data.data.questions);
-        setTeDuration(res.data.data.duration);
-        setTTesters(res.data.data.testers);
-        setTCode(res.data.data.quizCode);
-        console.log(res);
+        setDuration(res.data.data.duration);
+        setTesters(res.data.data.testers);
+        setCode(res.data.data.quizCode);
+        ;
       } catch (err) {
         console.log(err);
       }

@@ -3,6 +3,7 @@ import FirstSidebar from "../FirstSidebar/FirstSidebar";
 import {
   Box,
   Button,
+  Text,
   Input,
   Flex,
   Heading,
@@ -38,8 +39,8 @@ const Organization = () => {
         "https://evening-dusk-96253.herokuapp.com/api/users/register/org",
         { ...values }
       );
-      localStorage.setItem("orgname", user.data.data)
-      setLoading(false)
+      localStorage.setItem("orgname", user.data.data);
+      setLoading(false);
       toast({
         title: "Account Created",
         description:
@@ -109,18 +110,40 @@ const Organization = () => {
 
   return (
     <Flex>
-      <FirstSidebar />
+      <Box
+        bg="rgb(10, 10, 49)"
+        height="100vh"
+        width="50%"
+        color="white"
+        display={{ base: "none", lg: "block" }}
+      >
+        <img
+          src="images/people.png"
+          height="350rem"
+          display="hidden"
+          width="550rem"
+          alt=""
+        />
+        <Heading m="3">Quizzy</Heading>
+        <Heading m="3">Landing Page Ui Design</Heading>
+        <Text m="3" as="p" maxW="lg">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+          suscipit doloribus magnam aliquid expedita numquam officia impedit
+          sint asperiores ad, facilis recusandae, quisquam similique perferendis
+          ratione sed architecto. Excepturi, tempora.
+        </Text>
+      </Box>
       <Box
         h="100vh"
-        w="60%"
+        w={{base:"100%", lg:"60%"}}
         bg="#042A37"
         justifyContent="center"
         textAlign="center"
         pt="3rem"
         color="white"
       >
-        <Heading>What are you registering as?</Heading>
-        <Button width="20rem" mt="2rem">
+        <Heading fontSize={["1rem","1.5rem","2rem"]} >What are you registering as?</Heading>
+        <Button width={["10rem", "17rem", "20rem"]} mt="2rem">
           <Button
             width="15rem"
             bg="blue"
@@ -129,11 +152,11 @@ const Organization = () => {
             Organization
           </Button>
         </Button>
-        <VStack as="form" onSubmit={formik.handleSubmit}>
+        <VStack as="form" onSubmit={formik.handleSubmit} >
           <div>
             <Input
               my="1rem"
-              width="35rem"
+              w={["15rem", "25rem", "35rem"]}
               type="text"
               Id="text"
               name="orgname"
@@ -156,7 +179,7 @@ const Organization = () => {
             {" "}
             <Input
               my="1rem"
-              width="35rem"
+              w={["15rem", "25rem", "35rem"]}
               type="text"
               id="text"
               name="email"
@@ -177,7 +200,7 @@ const Organization = () => {
             {" "}
             <Input
               my="1rem"
-              width="35rem"
+              w={["15rem", "25rem", "35rem"]}
               type="text"
               id="text"
               placeholder="Address"
@@ -201,7 +224,7 @@ const Organization = () => {
             <InputGroup alignItems="center" size="md">
               <Input
                 my="1rem"
-                width="35rem"
+                w={["15rem", "25rem", "35rem"]}
                 type="password"
                 id="text"
                 placeholder="password"
@@ -237,7 +260,7 @@ const Organization = () => {
             <InputGroup alignItems="center" size="md">
               <Input
                 my="1rem"
-                width="35rem"
+                w={["15rem", "25rem", "35rem"]}
                 type="password"
                 id="text"
                 name="password2"
@@ -272,7 +295,7 @@ const Organization = () => {
           <Flex justifyContent="center" columnGap="5rem" mt="2rem">
             <Link to="/OrgLogin">
               <Button
-                width="8rem"
+                width={["5rem", "6rem" , "8rem"] }
                 bg="blue"
                 _hover={{ background: "blue", color: "white" }}
               >
@@ -283,7 +306,7 @@ const Organization = () => {
               <Button
                 type="submit"
                 disabled={!formik.isValid}
-                width="8rem"
+                width={["5rem", "6rem" , "8rem"] }
                 bg="blue"
                 _hover={{ background: "blue", color: "white" }}
               >
@@ -293,7 +316,7 @@ const Organization = () => {
               <Button
                 type="submit"
                 disabled={!formik.isValid}
-                width="8rem"
+                width={["5rem", "6rem" , "8rem"] }
                 bg="blue"
                 _hover={{ background: "blue", color: "white" }}
               >

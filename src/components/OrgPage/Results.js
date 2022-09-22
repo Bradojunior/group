@@ -2,7 +2,7 @@ import OrgSidebar from "../OrgSidebar/OrgSidebar";
 import OrgNav from "../OrgNav/OrgNav";
 import { useState, useEffect } from "react";
 import { BiArrowBack } from "react-icons/bi";
-import { FcSearch } from "react-icons/fc"
+import { FcSearch } from "react-icons/fc";
 import axios from "axios";
 import {
   Table,
@@ -16,21 +16,21 @@ import {
   Td,
   TableContainer,
 } from "@chakra-ui/react";
-import { Flex, Box, Heading,  Stack } from "@chakra-ui/react";
+import { Flex, Box, Heading, Stack } from "@chakra-ui/react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 const Results = () => {
-  const style = {  marginLeft: "-4rem", marginTop: "4px" }
+  const style = { marginLeft: "-4rem", marginTop: "4px" };
   const token = localStorage.getItem("token");
   const [data, setData] = useState("");
   const [search, setSearch] = useState("");
-  const [message, setMessage] = useState("");
+  const [info, setInfo] = useState("");
   const { quizId } = useParams("");
 
   useEffect(() => {
     const handleSubmit = async () => {
       try {
-        const user = await axios.get(
+        const res = await axios.get(
           `https://evening-dusk-96253.herokuapp.com/api/quiz/results/${quizId}`,
           {
             headers: {
@@ -39,10 +39,10 @@ const Results = () => {
             },
           }
         );
-        console.log(user);
-        setData(user.data.data);
-        
-        
+
+        setData(res.data.data);
+        setInfo(res.data.message);
+        console.log(info);
       } catch (error) {
         console.log(error.response);
       }
@@ -67,9 +67,8 @@ const Results = () => {
             h="2rem"
             type="text"
             placeholder="search for testers...."
-          
           />
-          <FcSearch size={25} style={style}/>
+          <FcSearch size={25} style={style} />
         </Flex>
 
         <TableContainer

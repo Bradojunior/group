@@ -4,7 +4,7 @@ import PieNav from "./PieNav/PieNav";
 import {Box, Button,Text, Flex, Stack,Image, Heading , Radio} from "@chakra-ui/react"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid,  Legend, ResponsiveContainer } from 'recharts';
 import  {PieChart}  from 'react-minimal-pie-chart';
-import {Username} from "../context/UsersContext"
+import {Username} from "../context/DetailContext"
 
 
 

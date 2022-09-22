@@ -1,35 +1,46 @@
-import { Flex,Box,Heading,Image, ButtonGroup, VStack, Button, Spacer ,Text, FormControl, form,  FormLabel,Input , Stack ,Checkbox} from '@chakra-ui/react'
-import {MdOutlineDashboardCustomize, MdQuiz} from "react-icons/md"
-import {GiBookmarklet} from "react-icons/gi"
-import {FiSettings} from "react-icons/fi"
-import {FaHireAHelper} from "react-icons/fa"
-import {Link} from "react-router-dom";
-import sid from'./OrgSidebar.module.css';
-import { SidebarData } from './OrgData';
 
-const OrgSidebar =()=>{
-    return(
-        <>
-        <div className={sid.Sidebar}>
-            <img src="images/logo.png" alt="" />
-              <ul className={sid.SidebarList}>
-           {SidebarData.map((val, key)=>{
-               return(
-                <li key={key}
-                className={sid.row}
-                id={window.location.pathname === val.link ? "active" : ""}
-                 onClick={()=>{window.location.pathname = val.link}}>
-                   {" "}
-                   <div id='icon' className={sid.icon}>{val.icon}</div>{" "}
-                   <div id='title' className={sid.title}>
-                       {val.title}
-                   </div>
-                   </li>
-               );
-           })}
-           </ul>
-        </div>
-        {/* <Stack h='100vh' w='16rem' bg='rgb(71, 71, 99)' color='white'>
+import { NavLink, Link } from "react-router-dom";
+import sid from "./OrgSidebar.module.css";
+import { SidebarData } from "./OrgData";
+
+const OrgSidebar = () => {
+  return (
+    <>
+      <div className={sid.Sidebar}>
+        <Link to="/">
+          <img src="images/logo.png" alt="" />
+        </Link>
+        <ul className={sid.SidebarList}>
+          {SidebarData.map((val, key) => {
+            return (
+              <NavLink
+                to={val.link}
+                style={({isActive}) => ({
+                  backgroundColor: isActive ? "rgb(2, 167, 90)" : "#056084",
+                })}
+                // activeStyle={{
+                //   fontWeight: "bold",
+                //   color: "red"
+                // }}
+                // className={({ isActive }) => (isActive ? "active" : "inactive")}
+                // style={({ isActive }) => ({
+                //   color: isActive ? "red" : "yellow",
+                // })}
+              >
+                <li key={key} className={sid.row}>
+                  <div id="icon" className={sid.icon}>
+                    {val.icon}
+                  </div>
+                  <div id="title" className={sid.title}>
+                    {val.title}
+                  </div>
+                </li>
+              </NavLink>
+            );
+          })}
+        </ul>
+      </div>
+      {/* <Stack h='100vh' w='16rem' bg='rgb(71, 71, 99)' color='white'>
             <Image m='3rem' src="images/logo.png" alt="" h='4rem' w='4rem'/>
             <Flex direction="column">
                 <Box w='100%' mb='1rem'>
@@ -64,7 +75,7 @@ const OrgSidebar =()=>{
                 </Box>
             </Flex>
         </Stack> */}
-        </>
-    )
-}
+    </>
+  );
+};
 export default OrgSidebar;

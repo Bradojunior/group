@@ -1,6 +1,7 @@
 import OrgSidebar from "../OrgSidebar/OrgSidebar";
 import OrgNav from "../OrgNav/OrgNav";
 import { useToast } from "@chakra-ui/react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Box,
   Heading,
@@ -13,12 +14,20 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+
+
 const SendMail = () => {
+const dispatch = useDispatch()
+
+
     const toast = useToast();
   const [code, setCode] = useState("");
   const [time, setTime] = useState("");
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem('token');
+
+
+
   const handleSubmit = async () => {
     setLoading(true);
     try {
@@ -75,6 +84,7 @@ const SendMail = () => {
           <FormLabel>Quiz Code</FormLabel>
           <Input
             value={code}
+            
             onChange={(e) => {
               setCode(e.target.value);
             }}

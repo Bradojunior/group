@@ -1,11 +1,9 @@
 import {IoMdContact} from "react-icons/io";
 import {Link} from "react-router-dom";
 import sec from "./SecondNavbar.module.css"
-import {useUserContext} from "../context/userContext"
+
 const SecondNavbar = () => {
 
-    const {user} = useUserContext();
-    console.log(user);
 
     const style = {color:"blue", fontSize:"2.5rem",marginRight:"1.5rem"}
     const dropdown = {backgroundColor:"blue", paddingTop:"4rem"}
@@ -21,7 +19,7 @@ const SecondNavbar = () => {
             </div>
             <div className={sec.dropdown}>
             < select name="Username" id="dropdown" dropdown={dropdown}>
-                <option value="Username">{user.name}</option>
+                <option value="Username"></option>
                 <option value="Username">Dashboard</option>
                 <option value="Username">Take Quiz</option>
                 <option value="Username">Test Yourself</option>

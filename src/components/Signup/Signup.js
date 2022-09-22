@@ -1,7 +1,6 @@
 import { AiFillInfoCircle } from "react-icons/ai";
 import React from "react";
 import { Link } from "react-router-dom";
-import FirstSidebar from "../FirstSidebar/FirstSidebar";
 
 import { Flex, Box, Heading, Button, Text } from "@chakra-ui/react";
 
@@ -13,11 +12,11 @@ const style1 = {
 
 const Sidebar = () => {
   return (
-    <Flex>
-      <FirstSidebar />
+    <>
+      
       <Box
         h="100vh"
-        w="60%"
+        w="100vw"
         bg="#042A37"
         justifyContent="center"
         color="white"
@@ -53,14 +52,8 @@ const Sidebar = () => {
             </Link>
           </Flex>
         </Button>
-        <Flex textAlign="center" justifyContent="center" ml="3rem">
-          <Text ml="18rem">Choose one</Text>
-          <Link to="/Signup2" color="blue">
-            <AiFillInfoCircle style={style1} />
-          </Link>
-        </Flex>
       </Box>
-    </Flex>
+    </>
   );
 };
 

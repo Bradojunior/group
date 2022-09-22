@@ -19,13 +19,13 @@ import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
-import { Usernameset, Username } from "../context/UsersContext";
+// import { Usernameset, Username } from "../context/DetailContext";
 
 const PASSWORD_REGEX = /.{8,}/;
 
 const User = () => {
-  const usernameset = Usernameset();
-  const username = Username();
+  // const usernameset = Usernameset();
+  // const username = Username();
 
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
@@ -54,7 +54,7 @@ const User = () => {
       });
         navigate("/AdminPage");
       formik.resetForm();
-      usernameset(formik.values.username);
+      // usernameset(formik.values.username);
 
       const email = localStorage.getItem("email");
       if (email != null && email) {
