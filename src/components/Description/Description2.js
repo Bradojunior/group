@@ -27,7 +27,7 @@ import {
       <Stack mx="auto" h="100vh" w="100vw" overflow="hidden">
         <Box 
         mx="auto"
-        h="80vh" 
+        h={{base:"90vh", md:"80vh"}} 
         w="80vw" 
         boxShadow="xl" 
         mt={{base:"1rem", md:"4rem"}}
