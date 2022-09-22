@@ -139,7 +139,7 @@ const Organization = () => {
         bg="#042A37"
         justifyContent="center"
         textAlign="center"
-        pt="3rem"
+        pt={{base:"2rem", md:"3rem"}}
         color="white"
       >
         <Heading fontSize={["1rem","1.5rem","2rem"]} >What are you registering as?</Heading>
@@ -155,7 +155,7 @@ const Organization = () => {
         <VStack as="form" onSubmit={formik.handleSubmit} >
           <div>
             <Input
-              my="1rem"
+              my={{base:".5rem", md:"1rem"}}
               w={["15rem", "25rem", "35rem"]}
               type="text"
               Id="text"
@@ -178,7 +178,7 @@ const Organization = () => {
           <div>
             {" "}
             <Input
-              my="1rem"
+              my={{base:".5rem", md:"1rem"}}
               w={["15rem", "25rem", "35rem"]}
               type="text"
               id="text"
@@ -199,7 +199,7 @@ const Organization = () => {
           <div>
             {" "}
             <Input
-              my="1rem"
+              my={{base:".5rem", md:"1rem"}}
               w={["15rem", "25rem", "35rem"]}
               type="text"
               id="text"
@@ -223,7 +223,7 @@ const Organization = () => {
           <Box>
             <InputGroup alignItems="center" size="md">
               <Input
-                my="1rem"
+                my={{base:".5rem", md:"1rem"}}
                 w={["15rem", "25rem", "35rem"]}
                 type="password"
                 id="text"
@@ -259,7 +259,7 @@ const Organization = () => {
           <Box>
             <InputGroup alignItems="center" size="md">
               <Input
-                my="1rem"
+                my={{base:".5rem", md:"1rem"}}
                 w={["15rem", "25rem", "35rem"]}
                 type="password"
                 id="text"
@@ -292,7 +292,7 @@ const Organization = () => {
             ) : null}
           </Box>
 
-          <Flex justifyContent="center" columnGap="5rem" mt="2rem">
+          <Flex justifyContent="center" columnGap="5rem" mt={{base:"1rem", md:"2rem"}}>
             <Link to="/OrgLogin">
               <Button
                 width={["5rem", "6rem" , "8rem"] }
