@@ -43,7 +43,7 @@ input{
     background-color: #3734A9;
     color: aliceblue;
     border: none;
-    width: 6rem;
+    width: 8rem;
     padding: 1rem 2rem;
     border-radius: 7px;
 }
@@ -161,7 +161,15 @@ input{
     .recorder{
         display: flex;
         flex-direction: column;
+        /* justify-content: center; */
+        /* height: 100vh; */
         
+    }
+    .me{
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     .thirdrec{
         height: auto;
@@ -182,18 +190,24 @@ input{
         height: 6rem;
         width: 8rem;
     }
+    .question h2 {
+        margin-right: 5px;
+        margin-left: 3px;
+    }
   .record{
     max-width: 10rem;
   }
     .firstrec{
-        height: 100vh;
-        width: 100vw;
+        height: 50vh;
+        width: 90vw;
         display: flex;
         flex-direction: column;
         justify-content: center;    
         align-items: center; 
-        margin-left: 0;
-        margin-top: 10rem;
+        margin-left: 1rem;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        box-shadow: 0 0 5px 5px #7F7CEC;
     }
 
     .icons{
@@ -201,18 +215,21 @@ input{
        display: block;
     }
     .label{
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
+    max-width: 11rem;
+    margin-bottom: 1rem;
     
-   
 }
     .iconer{
         margin-left: 3.5rem;
     }
+
     .next{
         display: flex;
         column-gap: 1rem;
         margin-top: 2rem;
         margin-left: 0;
+        margin-bottom: 5rem;
     }
     .next button{
         background-color: #3734A9;
@@ -225,6 +242,7 @@ input{
     .question {
         display: flex;
         margin-top: 3rem;
+      
     }
     .questions button{
         background-color: #7F7CEC;
@@ -234,6 +252,7 @@ input{
         padding: .4rem; 
          margin-left: auto;
         color: aliceblue;
+        margin-bottom: 3rem;
         
     }
 

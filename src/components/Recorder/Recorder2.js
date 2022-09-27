@@ -205,13 +205,14 @@ const Recorder = () => {
           {!active && <GiHamburgerMenu size={30} />}
           
         </div>
+        <div className={rec.me}>
         <div className={rec.firstrec}>
           {/* <img src="images/logo.png" alt="" onClick={showAnswers} /> */}
           <div className={rec.question}>
             {questions.length > 0 && (
               <h2 className={rec.questionNo}>{questionNo}</h2>
             )}
-            <h3>
+            <h3 className={rec.record}>
               {questions.length > 0 ? (
                 questions[questionIndex].question
               ) : (
@@ -267,6 +268,7 @@ const Recorder = () => {
               <button>Next</button>
             </div>
           </div>
+        </div>
         </div>
 
         <div className={rec.secondrec}>
