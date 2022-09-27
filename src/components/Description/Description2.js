@@ -31,6 +31,7 @@ import {
         w="80vw" 
         boxShadow="xl" 
         mt={{base:"1rem", md:"4rem"}}
+        textAlign="center"
         >
           <Heading fontSize={["1rem", "1rem", "2rem", "2.5rem"]} textAlign="center" mt={[["0", "2rem","3rem"]]}>
             Information About The Test

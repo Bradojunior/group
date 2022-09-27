@@ -1,10 +1,8 @@
-*{
-    /* height: 100vh; */
-    /* width: 100vw; */
-    /* overflow: hidden; */
-}
+
 .recorder{
     display: flex;
+    overflow: hidden;
+    background-size: cover;
 }
 .firstrec{
     flex: 70%;
@@ -16,7 +14,6 @@
     margin-top: 2rem;
     height: 12rem;
     width: 12rem;
-    
 }
 .secondrec{
     flex: 30%;
@@ -46,6 +43,7 @@ input{
     background-color: #3734A9;
     color: aliceblue;
     border: none;
+    width: 6rem;
     padding: 1rem 2rem;
     border-radius: 7px;
 }
@@ -53,6 +51,7 @@ input{
     height: 100vh;
     width: 20vw;
     color: aliceblue;
+    display: none;
     background-color: #3734A9;
     /* margin-right: 5rem; */
     border-radius: 10px;
@@ -113,7 +112,7 @@ input{
     width: 8rem;
     border-radius: 5px;
     padding: .7rem; 
-     margin-left: 8rem;
+     margin-left: auto;
     color: aliceblue;
     
 }
@@ -140,6 +139,102 @@ input{
      margin-left: 13rem;
     color: aliceblue;
    
+}
 
+
+
+
+
+
+@media only screen and (min-width: 1024px) {
+    .secondrec{
+        display: block;
+    }
+    .icons{
+        display: none;
+    }
+    .thirdrec{
+        display:none;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .recorder{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .thirdrec{
+        height: auto;
+        width: 100%;
+        color: aliceblue;
+        display: flex;
+        flex-direction: column;
+        background-color: #3734A9;
+        border-radius: 10px;
+        justify-content: center;
+        position: absolute;
+        text-align: center;
+        align-items: center;
+    }
+    .timer{
+        margin-left: 0;
+        margin-top: 3rem;
+        height: 6rem;
+        width: 8rem;
+    }
+  .record{
+    max-width: 10rem;
+  }
+    .firstrec{
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;    
+        align-items: center; 
+        margin-left: 0;
+        margin-top: 10rem;
+    }
+
+    .icons{
+       margin:1rem 1rem 0 auto;
+       display: block;
+    }
+    .label{
+    margin-left: 1rem;
+    
+   
+}
+    .iconer{
+        margin-left: 3.5rem;
+    }
+    .next{
+        display: flex;
+        column-gap: 1rem;
+        margin-top: 2rem;
+        margin-left: 0;
+    }
+    .next button{
+        background-color: #3734A9;
+        color: aliceblue;
+        border: none;
+        width: 6rem;
+        padding: .5rem 1rem;
+        border-radius: 7px;
+    }
+    .question {
+        display: flex;
+        margin-top: 3rem;
+    }
+    .questions button{
+        background-color: #7F7CEC;
+        border: none;
+        width: 6rem;
+        border-radius: 5px;
+        padding: .4rem; 
+         margin-left: auto;
+        color: aliceblue;
+        
+    }
 
 }

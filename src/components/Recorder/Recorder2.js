@@ -4,6 +4,8 @@ import RecorderItem from "../RecorderItem/RecorderItem";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 
 import {
   CircularProgressbarWithChildren,
@@ -191,9 +193,18 @@ const Recorder = () => {
 
   const pop = { fontSize: "6rem", backgroundColor: "white" };
 
+  const toggle = () =>{
+    setActive(!active)
+  }
+  const [active, setActive] = useState(false)
+
   return (
     <>
       <div className={rec.recorder}>
+        <div onClick={toggle} className={rec.icons}>
+          {!active && <GiHamburgerMenu size={30} />}
+          
+        </div>
         <div className={rec.firstrec}>
           {/* <img src="images/logo.png" alt="" onClick={showAnswers} /> */}
           <div className={rec.question}>
@@ -257,6 +268,7 @@ const Recorder = () => {
             </div>
           </div>
         </div>
+
         <div className={rec.secondrec}>
           <div>
             <div className={rec.timer}>
@@ -310,12 +322,12 @@ const Recorder = () => {
                 ))
               ) : (
                 <Spinner
-                thickness="4px"
-                speed="0.65s"
-                emptyColor="gray.200"
-                color="blue.500"
-                size="xl"
-              />
+                  thickness="4px"
+                  speed="0.65s"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                />
               )}
 
               <div className={rec.map}></div>
@@ -365,6 +377,118 @@ const Recorder = () => {
             </AlertDialog>
           </div>
         </div>
+        {active && <div className={rec.thirdrec}>
+          <div>
+            <div onClick={toggle} className={rec.iconer}>
+              {active &&  <AiOutlineClose size={30} />}
+            </div>
+            <div className={rec.timer}>
+              {questions.length > 0 && timeInMilliSecs > 0 ? (
+                <CircularProgressbarWithChildren
+                  value={progressBar}
+                  minValue={0}
+                  maxValue={timeAllowed}
+                  strokeLinecap="butt"
+                  styles={{
+                    path: {
+                      stroke: `rgba(62, 152, 199, ${
+                        (progressBar / timeAllowed) * 100
+                      })`,
+                      strokeLinecap: "butt",
+                      transition: "stroke-dashoffset 0.5s ease 0s",
+                      transformOrigin: "center center",
+                    },
+                    trail: {
+                      stroke: "#d6d6d6",
+                      strokeLinecap: "butt",
+                      transformOrigin: "center center",
+                    },
+                  }}
+                >
+                  <CountDown timeAllowed={timeInMilliSecs} />
+                </CircularProgressbarWithChildren>
+              ) : (
+                <Spinner
+                  thickness="4px"
+                  speed="0.65s"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                />
+              )}
+            </div>
+          </div>
+
+          <div className={rec.questions}>
+            <h2>Questions Answered</h2>
+            <div className={rec.questionNumbers}>
+              {questionState.length > 0 ? (
+                questionState.map((question, index) => (
+                  <RecorderItem
+                    key={index}
+                    number={++index}
+                    isAnswered={question.isAnswered}
+                    handleQuestionNo={handleQuestionNo}
+                  />
+                ))
+              ) : (
+                <Spinner
+                  thickness="4px"
+                  speed="0.65s"
+                  emptyColor="gray.200"
+                  color="blue.500"
+                  size="xl"
+                />
+              )}
+
+              <div className={rec.map}></div>
+            </div>
+            <button onClick={onOpen}>Submit</button>
+            <AlertDialog
+              motionPreset="slideInBottom"
+              leastDestructiveRef={cancelRef}
+              onClose={onClose}
+              isOpen={isOpen}
+              isCentered
+            >
+              <AlertDialogOverlay />
+
+              <AlertDialogContent>
+                <AlertDialogHeader>Submit Test?</AlertDialogHeader>
+                <AlertDialogCloseButton />
+                <AlertDialogBody>
+                  Are you sure you want to submit your test?
+                </AlertDialogBody>
+                <AlertDialogFooter>
+                  <Button ref={cancelRef} onClick={onClose}>
+                    No
+                  </Button>
+
+                  {!loading ? (
+                    <Button
+                      colorScheme="red"
+                      type="submit"
+                      ml={3}
+                      onClick={handleSubmit}
+                    >
+                      Yes
+                    </Button>
+                  ) : (
+                    <Button
+                      colorScheme="red"
+                      type="submit"
+                      ml={3}
+                      onClick={handleSubmit}
+                    >
+                      <Spinner size="md" />
+                    </Button>
+                  )}
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
+        </div> }
+        
       </div>
     </>
   );

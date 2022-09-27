@@ -125,7 +125,7 @@ const Home = () => {
             >
               Unlocking Knowledge at the speed of thought
             </Heading>
-            <Text maxW={["lg", "lg", "sm"]} textAlign={["left"]}>
+            <Text maxW={["lg", "lg", "sm"]} textAlign={{base:"left", md:"left"}}>
               Quizzy app is an Necessitatibus magnam qui totam natus. Eum porro
               hic temporibus ut laudantium, sunt recusandae nam incidunt rem
               aperiam, tempora, repellat commodi inventore quia!

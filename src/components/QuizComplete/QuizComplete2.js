@@ -1,44 +1,64 @@
 import { useMediaQuery } from "@chakra-ui/react";
-import { Box, Button, Text, Stack, Heading } from "@chakra-ui/react";
+import { Box, Button, Text, Stack, Heading, Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 const QuizComplete = () => {
-  const [isNotSmallerScreen] = useMediaQuery("(min-width:680px)");
   const message = localStorage.getItem("message");
   const style = { color: "blue" };
   return (
-    <>
-      <Stack
-        ml={isNotSmallerScreen ? "11rem" : "1.7rem"}
-        boxShadow="2xl"
-        rounded="xl"
-        w={isNotSmallerScreen ? "155vh" : "40vh"}
-        mt="3rem"
-        h={isNotSmallerScreen ? "85vh" : "88vh"}
-        overflow='hidden'
+    <Stack
+      mx="auto"
+      h="100vh"
+      w="100vw"
+      overflow="hidden"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Flex
+        mx="auto"
+        h={{ base: "50vh", md: "80vh" }}
+        w="80vw"
+        boxShadow="xl"
+        mt={{ base: "1rem", md: "4rem" }}
+        direction='column'
+        alignItems='center'
+        justifyContent='center'
+        
       >
-        <Box textAlign="center" mt="5rem">
-          <Heading fontSize={{ base: "3rem", md: "3.5rem", lg: "4rem" }}>Test Completed</Heading>
-          <Heading fontSize={{ base: "2rem", md: "3.5rem", lg: "1.2rem" }} my={isNotSmallerScreen ? "3rem" : "2rem"} textAlign='center' >
-            You Have Successfully Completed the Test
-          </Heading>
-          <Heading>{message}</Heading>
+        <Heading fontSize={["1rem", "1rem", "2rem", "2.5rem"]}>
+          Test Completed
+        </Heading>
+        <Heading
+          fontSize={["1rem", "1rem", "2rem", "2rem"]}
+          my={{ base: "1rem", md: "2rem" }}
+          textAlign="center"
+        >
+          You Have Successfully Completed the Test
+        </Heading>
+        <Heading
+        maxW='sm'
+          fontSize={["1rem", "1rem", "2rem", "2.5rem"]}
+          my={{ base: "1rem", md: "2rem" }}
+          textAlign='center'
+        >
+          {message}
+        </Heading>
 
-          <Link to="/">
-            <Button
-              h="4rem"
-              mt="6rem"
-              w="10rem"
-              color="white"
-              bg="#444ADD"
-              _hover={{ background: "#444ADD", color: "white" }}
-            >
-              Done
-            </Button>
-          </Link>
-        </Box>
-      </Stack>
-    </>
+        <Link to="/">
+          <Button
+           
+            mt={{base:"3rem" , md:"6rem"}}
+            w={{base:"5rem", md:"10rem"}}
+            color="white"
+            bg="#444ADD"
+            my={{base:"3rem", md:"0"}}
+            _hover={{ background: "#444ADD", color: "white" }}
+          >
+            Done
+          </Button>
+        </Link>
+      </Flex>
+    </Stack>
   );
 };
 
