@@ -2,7 +2,8 @@
 .recorder{
     display: flex;
     overflow: hidden;
-    background-size: cover;
+    column-gap: 25rem;
+    
 }
 .firstrec{
     flex: 70%;
@@ -60,6 +61,7 @@ input{
     text-align: center;
     align-items: center;
 }
+
 .peace{
     display: flex;
     column-gap: 2rem;
@@ -161,6 +163,7 @@ input{
     .recorder{
         display: flex;
         flex-direction: column;
+        column-gap: 0;
         /* justify-content: center; */
         /* height: 100vh; */
         
